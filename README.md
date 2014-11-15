@@ -1,4 +1,4 @@
-Carribean
+Caribbean
 =========
 
 ![](http://lxp-assets.qiniudn.com/github/Carrebean.jpg?imageView2/2/w/800/q/85)
