@@ -48,19 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-if(isset($_SERVER['HTTP_APPNAME'])){
-	$db['default']['hostname'] = SAE_MYSQL_HOST_M;
-	$db['default']['username'] = SAE_MYSQL_USER;
-	$db['default']['password'] = SAE_MYSQL_PASS;
-	$db['default']['database'] = SAE_MYSQL_DB;
-	$db['default']['port'] = SAE_MYSQL_PORT;
-}else{
-	$db['default']['hostname'] = 'localhost';
-	$db['default']['username'] = 'root';
-	$db['default']['password'] = '';
-	$db['default']['database'] = 'zanbai';
-	$db['default']['port'] = 3306;
-}
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'lxp123';
+$db['default']['database'] = 'zanbai';
+$db['default']['port'] = 3306;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
@@ -74,22 +66,22 @@ $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
 
-$db['zanbaiana']['hostname'] = 'localhost';
-$db['zanbaiana']['username'] = 'root';
-$db['zanbaiana']['password'] = '';
-$db['zanbaiana']['database'] = '';
-$db['zanbaiana']['port'] = 3306;
-$db['zanbaiana']['dbdriver'] = 'mysql';
-$db['zanbaiana']['dbprefix'] = '';
-$db['zanbaiana']['pconnect'] = FALSE;
-$db['zanbaiana']['db_debug'] = TRUE;
-$db['zanbaiana']['cache_on'] = FALSE;
-$db['zanbaiana']['cachedir'] = '';
-$db['zanbaiana']['char_set'] = 'utf8';
-$db['zanbaiana']['dbcollat'] = 'utf8_general_ci';
-$db['zanbaiana']['swap_pre'] = '';
-$db['zanbaiana']['autoinit'] = TRUE;
-$db['zanbaiana']['stricton'] = FALSE;
+// $db['zanbaiana']['hostname'] = 'localhost';
+// $db['zanbaiana']['username'] = 'root';
+// $db['zanbaiana']['password'] = '';
+// $db['zanbaiana']['database'] = 'test';
+// $db['zanbaiana']['port'] = 3306;
+// $db['zanbaiana']['dbdriver'] = 'mysql';
+// $db['zanbaiana']['dbprefix'] = '';
+// $db['zanbaiana']['pconnect'] = FALSE;
+// $db['zanbaiana']['db_debug'] = TRUE;
+// $db['zanbaiana']['cache_on'] = FALSE;
+// $db['zanbaiana']['cachedir'] = '';
+// $db['zanbaiana']['char_set'] = 'utf8';
+// $db['zanbaiana']['dbcollat'] = 'utf8_general_ci';
+// $db['zanbaiana']['swap_pre'] = '';
+// $db['zanbaiana']['autoinit'] = TRUE;
+// $db['zanbaiana']['stricton'] = FALSE;
 
 
 

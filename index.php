@@ -1,5 +1,6 @@
 <?php
 
+// echo mysql_get_server_info();
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
