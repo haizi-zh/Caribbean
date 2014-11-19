@@ -1,0 +1,5 @@
+/**
+ * friends
+ */
+define(function(require){
+});

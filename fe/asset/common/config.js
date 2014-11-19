@@ -1,0 +1,1 @@
+define({AJAX:{SEARCH_SUGGESTION:"http://zanbai.com:8090/?business=shop&limit=10&piece=",LOGIN:"/aj/register/login",FOLLOW:"/aj/social/attention",UNFOLLOW:"/aj/social/attention_del"}});

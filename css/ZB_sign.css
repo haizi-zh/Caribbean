@@ -1,0 +1,22 @@
+/*page1*/
+	.sign_title{font-size:18px;font-family:"Microsoft Yahei" "微软雅黑";color:#000;margin-bottom:10px;}
+	.sign{border:1px solid #ccc;padding:1px;padding:55px 0;}
+	.sign .sign_wrap{margin:0 auto;width:560px;}
+	.sign .info_list{margin-bottom:10px;}
+	.sign .tips{margin:10px 0 10px 100px;}
+	.sign .tips a{color:#cf0f0f;}
+	.sign .inp{margin-left:100px;;}
+	.sign .small_tit{font-size: 14px;width: 180px;text-align: right;height: 30px;line-height: 30px}
+	.sign .tit{width:100px;font-size:18px;line-height:30px;color:#000;font-family:"Microsoft Yahei" "微软雅黑";text-align:right}
+	.sign .tit i{color:#fb0101}
+	.sign .inp .W_input{border:1px solid #666;padding:6px 7px;width:210px;margin-right:10px;font-size:14px;color:#666;vertical-align:middle;}
+	.sign .inp .W_input_activation{width:60px;}
+	.sign .inp .W_textarea{border:1px solid #666;padding:6px 7px;width: 300px;height: 100px}
+	.sign .inp .message{display:inline-block;color:#fff;background:#333;padding:8px 22px;height:14px;margin-right:10px;font-size:12px;vertical-align:middle;}
+	.sign .inp .notice{color:#666;}
+	.sign .sign_btn{margin-left:100px;font-size:24px;display:inline-block;padding:14px 65px;background: #cc0033;color:#fff;}
+	.sign .sign_btn:hover{color:#fff;background:#e8023b;}
+/*404页面*/	
+.ZB_404 .blank{border:1px solid #ccc;text-align: center;padding: 55px}
+/*弹层样式*/
+@import "layer/cities_layer.css";

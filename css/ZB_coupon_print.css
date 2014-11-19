@@ -1,0 +1,65 @@
+body{color:#000;}
+.ZB_profile .ZB_nav{margin-bottom:22px;border:none}
+.ZB_profile .ZB_bread_nav{margin-bottom:8px;}
+.right_block{padding:10px;margin-bottom:10px;border:1px solid #ccc;}
+.right_block .title{margin-bottom:10px;font-weight:700;font-size:14px;color:#000;}
+.shop_wrap{width:710px;}
+.shop_wrap .store{padding:24px 10px;border:3px solid #d9d9d9;}
+.side_bar{width:240px;}
+.suggest_list{font-size:13px;line-height:18px;}
+.other_list li{margin-bottom:15px;}
+.other_list li .rating_wrap{margin:2px  0 0 5px;}
+.other_list li .rating_wrap .rating_wrap_small{margin-right:5px;}
+
+.order_wrap{margin-bottom:10px;}
+
+
+.comment{position: relative;margin-bottom:10px;padding:10px 10px 50px;border:1px solid #ccc;line-height:18px;}
+.comment .avatar{width:77px;overflow: hidden;word-wrap: break-word;}
+.comment_info .title{margin-bottom:10px;font-size:18px;}
+.comment_info{margin-left:90px;}
+.comment_info .rating_wrap_small{margin:0 5px;}
+.comment_wrap .comment_title{position:absolute;bottom:0;left:0;width:668px;padding:8px 20px;text-align:right;background:#f2f2f2}
+.comment_wrap .comment_title{position:absolute;bottom:0;left:0;width:668px;padding:8px 20px;text-align:right;background:#f2f2f2}
+.comment_wrap .textarea_wrap{margin-bottom:10px;border:1px solid #ccc;padding:10px;line-height:18px;}
+.comment_wrap .send_textarea{margin-bottom:10px;border:1px solid #bcbcbc;width:668px;height:60px;padding:10px;}
+.comment_wrap .quote_info{color:#000;font-weight:700;margin-bottom:10px;}
+.comment_wrap .post_btn{display: inline-block;vertical-align: middle;width: 70px;height: 34px;line-height: 34px;text-align: center;background: #333;color: #fff;-webkit-transition: background .2s ease-in;}
+.comment_wrap .post_btn:hover {background: #c60c30;text-decoration: none;}
+
+.comment .avatar_comment{margin-top:10px;}
+.comment .slideup{height:36px;overflow:hidden;}
+.comment .slidedown{height:auto;}
+.comment .pic_wrap img{border:1px solid #ccc;margin-right:10px;}
+.comment .big_pic{margin:10px auto 10px;display:block;}
+/*打印模块样式*/
+.shop_header{font-size: 18px;padding:20px;border: 1px solid #cacaca;border-bottom: 1px dotted #cacaca;}
+.shop_header .title{font-size: 18px;line-height: 26px;}
+.shop_header .title_rating{font-size: 12px}
+.coupon_print{padding: 20px;border:1px solid #ccc;margin-bottom: 20px;}
+.coupon_print:hover{padding: 13px;border:8px solid #ec8c7b;}
+.coupon_print .title{text-align: left;font-size:18px;margin:0 0 10px;}
+.coupon_print .title .fs24{font-size: 24px}
+.coupon_print .sec_title{margin-bottom: 10px;}
+
+.coupon_print .post_content{text-align: left;font-size: 14px;line-height: 24px;letter-spacing: 1px;}
+.coupon_print .post_content img{display: block;margin: 0 auto 20px;max-width: 670px;}
+.coupon_btn{padding:7px 30px;background: #e04023;color: #fff;margin: 0 15px}
+.coupon_btn:hover{background: #b3270e;color: #fff}
+.coupon_btn_disble,
+.coupon_btn_disble:hover{padding:7px 30px;background: #3c9b09;color: #fff;margin: 0 15px}
+.coupon_btn:active{background: #000}
+.btn_wrap{margin: 50px 0;text-align: center;}
+
+
+/*右侧列表打折模块*/
+.right_block .more{float: right;font-size: 12px}
+.right_block .discont_list{padding-top: 10px}
+.right_block .discont_list li{margin-bottom: 10px;}
+.right_block .discont_list a{display: block;overflow: hidden;}
+.right_block .discont_list .shop_name{display: block;margin:10px 0 5px 10px;font-size: 14px;word-wrap:break-word;}
+.right_block .discont_list .nearby_length{display: block;margin-left: 10px}
+.right_block .discont_list img{float: left;margin-right: 10px;;height: 60px;width: 60px;border-radius: 30px;-webkit-border-radius:30px;}
+.right_block .discont_list b{display: block;padding-top: 10px;font-size: 18px}
+
+

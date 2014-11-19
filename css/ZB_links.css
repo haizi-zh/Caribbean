@@ -1,0 +1,35 @@
+
+.link_tit{height:30px;line-height:30px;background:#f7f7f7;padding-left:10px; font-family:\5fae\8f6f\96c5\9ed1;font-weight:normal;}
+
+
+.link_title{height:30px;line-height:30px;padding-left:28px; font-family:\5fae\8f6f\96c5\9ed1;font-weight:normal;}
+
+.link_content{border:1px solid #ddd;overflow:hidden;zoom:1}
+.link_content a{color:#3265cb}
+.link_list{padding:10px 30px 0;}
+
+.link_list:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+.link_list{
+	display:inline-table;
+}
+/* Hides from IE-mac \*/*html ..link_list {
+	height:1%;
+}
+..link_list {
+	display:block;
+}
+/* End hide from IE-mac */*+html ..link_list {
+	min-height:1%;
+}
+.link_list li{padding-left:28px;float:left;width:137px;height:32px;line-height:32px; background:url("../images/link.png") no-repeat 8px 50%;border-bottom:1px dotted #ccc; white-space:nowrap; overflow:hidden}
+.link_list li a{color:#005ea7;}
+.link_list li{width:191px;}
+
+/*弹层样式*/
+@import "layer/cities_layer.css";

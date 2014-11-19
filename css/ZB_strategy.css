@@ -1,0 +1,31 @@
+body{color:#000;}
+
+.turn_page{_height:22px;}
+.turn_page .turn_left{margin:0 7px;display:inline-block;vertical-align:middle;width:17px;height:20px;background:url("../images/common/comment_icon.png") no-repeat 0 -50px;}
+.turn_page .turn_right{margin:0 7px;display:inline-block;vertical-align:middle;width:17px;height:20px;background:url("../images/common/comment_icon.png") no-repeat 0 -75px;}
+.turn_page .turn_left,
+.turn_page .turn_right{border:none;padding:0;}
+
+
+.ZB_strategy .order{padding:5px 10px;margin-bottom:10px;border:1px solid #ccc;}
+.ZB_strategy .order .turn_page{_height:22px;}
+.ZB_strategy .order .turn_page .turn_left{margin:0 7px;display:inline-block;vertical-align:middle;width:17px;height:20px;background:url("../images/common/comment_icon.png") no-repeat 0 -50px;}
+.ZB_strategy .order .turn_page .turn_right{margin:0 7px;display:inline-block;vertical-align:middle;width:17px;height:20px;background:url("../images/common/comment_icon.png") no-repeat 0 -75px;}
+.ZB_strategy .order .input{display:inline-block;vertical-align:middle;width:100px;height:16px;padding:2px;border:1px solid #b2b2b2;cursor:pointer;}
+.ZB_strategy .order .arrowdown{display:inline-block;vertical-align:middle;width:15px;height:16px;background:url("../images/common/comment_icon.png") no-repeat 0 -100px;}
+.ZB_strategy .order_list{position:relative;width:300px;z-index:10;}
+.ZB_strategy .order_list b{margin-right:5px;}
+.ZB_strategy .order_list .order_slide{position:absolute;left:61px;top:23px;width:86px;background:#fff;border:1px solid #ccc;_top:26px;z-index:10;}
+.ZB_strategy .order_list .order_slide li{overflow:hidden;zoom:1;}
+.ZB_strategy .order_list .order_slide a{display:block;zoom:1;overflow:hidden;padding:5px 0 5px 10px;background:#fff;-webkit-transition:all .3s ease}
+.ZB_strategy .order_list .order_slide a:hover{background:#cc0033;color:#fff;text-decoration:none;}
+/*折扣页*/
+.ZB_strategy .strategy_list {margin: 30px 10px 0;width: 938px;overflow: hidden;}
+.ZB_strategy .strategy_list ul{width: 1000px;}
+.ZB_strategy .strategy_list ul li{float: left;width: 300px;margin:0 20px 30px 0}
+.ZB_strategy .strategy_list ul li img{margin-top: 10px;border:1px solid #ccc;}
+.ZB_strategy .strategy_list ul li a{display: block;}
+.ZB_strategy .strategy_list .title{display: block;height: 20px;overflow: hidden;;font-size: 18px;}
+
+
+.bottom_page{float: right;}

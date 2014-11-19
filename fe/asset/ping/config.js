@@ -1,0 +1,1 @@
+define({AJAX:{ADD_COMMENT:"/aj/ping/addcomment",GET_COMMENT:"/aj/ping/getcommenthtml"}});

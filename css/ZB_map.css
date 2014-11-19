@@ -1,0 +1,5 @@
+html { height: 100% }
+body { height: 90%; margin: 0; padding: 0 ;width:90%;left:50px;}
+#map-canvas { height: 100% ;width:80%;float:left}
+#sidebar { height:100%;width:20%;float:left}
+.search_item { height:20px;width:100%;}

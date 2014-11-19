@@ -1,0 +1,1 @@
+define({AJAX:{GET_PING_HTML:"/aj/discount/getPingHtml"}});

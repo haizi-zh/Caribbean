@@ -1,0 +1,13 @@
+.cities_layer{padding:5px;border:1px solid #ccc;height:434px;overflow:hidden;width:870px;position:relative;}
+.cities_layer .ZB_cities_wrap .ZB_cities{border:none}
+.cities_layer ul{height:auto;}
+.cities_layer li {margin-bottom:5px;}
+.cities_layer li a .select{position: absolute;z-index:10;height:132px;top:0px;width:167px;opacity:0;-webkit-transition:opacity .5s ease;-moz-transition:opacity .5s ease}
+
+.cities_layer li a:hover .select{background:url("../../images/layer/city_hover.png") no-repeat 0 bottom;opacity:1;}
+.cities_layer li a:active .select,
+.cities_layer li.cur .select,
+.cities_layer li.cur a:hover .select{opacity:1;background:url("../../images/layer/city_hover.png") no-repeat;_background:url("../../images/layer/city_hover.gif") no-repeat;}
+.cities_layer .slider_bar{width:5px;height:405px;margin-right:1px;position:relative;}
+.cities_layer .bar_wrap{position:absolute;display:block;width:5px;height:3px;background:url("../../images/layer/slide_bar.png") no-repeat left top;cursor:pointer;}
+.cities_layer .bar_wrap em{display:inline-block;width:5px;margin-top:3px;background:url("../../images/layer/slide_bar.png") no-repeat right bottom;}

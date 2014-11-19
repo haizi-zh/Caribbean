@@ -1,0 +1,1 @@
+define({AJAX:{GET_COMMENT:"/aj/shop/get_paging_html",GET_SHOPPIC:"/aj/shop/get_shop_pic",ADD_COMMENT:"/aj/ping/addcomment",DELETE_DIANPING:"/aj/myprofile/delete",ADD_DIANPING:"/aj/shop/add_dianping",GET_DIANPING:"/aj/shop/get_dianping"}});

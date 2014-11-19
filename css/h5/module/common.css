@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import "../module/reset.css";
+/*默认链接*/
+a{color: #0a8cd3;text-decoration:none;}
+a:hover{text-decoration:none;}
+
+/*浮动*/
+.fl{float: left;_display: inline;}
+.fr{float: right;_display: inline;}
+/*两种清浮动方法*/
+.clearfix:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac */
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+/* End hide from IE-mac */
+.clear{clear:both;height:0;font:0/0 Arial;visibility:hidden;}
+/*两种清浮动方法*/
+
+/*中文符合显示*/
+.CH{font-family:"SimSun"}
+
+/*文字色*/
+body{color: #333}
+.W_textb{color:#808080}
+.W_textc{color:#aeaeae}
+/*特殊文字*/
+.W_fb{font-weight:700}
+.W_f14{font-size:14px}
+.W_spetxt{color: #cc0000}
+/*布局样式*/
+.content_wrap{width: 980px;margin:0 auto;}
+
+/*————————————————————主站样式————————————————————*/
+/*中文符合显示*/
+.CH { font-family:"SimSun" }
+.W_Yahei{font-family:"Microsoft Yahei"}
+/*小字号*/
+.W_fs { font-size:10px;-webkit-transform:scale(0.875)}
+/*特殊文字*/
+.W_fb { font-weight:700; }
+.W_f14 { font-size:14px }
+.W_f16 { font-size:16px }
+.W_f18 { font-size:18px }
+.W_f20 { font-size:20px }
+
+/*鼠标手型*/
+.W_cursor{ cursor:pointer;}
+
+/*居中*/
+.tac{text-align: center;}
+
+.color_red{color:red;}
