@@ -1,7 +1,7 @@
 <div class="container" style="margin-top:100px;">
-	<h1>欢迎来到zanbai后台管理系统。</h1>
+	<h1>欢迎来到LvXingPai后台管理系统。</h1>
 </div>
-<div class="container" style="margin-left:50px;">
+<!-- <div class="container" style="margin-left:50px;">
 <a href="/admin/city" style="color:blue;"><h3>国家/城市id 列表</h3></a>
 </div>
 
@@ -57,7 +57,7 @@
 
 <div class="container" style="margin-left:50px;margin-top:10px;">
 <a href="/admin/weixin/user" style="color:blue;"><h3>公众号user</h3></a>
-</div>
+</div> -->
 
 
 
