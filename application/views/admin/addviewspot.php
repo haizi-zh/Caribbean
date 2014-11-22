@@ -122,7 +122,7 @@
                 </div>
             </div> -->
 
-            <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="add_shop();">添加景点</button>
+            <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="add_viewspot();">添加景点</button>
 	    </div>
 	</div>
 </div>

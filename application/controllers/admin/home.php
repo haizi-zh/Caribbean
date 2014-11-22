@@ -11,7 +11,7 @@ class home extends ZB_Controller {
 		$data=array();
 
 		$data['pageid'] = self::PAGE_ID;
-		$this->load->library("cimongo/cimongo");
+
 		#load page
 		$this->load->admin_view('admin/home', $data);		
 
