@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('session','common/tool','common/context', 'common/tag',  'common/upimage', 'cwbgj', 'text2img', "view_tool", "time", "common/fileinfo", "clientprober");
+$autoload['libraries'] = array('session','common/tool','common/context', 'common/tag',  'common/upimage', 'cwbgj', 'text2img', "view_tool", "time", "common/fileinfo", "clientprober", "cimongo/cimongo");
 
 
 /*

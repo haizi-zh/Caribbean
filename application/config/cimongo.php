@@ -1,14 +1,14 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 // Generally localhost
-$config['host'] = "dbh75.mongolab.com";
+$config['host'] = "127.0.0.1";
 // Generally 27017
-$config['port'] = 27757;
+$config['port'] = 27017;
 // The database you want to work on
-$config['db'] = "thegabbia";
+$config['db'] = "elaine";
 // Required if Mongo is running in auth mode
-$config['user'] = "arny";
-$config['pass'] = "arny";
+$config['user'] = "wanglu";
+$config['pass'] = "1";
 
 /*  
  * Defaults to FALSE. If FALSE, the program continues executing without waiting for a database response. 
