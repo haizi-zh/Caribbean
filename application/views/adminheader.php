@@ -35,7 +35,7 @@
 <div class="navbar navbar-fixed-top" style="filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity: 1;opacity: 1;">
 	<div class="navbar-inner">
 		<div class="container" style="width: auto;">
-			<a class="brand" href="/admin" style="margin-left:0px;margin-right:10px;">Zanbai 管理后台</a>
+			<a class="brand" href="/admin" style="margin-left:0px;margin-right:10px;">CMS 管理后台</a>
 			
 			<?php if($pageid != 'login'){?>
 			<ul class="nav" role="navigation">
@@ -54,7 +54,7 @@
 				<li class="dropdown">
 					<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">景点管理 <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-						<li><a tabindex="-1" href="/admin/addshop">添加商家</a></li>
+						<li><a tabindex="-1" href="/admin/addviewspot">添加景点</a></li>
 <!-- 						<li><a tabindex="-1" href="/admin/editshop">编辑商家</a></li>
 						<li><a tabindex="-1" href="/admin/addshop/shoplist/">商家列表</a></li>
 						<li><a tabindex="-1" href="/admin/addshop/repair_score">商家积分修复</a></li>
