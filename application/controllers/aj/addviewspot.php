@@ -7,6 +7,24 @@ class addviewspot extends ZB_Controller {
 		try{
 			$data = array();
 			$data['name'] = $this->input->post('name', true, '');
+			$data['english_name'] = $this->input->post('english_name', true, '');
+			$data['desc'] = $this->input->post('desc', true, '');
+
+			if ($this->input->get('char') !== false){
+				$char = $this->input->get('char', true);
+			}else{
+				$char = '';
+			}
+			if ($this->input->get('char') !== false){
+				$char = $this->input->get('char', true);
+			}else{
+				$char = '';
+			}
+			if ($this->input->get('char') !== false){
+				$char = $this->input->get('char', true);
+			}else{
+				$char = '';
+			}
 				
 			$this->load->model('do/do_viewspot');
 			$re = $this->do_viewspot->add($data);
@@ -17,6 +35,23 @@ class addviewspot extends ZB_Controller {
 		}
 	}
 	
+	#编辑景点
+	public function edit_viewspot(){
+		try{
+			$data = array();
+			$data['shop_id'] = $this->input->post('id', true, '');
+			$data['name'] = $this->input->post('name', true, '');
+			$data['english_name'] = $this->input->post('english_name', true, '');
+			$data['desc'] = $this->input->post('desc', true, '');
+			
+			$this->load->model("do/do_viewspot");
+            $re = $this->do_viewspot->update($data);
+	
+			echo json_encode(array('code'=>'200','msg'=>'succ'));
+		}catch(Exception $e){
+			echo json_encode(array('code'=>$e->getCode(),'msg'=>$e->getMessage()));
+		}
+	}
 }
 
 ?>

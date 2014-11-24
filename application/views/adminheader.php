@@ -55,8 +55,8 @@
 					<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">景点管理 <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li><a tabindex="-1" href="/admin/addviewspot">添加景点</a></li>
-<!-- 						<li><a tabindex="-1" href="/admin/editshop">编辑商家</a></li>
-						<li><a tabindex="-1" href="/admin/addshop/shoplist/">商家列表</a></li>
+						<li><a tabindex="-1" href="/admin/editviewspot">编辑景点</a></li>
+<!-- 						<li><a tabindex="-1" href="/admin/addshop/shoplist/">商家列表</a></li>
 						<li><a tabindex="-1" href="/admin/addshop/repair_score">商家积分修复</a></li>
 						<li><a tabindex="-1" href="/admin/taglist/">标签管理</a></li> -->
 					</ul>
