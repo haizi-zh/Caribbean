@@ -7,11 +7,9 @@ class home extends ZB_Controller {
 	public function index()
 	{
 		$data=array();
-		$data['pageid'] = self::PAGE_ID;
+		$data['pageid'] = self::PAGE_ID; 
+    
 
-		$this->load->model('do/do_viewspot');
-		$re = $this->cimongo->get('viewspot' , false, false);
-        var_dump($re);
 
 		#load page
 		$this->load->admin_view('admin/home', $data);		

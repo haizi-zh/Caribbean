@@ -13,16 +13,15 @@ class editviewspot extends ZB_Controller {
 		$has_map = isset($_GET['has_map'])?$_GET['has_map']:1;
 		
 		// #商家信息
-		$shop_id = isset($_GET['shop_id'])?$_GET['shop_id']:0;
-		if(!$shop_id){
+		$viewspot_id = isset($_GET['viewspot_id'])?$_GET['viewspot_id']:0;
+		if(!$viewspot_id){
 			$has_map = 0;
 		}
 		// // $this->load->model('mo_shop');
 		// // $shopinfo_re = $this->mo_shop->get_shopinfo_by_ids(array($shop_id));
 
-        //！！！调试用：跳过数据库查询
 		//$shop = isset($shopinfo_re[$shop_id])?$shopinfo_re[$shop_id]:array();
-		$shop = isset($_GET['shop_id'])?array('name'=>'bj'):0;
+		$shop = isset($_GET['viewspot_id'])?array('id'=> $viewspot_id):array();//测试！跳过数据库复查
 
 		$countries = array();
 		$cities = array();
