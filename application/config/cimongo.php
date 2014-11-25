@@ -1,11 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 // Generally localhost
-$config['host'] = "127.0.0.1";
+$config['host'] = "127.0.0.1";//"api.lvxingpai.cn";
 // Generally 27017
 $config['port'] = 27017;
 // The database you want to work on
-$config['db'] = "elaine";
+$config['db'] = "elaine";//"poi";
 // Required if Mongo is running in auth mode
 $config['user'] = "wanglu";
 $config['pass'] = "1";
