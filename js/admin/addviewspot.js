@@ -57,14 +57,24 @@ $('#country').change(function(){
 
 //添加景点
 function add_viewspot(){ 
+	area = $("#area").val(); 
+	country = $("#country").val(); 
+	city = $("#city").val(); 
 	name = $("#name").val();
-	english_name = $("#english_name").val();
+	price = $("#price").val();
 	desc = $("#desc").val();
+	address = $("#address").val();
+	phone = $("#phone").val();
+	business_hour = $("#business_hour").val();
+	score = $("#score").val();
+	visit_guide = $("#visit_guide").val();
+	anti_pit = $("#anti_pit").val();
+	travel_guide = $("#travel_guide").val();   
 
 	$.ajax({
 		url: "/aj/addviewspot/add_viewspot",
 		type: 'POST',
-		data: {name:name,english_name:english_name,desc:desc},
+		data: {area:area,country:country,city:city,name:name,price:price,desc:desc,address:address,phone:phone,business_hour:business_hour,score:score,visit_guide:visit_guide,anti_pit:anti_pit,travel_guide:travel_guide},
 		cache: false,
 		success: function(result){
 		  if(result) {		

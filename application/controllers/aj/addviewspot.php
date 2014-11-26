@@ -31,9 +31,20 @@ class addviewspot extends ZB_Controller {
 	public function add_viewspot(){
 		try{
 			$data = array();
+
+			$data['area'] = $this->input->post('area', true, 0);
+			$data['country'] = $this->input->post('country', true, 0);
+			$data['city'] = $this->input->post('city', true, 0);
 			$data['name'] = $this->input->post('name', true, '');
-			$data['english_name'] = $this->input->post('english_name', true, '');
+			$data['price'] = $this->input->post('price', true, 0);
 			$data['desc'] = $this->input->post('desc', true, '');
+			$data['address'] = $this->input->post('address', true, '');
+			$data['phone'] = $this->input->post('phone', true, '');
+			$data['business_hour'] = $this->input->post('business_hour', true, '');
+			$data['score'] = $this->input->post('score', true, 0);
+			$data['visit_guide'] = $this->input->post('visit_guide', true, '');
+			$data['anti_pit'] = $this->input->post('anti_pit', true, '');
+			$data['travel_guide'] = $this->input->post('travel_guide', true, '');
 
 			if ($this->input->get('char') !== false){
 				$char = $this->input->get('char', true);

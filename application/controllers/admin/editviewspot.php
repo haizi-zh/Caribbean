@@ -20,16 +20,16 @@ class editviewspot extends ZB_Controller {
 		// // $this->load->model('mo_shop');
 		// // $shopinfo_re = $this->mo_shop->get_shopinfo_by_ids(array($shop_id));
 
-		//$shop = isset($shopinfo_re[$shop_id])?$shopinfo_re[$shop_id]:array();
-		$shop = isset($_GET['viewspot_id'])?array('id'=> $viewspot_id):array();//测试！跳过数据库复查
+		//$viewspot = isset($shopinfo_re[$shop_id])?$shopinfo_re[$shop_id]:array();
+		$viewspot = isset($_GET['viewspot_id'])?array('id'=> $viewspot_id):array();//测试！跳过数据库复查
 
 		$countries = array();
 		$cities = array();
-		if($shop){
+		if($viewspot){
 			#获取默认国家/城市
 			// $this->load->model('mo_geography');
-			// $countries = $this->mo_geography->get_countries_by_area($shop['area']);
-			// $cities = $this->mo_geography->get_cities_by_country_formadmin($shop['country']);
+			// $countries = $this->mo_geography->get_countries_by_area($viewspot['area']);
+			// $cities = $this->mo_geography->get_cities_by_country_formadmin($viewspot['country']);
 		}
 		
 		// #获取全部商家
@@ -38,14 +38,14 @@ class editviewspot extends ZB_Controller {
 		#header
 		#计算地图位置
 		$lat = 0;$lon=0;
-		$location = isset($shop['location'])?$shop['location']:'';
+		$location = isset($viewspot['location'])?$viewspot['location']:'';
 		if($location){
 			$locations = explode(',',$location);
 			$lon = trim($locations[0]);
 			$lat = trim($locations[1]);
 		}
 		
-		$data = array('has_map'=>$has_map, 'shops'=>$shops,'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'],'shop'=>$shop,'countries'=>$countries,'cities'=>$cities);
+		$data = array('has_map'=>$has_map, 'shops'=>$shops,'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'],'viewspot'=>$viewspot,'countries'=>$countries,'cities'=>$cities);
 		
 		$data['pageid'] = self::PAGE_ID;
 		$data['lat'] = $lat;
