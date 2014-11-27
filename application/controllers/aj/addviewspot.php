@@ -76,7 +76,7 @@ class addviewspot extends ZB_Controller {
 		try{
 
 			$data = array();
-			$data['id'] = $this->input->post('id', true, '');
+			$data['viewspot_id'] = $this->input->post('id', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['price'] = $this->input->post('price', true, '');
 			$data['desc'] = $this->input->post('desc', true, '');

@@ -33,17 +33,36 @@ class Do_viewspot extends CI_Model{
 
     #根据_id获取景点信息
     public function get_viewspotinfo_by_ids($ids){
-        // if(!ids){
-        //     return array();
-        // }
-        // return $this->cimongo->get($this->collection_name);
+
+        $data = array();
+        if(!ids){
+            return array();
+        }
+
+        $id = new MongoId($ids);
+        $re = $this->cimongo->where(array('_id'=>(object)$id))->get($this->collection_name)->result();
+        
+        $data['viewspot_id'] = (string)($re['0']->_id);
+        $data['name'] = $re['0']->name;
+        $data['price'] = $re['0']->price;
+        $data['desc'] = $re['0']->desc;
+        $data['address'] = $re['0']->address;
+        $data['phone'] =$re['0']->phone;
+        $data['business_hour'] = $re['0']->business_hour;
+        $data['score'] = $re['0']->score;
+        $data['visit_guide'] = $re['0']->visit_guide;
+        $data['anti_pit'] = $re['0']->anti_pit;
+        $data['travel_guide'] = $re['0']->travel_guide;
+        //$data['location'] = $re['0']->location;
+                
+        return  $data;
     }
 
     #更新景点
     public function update($data){
        
        $viewdata = array(
-        
+            
             'name' => isset($data['name'])?$data['name']:'',
             'price' => isset($data['price'])?$data['price']:'',
             'desc' => isset($data['desc'])?$data['desc']:'',
@@ -56,8 +75,8 @@ class Do_viewspot extends CI_Model{
             //'location' => isset($data['loacetion'])?$data['loacetion']:'';              
         );
        
-       $id = new MongoId($data['id']);
-       return $this->cimongo->where(array('_id'=>(object)$id))->update('ViewSpotEdit', $viewdata);
+       $id = new MongoId($data['viewspot_id']);
+       return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewdata);
     }
 
 

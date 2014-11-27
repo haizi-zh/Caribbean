@@ -10,7 +10,6 @@ class home extends ZB_Controller {
 		$data['pageid'] = self::PAGE_ID; 
     
 
-
 		#load page
 		$this->load->admin_view('admin/home', $data);		
 	}

@@ -12,16 +12,14 @@ class editviewspot extends ZB_Controller {
 		// // $areas = $this->mo_geography->get_all_areas();
 		$has_map = isset($_GET['has_map'])?$_GET['has_map']:1;
 		
-		// #商家信息
+		// #景点信息
 		$viewspot_id = isset($_GET['viewspot_id'])?$_GET['viewspot_id']:0;
 		if(!$viewspot_id){
 			$has_map = 0;
 		}
-		// // $this->load->model('mo_shop');
-		// // $shopinfo_re = $this->mo_shop->get_shopinfo_by_ids(array($shop_id));
-
-		//$viewspot = isset($shopinfo_re[$shop_id])?$shopinfo_re[$shop_id]:array();
-		$viewspot = isset($_GET['viewspot_id'])?array('id'=> $viewspot_id):array();//测试！跳过数据库复查
+		$this->load->model("do/do_viewspot");
+		$viewspotinfo_re = $this->do_viewspot->get_viewspotinfo_by_ids($viewspot_id);
+	    $viewspot = empty($viewspotinfo_re['viewspot_id'])?array():$viewspotinfo_re;
 
 		$countries = array();
 		$cities = array();
@@ -53,7 +51,6 @@ class editviewspot extends ZB_Controller {
 		$data['shop_id'] = $shop_id;
  
 		$this->load->admin_view('admin/editviewspot', $data);	
-
 	}
 
 

@@ -2,7 +2,7 @@
 	<div class="row-fluid">
 		<div class="span12 well well-large form-horizontal bs-docs-example">
 			<legend>编辑景点</legend>
-			<div style="display:none" id="viewspot_id"><?php echo $viewspot['id'];?></div>
+			<div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
 
 			<?php if($viewspot){?>
 
@@ -38,7 +38,7 @@
             <div class="control-group">
               	<label class="control-label" style="width:60px;">景点门票:</label>
               	<div class="controls" style="margin-left:80px;">
-                	<input type="text" style="height:25px" placeholder="" id="price" value="<?php  ?>">
+                	<input type="text" style="height:25px" placeholder="" id="price" value="<?php echo $viewspot['price'];?>">
               	</div>
             </div>
             

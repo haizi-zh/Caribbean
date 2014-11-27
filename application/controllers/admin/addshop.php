@@ -6,10 +6,10 @@ class addshop extends ZB_Controller {
 	const PAGESIZE = 100;
 	public function __construct(){
 		parent::__construct();
-		$this->load->model("mo_coupon");
-		$this->load->model("mo_brand");
-		$this->load->model("mo_geography");
-		$this->load->model("mo_directions");
+		// $this->load->model("mo_coupon");
+		// $this->load->model("mo_brand");
+		// $this->load->model("mo_geography");
+		// $this->load->model("mo_directions");
 	}
 
 	public function index(){
@@ -27,67 +27,67 @@ class addshop extends ZB_Controller {
 
 	public function shoplist(){
 		$pagesize = self::PAGESIZE;
-		$citys = $this->mo_geography->get_all_cityinfos();
+		//$citys = $this->mo_geography->get_all_cityinfos();
 		
-		$name = $this->input->get("name", true, '');
-		$id = $this->input->get("id", true, '');
-		$page = $this->input->get('page', true, 1);
-		$city = $this->input->get('city', true, 0);
-		$is_direction = $this->input->get('is_direction', true, 0);
-		if(!$page){
-			$page = 1;
-		}
+		// $name = $this->input->get("name", true, '');
+		// $id = $this->input->get("id", true, '');
+		// $page = $this->input->get('page', true, 1);
+		// $city = $this->input->get('city', true, 0);
+		// $is_direction = $this->input->get('is_direction', true, 0);
+		// if(!$page){
+		// 	$page = 1;
+		// }
 
-		$this->load->model("mo_shop");
-		$offset = ($page - 1) * $pagesize;
-		$params = array();
-		$all_directions_shopids = $this->mo_directions->get_all_shop_ids();
+		// $this->load->model("mo_shop");
+		// $offset = ($page - 1) * $pagesize;
+		// $params = array();
+		// $all_directions_shopids = $this->mo_directions->get_all_shop_ids();
 		
-		if($is_direction && $all_directions_shopids){
-			$shop_ids_list = implode(",", $all_directions_shopids);
-			$params[] = " id in  ({$shop_ids_list})";
-			$page_html = "";
-		}
-		if($id){
-			$params[] = " id={$id}";
-			$page_html = "";
-		}
-		if($name){
-			$params[] = " name like '%{$name}%'";
-			$page_html = "";
-			$params[] = " english_name like '%{$name}%'";
-			$page_html = "";
-		}
-		if($city){
-			$params[] = " city={$city}";
-			$page_html = "";
-			$pagesize = 400;
-		}
-		$list = $this->mo_shop->get_shop_list_for_admin($page, $pagesize, $params);
-		foreach($list as $k=>$v){
-			if($v['status'] != 0){
-				unset($list[$k]);
-			}
-		}
+		// if($is_direction && $all_directions_shopids){
+		// 	$shop_ids_list = implode(",", $all_directions_shopids);
+		// 	$params[] = " id in  ({$shop_ids_list})";
+		// 	$page_html = "";
+		// }
+		// if($id){
+		// 	$params[] = " id={$id}";
+		// 	$page_html = "";
+		// }
+		// if($name){
+		// 	$params[] = " name like '%{$name}%'";
+		// 	$page_html = "";
+		// 	$params[] = " english_name like '%{$name}%'";
+		// 	$page_html = "";
+		// }
+		// if($city){
+		// 	$params[] = " city={$city}";
+		// 	$page_html = "";
+		// 	$pagesize = 400;
+		// }
+		// $list = $this->mo_shop->get_shop_list_for_admin($page, $pagesize, $params);
+		// foreach($list as $k=>$v){
+		// 	if($v['status'] != 0){
+		// 		unset($list[$k]);
+		// 	}
+		// }
 
-		$count = $this->mo_shop->get_shop_cnt_for_admin( $params);
+		// $count = $this->mo_shop->get_shop_cnt_for_admin( $params);
 
 		
-		$this->load->library ( 'extend' ); // 调用分页类
-		$page_html = $this->extend->defaultPage ( ceil ( $count / $pagesize ) , $page, $count, $pagesize );
+		// $this->load->library ( 'extend' ); // 调用分页类
+		// $page_html = $this->extend->defaultPage ( ceil ( $count / $pagesize ) , $page, $count, $pagesize );
 
-		$offset = ($page - 1) * $pagesize;
-		$data['is_direction'] = $is_direction;
-		$data['all_directions_shopids'] = $all_directions_shopids;
-		$data['city'] = $city;
-		$data['citys'] = $citys;
-		$data['offset'] = $offset;
-		$data['name'] = $name;
-		$data['id'] = $id;
-		$data['page_html'] = $page_html;
-		$data['list'] = $list;
-		$data['pageid'] = "shoplist";
-		$data['citys'] = $this->mo_geography->get_all_cityinfos();
+		// $offset = ($page - 1) * $pagesize;
+		// $data['is_direction'] = $is_direction;
+		// $data['all_directions_shopids'] = $all_directions_shopids;
+		// $data['city'] = $city;
+		// $data['citys'] = $citys;
+		// $data['offset'] = $offset;
+		// $data['name'] = $name;
+		// $data['id'] = $id;
+		// $data['page_html'] = $page_html;
+		// $data['list'] = $list;
+		// $data['pageid'] = "shoplist";
+		// $data['citys'] = $this->mo_geography->get_all_cityinfos();
 		
 		$this->load->admin_view('admin/shoplist', $data);
 	}
