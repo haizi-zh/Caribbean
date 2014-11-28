@@ -50,19 +50,19 @@
   	<?php foreach($list as $k=>$v):?>
     <tr>
       <th><?php echo $k+$offset+1;?></th>
-      <th><?php echo $v['id'];?></th>
-      <th>名称：<?php echo $v['name'];?></br>
-        <a target="_blank" href="/shop/?shop_id=<?php echo $v['id'];?>" style="color:blue;">前台</a>
+      <th><?php echo $list[$k]->_id;?></th>
+      <th>名称：<?php echo $list[$k]->name;?></br>
+        <a target="_blank" href="/viewspot/?viewspot_id=<?php echo $list[$k]->_id;?>" style="color:blue;">前台</a>
       </th>
-      <th><input style="width:50px;" value="<?php echo $v['rank_score'];?>" old-value="<?php echo $v['rank_score'];?>" name="rank_score" id="<?php echo $v['id'];?>"  /></th>
+      <th><input style="width:50px;" value="<?php echo $list[$k]->ratings[score];?>" old-value="<?php echo $list[$k]->ratings[score];?>" name="rank_score" id="<?php echo $list[$k]->_id;?>"  /></th>
       <th>
-        <a class="btn btn-link btn-danger " href="/admin/editshop?shop_id=<?php echo $v['id'];?>&nocache=1" target="_blank"  >编辑</a>
-      </th>
-      <th>
-        <a class="btn btn-link btn-danger" href="/admin/taglist/editshop_tag?shop_id=<?php echo $v['id'];?>" target="_blank"  >编辑标签</a>
+        <a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id=<?php echo $list[$k]->_id;?>&nocache=1" target="_blank"  >编辑</a>
       </th>
       <th>
-        <a class="btn btn-link btn-primary" href="/admin/shop/photo?shop_id=<?php echo $v['id'];?>" >景点照片</a>
+        <a class="btn btn-link btn-danger" href="/admin/taglist/editshop_tag?shop_id=<?php echo $list[$k]->_id;?>" target="_blank"  >编辑标签</a>
+      </th>
+      <th>
+        <a class="btn btn-link btn-primary" href="/admin/viewspot/photo?viewspot_id=<?php echo $list[$k]->_id;?>" >景点照片</a>
       </th>
 
 

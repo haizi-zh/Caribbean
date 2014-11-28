@@ -6,10 +6,7 @@ class addviewspot extends ZB_Controller {
 	const PAGESIZE = 100;
 	public function __construct(){
 		parent::__construct();
-		// $this->load->model("mo_coupon");
-		// $this->load->model("mo_brand");
-		// $this->load->model("mo_geography");
-		// $this->load->model("mo_directions");
+		$this->load->model("do/do_viewspot");
 	}
 
 	public function index(){
@@ -38,20 +35,19 @@ class addviewspot extends ZB_Controller {
 		 	$page = 1;
 		 }
 
-		//$this->load->model("mo_shop");
 		$offset = ($page - 1) * $pagesize;
 		$params = array();
-		//$all_directions_shopids = $this->mo_directions->get_all_shop_ids();
+		// $all_directions_shopids = $this->mo_directions->get_all_shop_ids();
 		
 		// if($is_direction && $all_directions_shopids){
 		// 	$shop_ids_list = implode(",", $all_directions_shopids);
 		// 	$params[] = " id in  ({$shop_ids_list})";
 		// 	$page_html = "";
 		// }
-		// if($id){
-		// 	$params[] = " id={$id}";
-		// 	$page_html = "";
-		// }
+		if($id){
+			$params['id'] = "$id";
+			$page_html = "";
+		}
 		// if($name){
 		// 	$params[] = " name like '%{$name}%'";
 		// 	$page_html = "";
@@ -63,16 +59,12 @@ class addviewspot extends ZB_Controller {
 		// 	$page_html = "";
 		// 	$pagesize = 400;
 		// }
-		//$list = $this->mo_shop->get_shop_list_for_admin($page, $pagesize, $params);
-		foreach($list as $k=>$v){
-			if($v['status'] != 0){
-				unset($list[$k]);
-			}
-		}
-
-		//$count = $this->mo_shop->get_shop_cnt_for_admin( $params);
-
-		
+			
+		$list = $this->do_viewspot->get_viewspot_list_for_admin($page, $pagesize, $params);
+        
+        //未完成
+		$count = $this->do_viewspot->get_viewspot_cnt_for_admin( $params);
+	
 		$this->load->library ( 'extend' ); // 调用分页类
 		$page_html = $this->extend->defaultPage ( ceil ( $count / $pagesize ) , $page, $count, $pagesize );
 
@@ -86,7 +78,7 @@ class addviewspot extends ZB_Controller {
 		$data['id'] = $id;
 		$data['page_html'] = $page_html;
 		$data['list'] = $list;
-		$data['pageid'] = "shoplist";
+		$data['pageid'] = "viewspotlist";
 		//$data['citys'] = $this->mo_geography->get_all_cityinfos();
 		
 		$this->load->admin_view('admin/viewspotlist', $data);

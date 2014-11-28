@@ -5,10 +5,12 @@ class Do_dianping extends CI_Model {
 	#点评状态
 	const PING_STATUS_NORMAL = 0;
 	const PING_STATUS_DELETE = 1;
+
+	var $collection_name = 'ViewSpotEdit';
 	
 	function __construct(){
 		parent::__construct();
-		$this->load->database();
+    	$this->load->library('cimongo');
 	}
 
 	#添加一个点评
@@ -141,8 +143,12 @@ class Do_dianping extends CI_Model {
 	}
 	#获取最新点评 for  madin
 	public function get_last_dianping_admin($num,$offset=0, $params = array()){
+
+
+
 		$where = "";
 		if($params){
+			
 			$where = " WHERE " .implode(" and ", $params);
 			//$where = " WHERE ";
 			//foreach ($params as $k => $v){

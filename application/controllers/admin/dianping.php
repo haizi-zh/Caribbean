@@ -6,10 +6,10 @@ class dianping extends ZB_Controller {
 	const PAGESIZE = 50;
 	public function __construct(){
 		parent::__construct();
-		$this->load->model('mo_user');
-		$this->load->model('mo_shop');
-		$this->load->model('do/do_dianping');
-		$this->load->model('mo_dianping');
+		// $this->load->model('mo_user');
+		// $this->load->model('mo_shop');
+		// $this->load->model('do/do_dianping');
+		// $this->load->model('mo_dianping');
 	}
 
 	public function ping(){
@@ -28,8 +28,8 @@ class dianping extends ZB_Controller {
 			$page = 1;
 		}
 		
-		$user_ids = $shop_ids = array();
-		$user_ids_list = $shop_ids_list = "";
+		$user_ids = $viewspot_ids = array();
+		$user_ids_list = $viewspot_ids_list = "";
 		//echo $this->pagination->create_links();
 		$offset = ($page - 1) * self::PAGESIZE;
 		$params = array();
