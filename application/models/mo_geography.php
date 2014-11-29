@@ -10,7 +10,7 @@ class Mo_geography extends ZB_Model {
 	const KEY_ALL_AREA = "%s_4";
 
 	function __construct(){
-		parent::__construct();
+		parent::__construct();		
 		$this->load->model('do/do_area');
 		$this->load->model('do/do_country');
 		$this->load->model('do/do_city');

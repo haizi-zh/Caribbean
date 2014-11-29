@@ -84,6 +84,7 @@ class Cimongo extends Cimongo_extras {
          * @since v1.0.0
          */
         public function get_where($collection = "", $where = array(), $limit = FALSE, $offset = FALSE) {
+                
                 return $this->where($where)->get($collection, $limit, $offset);
         }
 

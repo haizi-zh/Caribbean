@@ -8,7 +8,6 @@ class Do_viewspot extends CI_Model{
     	parent::__construct();
     	$this->load->library('cimongo');
 	}
-
 	
     #添加景点
     public function add($data){
@@ -92,20 +91,20 @@ class Do_viewspot extends CI_Model{
              $viewdata['_id']=(object)$id;
         }
         
-        return $this->cimongo->order_by(array('value'=>'DESC'))->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
+        return $this->cimongo->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
     }
 
     #foradmin管理员获取所有景点的数目
     public function get_viewspot_cnt_for_admin($params = array()){
        
-        // if($params){
-        //      $viewdata = $params;
-        //      unset($viewdata['id']); 
-        //      $id = new MongoId($params['id']);
-        //      $viewdata['_id']=(object)$id;
-        // }
+        if($params){
+             $viewdata = $params;
+             unset($viewdata['id']); 
+             $id = new MongoId($params['id']);
+             $viewdata['_id']=(object)$id;
+        }
 
-        //return $this->cimongo->order_by(array('value'=>'DESC'))->get_where($this->collection_name, $viewdata, $pagesize, $offset)->count_all($this->collection_name)->result();
+        return $this->cimongo->where($params)->count_all_results($this->collection_name); 
     }
 
 }

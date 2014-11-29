@@ -4,7 +4,7 @@ class Do_city extends CI_Model {
 
 	function __construct(){
 		parent::__construct();
-		$this->load->database();
+		$this->load->library('cimongo');
 	}
 
 	#添加一个城市

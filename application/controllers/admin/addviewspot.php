@@ -61,10 +61,9 @@ class addviewspot extends ZB_Controller {
 		// }
 			
 		$list = $this->do_viewspot->get_viewspot_list_for_admin($page, $pagesize, $params);
-        
-        //未完成
-		$count = $this->do_viewspot->get_viewspot_cnt_for_admin( $params);
-	
+
+	    $count = $this->do_viewspot->get_viewspot_cnt_for_admin($params);
+		
 		$this->load->library ( 'extend' ); // 调用分页类
 		$page_html = $this->extend->defaultPage ( ceil ( $count / $pagesize ) , $page, $count, $pagesize );
 
