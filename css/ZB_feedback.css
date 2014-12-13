@@ -1,0 +1,78 @@
+body{color:#000;}
+.ZB_feedback .ZB_nav{margin-bottom:22px;border:none}
+.ZB_feedback .ZB_bread_nav{margin-bottom:8px;}
+.right_block{padding:10px;margin-bottom:10px;border:1px solid #ccc;}
+.right_block .title{margin-bottom:10px;font-weight:700;font-size:14px;color:#000;}
+.shop_wrap{width:710px;}
+.shop_wrap .store{padding:24px 10px;border:3px solid #d9d9d9;}
+.side_bar{width:240px;}
+.suggest_list{font-size:13px;line-height:18px;}
+
+.feedback_wrap{width: 690px;padding: 10px;margin-bottom: 10px;border: 1px solid #ccc;}
+
+.feedback_wrap .content {width: 684px;padding-left: 16px;}
+.titleBox {background: url(/wp-content/themes/smzdm_two_year/images/sdTitleLine.png) no-repeat left bottom;padding: 0 10px 20px;margin-bottom: 30px;position: relative;}
+.titleBox h1 {font-size: 18px;font-family: "Microsoft YaHei","SimSun";font-weight: bold;color: #343434;}
+.tabBlBtn {padding: 0 10px 30px;}
+.tabBlBtn .feedback_radio{padding: 0 20px 0 6px;}
+.errorNotice {font-size: 12px;color: #555;height: 40px;padding-left: 10px;}
+.wantItem {
+padding-bottom: 20px;
+height: auto;
+}
+.fkFormBox .titleItem {
+width: 126px;
+float: left;
+text-align: right;
+color: #555;
+padding-top: 10px;
+}
+.fkFormBox .titleItem span.red {
+padding-right: 10px;
+}
+span.red {
+color: #bb0200;
+}
+
+.fkFormBox .perDataItem {
+width: 550px;
+float: left;
+}
+.inputBox, .textareaBox {
+background-color: #fefefe;
+border: 1px solid #d6d6d6;
+height: 20px;
+padding: 7px;
+line-height: 20px;
+box-shadow: 0 1px 1px #ebebeb inset;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+width: 486px;
+max-width: 486px;
+min-width: 486px;
+font-size: 12px;
+color: #444;
+}
+.perDataItem span.grey {
+display: block;
+width: 500px;
+padding-top: 3px;
+line-height: 1.6em;
+}
+/*右侧提示*/
+.titleStyle h2{
+font-size: 18px;
+font-family: "Microsoft YaHei","SimSun";
+padding-bottom: 4px;
+color: #555;
+margin-bottom: 10px;
+font-weight: normal;
+}
+.right_block p.info {
+color: #777;
+line-height: 1.6em;
+margin: 0 0 15px;
+font-family: arial,"SimSun";
+font-size: 13px;
+}

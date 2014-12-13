@@ -1,0 +1,1 @@
+define({AJAX:{GET_SHOP_TIPS:"/aj/discount/getPingHtml_shoptips"}});

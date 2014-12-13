@@ -1,0 +1,14 @@
+.ZB_cities_layer{position: absolute;z-index: 10;top: 80px;padding: 10px;border:1px solid #ccc;background: #fff;margin-bottom:20px;}
+.ZB_cities_layer .ZB_cities{margin-bottom:9px;border:1px solid #ccc;border-bottom: none;background:url("../../images/common/home_bg_repeat.png") repeat 0 0;}	
+.ZB_cities_layer .hidden_margin{overflow:hidden;width:840px;}
+.ZB_cities_layer .state_name{float:left;width:95px;height:90px;margin-right:1px;background:url("../../images/common/states.png") no-repeat;}
+.ZB_cities_layer .amc{background-position:0 0;}
+.ZB_cities_layer .eup{background-position:0 -90px;}
+.ZB_cities_layer .asia{background-position:0 -180px;}
+.ZB_cities_layer .china{background-position:0 -270px;}
+.ZB_cities_layer ul{width:840px;word-wrap:break-word;word-break:break-all;white-space:nowrap}
+.ZB_cities_layer li{float:left;_display:inline;zoom:1;overflow:hidden;word-wrap:break-word;}
+.ZB_cities_layer li a{display:block;overflow:hidden;padding:14px 8px 13px;font-size:16px;}
+.ZB_cities_layer li a img{display:block;overflow:hidden;zoom:1}
+.ZB_cities_layer li a .city_name{position:absolute;padding:2px 5px;font-size:18px;bottom:0;right:0;background:#000;filter:alpha(opacity=70);background:rgba(0,0,0,.7);color:#fff;font-family:"Microsoft Yahei" "微软雅黑";}
+.ZB_cities_layer .arrow_right{float:left;border:1px solid #cdcdcb;margin:2px;width:16px;text-align:center;height:132px;line-height:132px;background:#ebebeb url("../../images/module/slide_arrow.png") no-repeat center center;cursor:pointer;}
