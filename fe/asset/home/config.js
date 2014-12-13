@@ -1,1 +1,0 @@
-define({AJAX:{GET_AREA_CITY:"/aj/city/get_area_city"}});
