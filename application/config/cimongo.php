@@ -2,6 +2,7 @@
 
 // Generally localhost
 $config['host'] = "127.0.0.1";//"api.lvxingpai.cn";
+$config['host'] = "api.lvxingpai.cn";//"api.lvxingpai.cn";
 // Generally 27017
 $config['port'] = 27017;
 // The database you want to work on
