@@ -8,6 +8,7 @@ class Do_viewcity extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->library('cimongo');
+        $this->cimongo->switch_db('geo');
 	}
 
 	#添加一个城市

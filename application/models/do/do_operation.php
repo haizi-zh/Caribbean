@@ -7,6 +7,7 @@ class Do_operation extends CI_Model{
     function __construct(){
     	parent::__construct();
     	$this->load->library('cimongo');
+        $this->cimongo->switch_db('misc');
 	}
 
     #foradmin管理员获取所有

@@ -7,6 +7,7 @@ class Do_viewspot extends CI_Model{
 	function __construct(){
     	parent::__construct();
     	$this->load->library('cimongo');
+        $this->cimongo->switch_db('poi');
 	}
 	
     #添加景点

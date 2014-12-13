@@ -7,6 +7,7 @@ class Do_country extends CI_Model {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('cimongo');
+		$this->cimongo->switch_db('geo');
 	}
 
 	#获得所有国家: _id=>名称 ok

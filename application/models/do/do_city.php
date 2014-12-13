@@ -7,6 +7,7 @@ class Do_city extends CI_Model {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('cimongo');
+		$this->cimongo->switch_db('geo');
 	}
 
 	#根据国家、省份获取城市列表|直接根据国家获取城市列表： ok

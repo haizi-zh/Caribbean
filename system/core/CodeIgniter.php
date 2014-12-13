@@ -362,12 +362,14 @@
 				show_404("{$class}/{$method}");
 			}
 		}
-
+		var_dump($CI);
+		exit;
+		// var_dump(array_slice($URI->rsegments, 2));
+		// var_dump($method);
 		// Call the requested method.
 		// Any URI segments present (besides the class/function) will be passed to the method for convenience
 		call_user_func_array(array(&$CI, $method), array_slice($URI->rsegments, 2));
 	}
-
 
 	// Mark a benchmark end point
 	$BM->mark('controller_execution_time_( '.$class.' / '.$method.' )_end');
