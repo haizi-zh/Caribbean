@@ -1,5 +1,0 @@
-/**
- * friends
- */
-define(function(require){
-});

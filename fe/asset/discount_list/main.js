@@ -1,1 +1,0 @@
-define(function(require){var e=require("widget/pager/main"),t=require("./config");e.initialize("page_container","comment_list",t.AJAX.GET_PING_HTML)});
