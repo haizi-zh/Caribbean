@@ -10,7 +10,7 @@
 							<p style="font-family:Times;font-weight:bold;color:#3299CC">TITLE:</p><p><?php echo $info->title;?></p>
 							<p style="font-family:Times;font-weight:bold;color:#3299CC">COVER:</p><p><img src="<?php echo $info->cover;?>" width="200" height="150"></p> 
 							<p style="font-family:Times;font-weight:bold;color:#3299CC">LINK:</p><p><?php echo $info->link;?></p>
-							<p><a target="_blank" class="btn-mini btn-primary" href="/admin/editoperation?info_id=<?php echo $info->_id;?>$nocache=1">编辑</a></p>
+							<p><a target="_blank" class="btn-mini btn-primary" href="/admin/editoperation?operation_id=<?php echo $info->_id;?>&nocache=1">编辑</a></p>
 					</div>
 				<?php }?>
 			</div>

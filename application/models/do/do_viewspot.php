@@ -43,7 +43,7 @@ class Do_viewspot extends CI_Model{
     public function get_viewspotinfo_by_ids($ids){
 
         $data = array();
-        if(!ids){
+        if(!$ids){
             return array();
         }
 

@@ -40,6 +40,57 @@ class Do_operation extends CI_Model{
 
         return $this->cimongo->where($params)->count_all_results($this->collection_name); 
     }
+
+    #添加运营内容
+    function add($data){
+
+        $operation = array(
+            
+                'title' => isset($data['title'])?$data['title']:'',
+                'cover' => isset($data['cover'])?$data['cover']:'',
+                'link' => isset($data['link'])?$data['link']:'',
+
+        );
+
+        return $this->cimongo->insert($this->collection_name, $operation);
+    }
+
+    #根据_id获取运营信息
+    public function get_operationinfo_by_ids($ids){
+
+        $data = array();
+        if(!$ids){
+            return array();
+        }
+
+        $id = new MongoId($ids);
+        $re = $this->cimongo->where(array('_id'=>(object)$id))->get($this->collection_name)->result();
+        
+
+        $data['operation_id'] = (string)($re['0']->_id);
+        $data['title'] = $re['0']->title;
+        $data['cover'] = $re['0']->cover;
+        $data['link'] = $re['0']->link;
+
+        return  $data;
+    }
+
+
+    #更新运营内容
+    public function operation_update($data){
+
+        $operation = array(
+            
+                'title' => isset($data['title'])?$data['title']:'',
+                'cover' => isset($data['cover'])?$data['cover']:'',
+                'link' => isset($data['link'])?$data['link']:'',
+
+        );
+
+       $id = new MongoId($data['operation_id']);
+       return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $operation);
+    }
+    
 }
 
 ?>
