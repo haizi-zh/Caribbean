@@ -85,21 +85,21 @@ function add_viewspot(){
 	var antiPit = ueAntiPit.getContent();
 
     var ajaxData = {
-    	country:country,
-    	province:province,
-    	city:city,
-    	name:name,
-    	description:description,
-    	address:address,
-    	openTime:openTime,
-    	openHour:openHour,
-    	closeHour:closeHour,
-    	priceDesc:priceDesc,
-    	phone:phone,
-    	ratingsScore:ratingsScore,
-    	visitGuide:visitGuide,
-    	antiPit:antiPit,
-    	travelGuide:travelGuide
+    	country: country,
+    	province: province,
+    	city: city,
+    	name: name,
+    	description: description,
+    	address: address,
+    	openTime: openTime,
+    	openHour: openHour,
+    	closeHour: closeHour,
+    	priceDesc: priceDesc,
+    	phone: phone,
+    	ratingsScore: ratingsScore,
+    	visitGuide: visitGuide,
+    	antiPit: antiPit,
+    	travelGuide: travelGuide
     }
 
 	$.ajax({

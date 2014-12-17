@@ -1,13 +1,21 @@
-//添加景点
+//添加运营
+ueContent.ready(function(){
+
+});
+
+
 function add_operation(){ 
 	title = $("#title").val(); 
 	cover = $("#cover").val(); 
 	link = $("#link").val();   
+    
+    var content = ueContent.getContent();
 
     var ajaxData = {
     	title: title,
     	cover: cover,
-    	link: link
+    	link: link,
+    	content: content
     	
     }
 

@@ -5,11 +5,14 @@ function edit_operation(){
 	cover = $("#cover").val();
 	link = $("#link").val();
 
+    var content = ueContent.getContent();
+
     var ajaxData = {
         id: id,
         title: title,
         cover: cover,
-        link: link
+        link: link,
+        content: content
 	   
     }
 

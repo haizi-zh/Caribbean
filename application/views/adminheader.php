@@ -78,16 +78,16 @@
 					</ul>
 				</li> 
 				
-				<!--
+				
 				<li class="divider-vertical"></li>
 				<li class="dropdown">
-					<a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown">晒单/评论删除 <b class="caret"></b></a>
+					<a href="#" id="drop4" role="button" class="dropdown-toggle" data-toggle="dropdown">酒店<b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
-					  	<li><a tabindex="-1" href="/admin/delete">删除晒单</a></li>
-					  	<li><a tabindex="-1" href="/admin/delete_comment">删除评论</a></li>
+					  	<li><a tabindex="-1" href="/admin/hotelrecom">酒店推荐</a></li>
+
 					</ul>
 				</li>
-				-->
+				
 				
 				<!-- <li class=""><a tabindex="-1" href="/admin/dianping/ping/?user_eight=2">晒单</a></li>
 				<li class=""><a tabindex="-1" href="/admin/dianping/comment/?user_eight=2">回复</a></li>

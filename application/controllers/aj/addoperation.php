@@ -10,7 +10,7 @@ class addoperation extends ZB_Controller {
 			$data['title'] = $this->input->post('title', true, '');
 			$data['cover'] = $this->input->post('cover', true, '');
 			$data['link'] = $this->input->post('link', true, '');
-
+            $data['content'] = $this->input->post('content', true, '');
 
 			if ($this->input->get('char') !== false){
 				$char = $this->input->get('char', true);
@@ -46,6 +46,8 @@ class addoperation extends ZB_Controller {
 			$data['title'] = $this->input->post('title', true, '');
 			$data['cover'] = $this->input->post('cover', true, '');
 			$data['link'] = $this->input->post('link', true, '');
+			$data['content'] = $this->input->post('content', true, '');
+
 
 			if ($this->input->get('char') !== false){
 				$char = $this->input->get('char', true);

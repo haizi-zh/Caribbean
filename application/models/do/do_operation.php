@@ -49,7 +49,7 @@ class Do_operation extends CI_Model{
                 'title' => isset($data['title'])?$data['title']:'',
                 'cover' => isset($data['cover'])?$data['cover']:'',
                 'link' => isset($data['link'])?$data['link']:'',
-
+                'content' => isset($data['content'])?$data['content']:'',
         );
 
         return $this->cimongo->insert($this->collection_name, $operation);
@@ -71,6 +71,7 @@ class Do_operation extends CI_Model{
         $data['title'] = $re['0']->title;
         $data['cover'] = $re['0']->cover;
         $data['link'] = $re['0']->link;
+        $data['content'] = $re['0']->content;
 
         return  $data;
     }
@@ -84,6 +85,8 @@ class Do_operation extends CI_Model{
                 'title' => isset($data['title'])?$data['title']:'',
                 'cover' => isset($data['cover'])?$data['cover']:'',
                 'link' => isset($data['link'])?$data['link']:'',
+                'content' => isset($data['content'])?$data['content']:'',
+
 
         );
 
