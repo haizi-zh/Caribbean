@@ -9,8 +9,12 @@ class home extends ZB_Controller {
 		$data=array();
 		$data['pageid'] = self::PAGE_ID; 
 
-    
-  
+        // $this->load->model('do/do_viewspot');
+        // $params = array();
+        // $params['city'] = '拉萨';
+        // $list = $this->do_viewspot->get_viewspot_list_for_city(1, 3, $params);
+        // var_dump($list);
+
 		#load page
 		$this->load->admin_view('admin/home', $data);		
 	}

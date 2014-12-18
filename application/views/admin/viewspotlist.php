@@ -4,29 +4,45 @@
 
 <div class="row-fluid">
     <div class="span12 well well-large form-horizontal bs-docs-example">
-    <form class="/admin/dianping/ping">
-            <div class="input-prepend">
-              <label class="control-label" style="width:120px;">景点名称:</label>
-              <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="name" name="name" value="<?php echo $name?>">
-            </div>
-            <div class="input-prepend">
-              <label class="control-label" style="width:60px;">景点ID:</label>
-              <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="id" name="id" value="<?php echo $id?>">
-            </div>
-            <div class="input-prepend">
-              <label class="control-label" style="width:60px;">城市:</label>
-              <select style="height:25px;margin-left:25px;width:100px;" name="city" id="city">
-              <option value="0">全部</option>
-              <?php foreach($citys as $k=>$v):?>
-              <option <?php if($city == $k):?>selected=true<?php endif;?> value="<?php echo $k;?>"><?php echo $v['name'];?></option>
-              <?php endforeach;?>
-              </select>
-            </div>
 
-            
+                <div class="input-prepend">
+                <label class="control-label" style="width:60px;">所在地:</label>
+                    <div class="controls" style="margin-left:80px;">
+                          <select id="area" >
+                            <option></option>
+                            <option value="0"><?php echo "国内";?></option>
+                            <option value="1"><?php echo "国外";?></option>
+                          </select>&nbsp;
+                          <select id="country">
+                          </select>&nbsp;
+                          <select id="city">
+                          </select>
+                    </div>
+                </div>
+ 
 
-            <button class="btn btn-large btn-primary" type="submit" style="margin-left:25px;">筛选</button>
-    </form>
+                <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="select_city();">筛选</button>
+               <!--  <div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div> -->
+                <!-- <div class="input-prepend">
+                  <label class="control-label" style="width:120px;">景点名称:</label>
+                  <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="name" name="name" value="<?php echo $name?>">
+                </div>
+                <div class="input-prepend">
+                  <label class="control-label" style="width:60px;">景点ID:</label>
+                  <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="id" name="id" value="<?php echo $id?>">
+                </div>
+
+                <div class="input-prepend">
+                  <label class="control-label" style="width:60px;">城市:</label>
+                  <select style="height:25px;margin-left:25px;width:100px;" name="city" id="city">
+                      <option value="0">全部</option>
+                      <?php foreach($citys as $k=>$v):?>
+                      <option <?php if($city == $k):?>selected=true<?php endif;?> value="<?php echo $k;?>"><?php echo $v['name'];?></option>
+                      <?php endforeach;?>
+                  </select>
+                </div> -->             
+                
+
     </div>
 
 </div>

@@ -50,8 +50,8 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'lxp123';
-$db['default']['database'] = 'zanbai';
+$db['default']['password'] = '';
+$db['default']['database'] = 'mysql';
 $db['default']['port'] = 3306;
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

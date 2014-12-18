@@ -28,8 +28,8 @@
               <th>城市ID</th>
               <th>城市名称</th>
               <th>编辑操作</th>
-
             </tr>
+            
           </thead>
           <tbody>
             <?php if(isset($list) && $list):?>
