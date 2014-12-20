@@ -128,6 +128,24 @@ class Do_viewspot extends CI_Model{
         return $this->cimongo->where($params)->count_all_results($this->collection_name); 
     }
 
+    #获取景点：根据country来查询
+    public function get_viewspot_list_for_country($page, $pagesize, $params = array()){
+    
+        $offset = ($page - 1) * $pagesize;    
+        $viewdata = $params['country'];
+        
+        return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->get($this->collection_name, $pagesize, $offset)->result();  
+
+    }
+
+    #获取获取景点的数目：根据country来查询
+    public function get_viewspot_cnt_for_country($params = array()){
+      
+        $viewdata = $params['country'];
+        
+        return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->count_all_results($this->collection_name);  
+    }
+
     #获取景点：根据city来查询
     public function get_viewspot_list_for_city($page, $pagesize, $params = array()){
     
@@ -145,6 +163,8 @@ class Do_viewspot extends CI_Model{
         
         return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->count_all_results($this->collection_name);  
     }
+
+
 
     
 

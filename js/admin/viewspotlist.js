@@ -11,11 +11,11 @@ $('#area').change(function(){
 			  	//获取数据
 			    var obj = eval('(' + result + ')');
 			    
-			    //清空城市和国家
+			    //清空城市和省份
 			    $("#country").empty();
 			    $("#city").empty();
 			    
-			    //添加国家
+			    //添加省份
 			    $("#country").append("<option></option>");
 			  	for (var i in obj) {
 			  		$("#country").append("<option value='"+i+"'>"+obj[i]+"</option>");
@@ -58,8 +58,15 @@ $('#country').change(function(){
 
 //跳转
 function select_city(){
+	area = $("#area").val(); 
+	country = $("#country").find("option:selected").text();
 	city = $("#city").val(); 
-	self.location='/admin/viewspotlist?city='+city;	
+	if(!country){
+		self.location='/admin/viewspotlist';	
+	}else{
+		self.location='/admin/viewspotlist?area='+area+'&country='+country+'&city='+city;
+	}
+		
 }
 
 

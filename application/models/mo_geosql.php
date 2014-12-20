@@ -45,6 +45,12 @@ class Mo_geosql extends ZB_Model {
 		return $format_re;
 	}
 
+	#根据省份id获取城市mid
+	public function get_cities_mid_by_country($country_id){
+		$format_re = $this->do_citysql->get_cities_mid_by_country($country_id);
+		return $format_re;
+	}
+
 
 }
 

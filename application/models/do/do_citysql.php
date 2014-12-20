@@ -19,6 +19,18 @@ class Do_citysql extends CI_Model {
 		return $query->result_array();
 	}
 
+	#根据省份获取城市mid
+	public function get_cities_mid_by_country($country_id){
+
+		$sql = "SELECT mid FROM locality WHERE ";
+		$sql .= " (shortDistrictId like '%{$country_id}%') ";
+		$sql .= " and distType=6";
+		
+		$query = $this->db->query($sql);
+		
+		return $query->result_array();
+	}
+
 }
 
 

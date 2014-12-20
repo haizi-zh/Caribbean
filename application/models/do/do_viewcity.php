@@ -30,7 +30,7 @@ class Do_viewcity extends CI_Model {
 		return $this->cimongo->insert($this->collection_name, $citydata);
 	}
 
-	 #更新城市信息
+	#更新城市信息
     public function update($data){
        
        $citydata = array(
@@ -78,9 +78,26 @@ class Do_viewcity extends CI_Model {
         return  $data;
     }
 
-	
+	#根据省份，获取城市列表
+    public function get_citys_for_city($page, $pagesize, $params = array()){
+    
+        $offset = ($page - 1) * $pagesize;    
+        $citydata = $params['country'];
+        
+        return $this->cimongo->like('desc', $citydata, 's', FALSE, TRUE)->get($this->collection_name, $pagesize, $offset)->result();  
+    }
+
+    #根据省份，获取所有城市的数目
+    public function get_citys_cnt_for_city($params = array()){
+
+        $citydata = $params['country'];
+        
+        return $this->cimongo->like('desc', $citydata, 's', FALSE, TRUE)->count_all_results($this->collection_name);       
+    }
+
+
     #根据id和名称，获取城市列表
-    public function get_citys_by_name_id($page, $pagesize, $params = array()){
+    public function get_citys_for_admin($page, $pagesize, $params = array()){
     
         $offset = ($page - 1) * $pagesize;
 

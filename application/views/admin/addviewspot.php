@@ -9,28 +9,6 @@
 		<div class="span12 well well-large form-horizontal bs-docs-example">
 			<legend>添加景点</legend>
 
-            <div class="control-group">
-              	<label class="control-label" style="width:60px;">所在地:</label>
-              	<div class="controls" style="margin-left:80px;">
-    	                <select id="countrys" onchange="change(this)">
-    	                	<option></option>
-    	                  <?php foreach($countrys as $country){?>
-                        <option value="<?php echo $country;?>"><?php echo $country;?></option>
-                        <?php }?>
-    					</select>&nbsp;
-
-
-    	                <select id="provinces">
-    					</select>&nbsp;
-
-
-            			<select id="citys">
-            			</select>
-
-              	</div>
-            </div> 
-            
-
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">景点名称:</label>

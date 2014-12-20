@@ -9,28 +9,6 @@
 			<div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
 
 			<?php if($viewspot){?>
-
-            <div class="control-group">
-              	<label class="control-label" style="width:60px;">所在地:</label>
-              	<div class="controls" style="margin-left:80px;">
-	                <select id="area" onchange="change(this)">
-	                	<option></option>
-	                	<?php foreach($areas as $area){?>
-					  	<option value="<?php echo $area['id'];?>" <?php if($area['id'] == $viewspot['area']){?>selected="selected" <?php }?>><?php echo $area['name'];?></option>
-					  	<?php }?>
-					</select>&nbsp;
-	                <select id="country">
-	                	<?php foreach($countries as $id=>$name){?>
-					  	<option value="<?php echo $id;?>" <?php if($id == $viewspot['country']){?>selected="selected" <?php }?>><?php echo $name;?></option>
-					  	<?php }?>
-					</select>&nbsp;
-					<select id="city">
-						<?php foreach($cities as $city){?>
-					  	<option value="<?php echo $city['id'];?>" <?php if($city['id'] == $viewspot['city']){?>selected="selected" <?php }?>><?php echo $city['name'];?></option>
-					  	<?php }?>
-					</select>
-              	</div>
-            </div>
             
             <div class="control-group">
               	<label class="control-label" style="width:60px;">景点名称:</label>
@@ -127,13 +105,13 @@
             <?php endif;?>
 
             <div class="control-group">
-                <label class="control-label" style="width:60px;">景点ID:</label>
+                <label class="control-label" style="width:60px;">请输入ID:</label>
                 <div class="controls" style="margin-left:80px;">
                 <input type="text" style="height:28px;margin-left:15px;width:150px;" placeholder="" id="target_viewspot_id" value="<?php if($viewspot_id) echo $viewspot_id;?>">
                 </div>
             </div>
 
-            <div class="control-group">
+            <!-- <div class="control-group">
                 	<label class="control-label" style="width:60px;">选择景点:</label>
                 	<div class="controls" style="margin-left:80px;">
                 		<select id="viewspot_box" style="margin-left:15px;width:150px;">
@@ -143,7 +121,7 @@
   					  	      <?php }?>
   					        </select>
                   </div>                  
-            </div>
+            </div> -->
 
 
             <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="edit();">确认</button>

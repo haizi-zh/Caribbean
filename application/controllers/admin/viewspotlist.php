@@ -17,7 +17,8 @@ class Viewspotlist extends ZB_Controller {
 		$name = $this->input->get("name", true, '');
 		$id = $this->input->get("id", true, '');
 		$page = $this->input->get('page', true, 1);
-		$city = $this->input->get("city", true, '');
+		$country = $this->input->get("country", true, '');
+		$city = $this->input->get("city", true, '');		
 
 		if(!$page){
 		 	$page = 1;
@@ -34,17 +35,27 @@ class Viewspotlist extends ZB_Controller {
 			$params['name'] = "$name";
 			$page_html = "";
 		}
+		if($country){
+			$params['country'] = "$country";
+			$page_html = "";
+		}
 		if($city){
 			$params['city'] = "$city";
 			$page_html = "";
 		}
-
+        
 
         $list = $this->do_viewspot->get_viewspot_list_for_admin($page, $pagesize, $params);
 	    $count = $this->do_viewspot->get_viewspot_cnt_for_admin($params);
-		if ($params) {
-			$list = $this->do_viewspot->get_viewspot_list_for_city($page, $pagesize, $params);
-	        $count = $this->do_viewspot->get_viewspot_cnt_for_city($params);
+		if ($params['country']) {
+			if($params['city']){
+               $list = $this->do_viewspot->get_viewspot_list_for_city($page, $pagesize, $params);
+		       $count = $this->do_viewspot->get_viewspot_cnt_for_city($params);
+			}else{
+               $list = $this->do_viewspot->get_viewspot_list_for_country($page, $pagesize, $params);
+		       $count = $this->do_viewspot->get_viewspot_cnt_for_country($params);
+			}
+				
         }
 		
 

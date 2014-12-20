@@ -81,7 +81,7 @@
                 <label class="control-label" style="width:60px;">交通:</label>
                 <button class="btn btn-primary" type="button" style="float:right;margin-right:230px;" onclick="addlocal()">添加Title</button>
                 <div id="localTraffic" class="controls" style="margin-left:80px;">
-                  <span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>
+                  <span style="line-height:30px;border:3px solid #3299CC;height:50px;color:#3299CC;font-weight:bold">New Title</span>
                   <textarea rows="1" class="localTraffic_title" style="line-height:30px;width:425px" value=""></textarea><br><br>
                   <textarea rows="10" class="localTraffic_content" style="width:500px;" value=""></textarea><br><br>
                 </div> 
@@ -92,7 +92,7 @@
                 <label class="control-label" style="width:60px;">到达:</label>
                 <button class="btn btn-primary" type="button" style="float:right;margin-right:230px;" onclick="addremote()">添加Title</button>
                 <div id="remoteTraffic" class="controls" style="margin-left:80px;">
-                  <span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>
+                  <span style="line-height:30px;border:3px solid #3299CC;height:50px;color:#3299CC;font-weight:bold">New Title</span>
                   <textarea rows="1" class="remoteTraffic_title" style="line-height:30px;width:425px" value=""></textarea><br><br>
                   <textarea rows="10" class="remoteTraffic_content" style="width:500px;" value=""></textarea><br><br>
                 </div> 
