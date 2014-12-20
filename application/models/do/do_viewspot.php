@@ -132,8 +132,15 @@ class Do_viewspot extends CI_Model{
     public function get_viewspot_list_for_country($page, $pagesize, $params = array()){
     
         $offset = ($page - 1) * $pagesize;    
-        $viewdata = $params['country'];
         
+        $viewdata = $params['country'];
+
+        $isEdited = (boolean)($params['isEdited']);
+        $data = array(
+            'isEdited' => $isEdited
+        );
+        
+        // return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->get_where($this->collection_name, $data, $pagesize, $offset)->result();
         return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->get($this->collection_name, $pagesize, $offset)->result();  
 
     }

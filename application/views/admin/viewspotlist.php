@@ -16,33 +16,16 @@
                           <select id="country">
                           </select>&nbsp;
                           <select id="city">
-                          </select>
+                          </select>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                          <button id="isEdited" class="" value="0" href="javascript:void(0);" action-type="follow"><span>是否审核</span></button>
                     </div>
+
                 </div>
  
 
                 <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="select_city();">筛选</button>
-               <!--  <div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div> -->
-                <!-- <div class="input-prepend">
-                  <label class="control-label" style="width:120px;">景点名称:</label>
-                  <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="name" name="name" value="<?php echo $name?>">
-                </div>
-                <div class="input-prepend">
-                  <label class="control-label" style="width:60px;">景点ID:</label>
-                  <input type="text" style="height:25px;margin-left:25px;width:100px;" placeholder="" id="id" name="id" value="<?php echo $id?>">
-                </div>
-
-                <div class="input-prepend">
-                  <label class="control-label" style="width:60px;">城市:</label>
-                  <select style="height:25px;margin-left:25px;width:100px;" name="city" id="city">
-                      <option value="0">全部</option>
-                      <?php foreach($citys as $k=>$v):?>
-                      <option <?php if($city == $k):?>selected=true<?php endif;?> value="<?php echo $k;?>"><?php echo $v['name'];?></option>
-                      <?php endforeach;?>
-                  </select>
-                </div> -->             
-                
-
+                                
     </div>
 
 </div>
@@ -61,7 +44,7 @@
       <th>景点照片</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="J_viewspot_table">
     <?php if(isset($list) && $list):?>
   	<?php foreach($list as $k=>$v):?>
     <tr>

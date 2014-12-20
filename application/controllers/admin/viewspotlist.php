@@ -3,7 +3,7 @@
 class Viewspotlist extends ZB_Controller {
 		
 	const PAGE_ID = 'viewspotlist';
-	const PAGESIZE = 10;
+	const PAGESIZE = 20;
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("do/do_viewspot");
@@ -18,7 +18,8 @@ class Viewspotlist extends ZB_Controller {
 		$id = $this->input->get("id", true, '');
 		$page = $this->input->get('page', true, 1);
 		$country = $this->input->get("country", true, '');
-		$city = $this->input->get("city", true, '');		
+		$city = $this->input->get("city", true, '');	
+		$isEdited = $this->input->get("isEdited", true, '');	
 
 		if(!$page){
 		 	$page = 1;
@@ -41,6 +42,10 @@ class Viewspotlist extends ZB_Controller {
 		}
 		if($city){
 			$params['city'] = "$city";
+			$page_html = "";
+		}
+		if($isEdited){
+			$params['isEdited'] = (boolean)("$isEdited");
 			$page_html = "";
 		}
         

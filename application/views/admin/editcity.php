@@ -72,9 +72,9 @@
 	    </div>
 	</div>
 
-<div class="pagination" style="margin-left: 15px;">
+<!-- <div class="pagination" style="margin-left: 15px;">
 <?php if($page_html) echo $page_html?>
-</div>
+</div> -->
 
 
 </div>

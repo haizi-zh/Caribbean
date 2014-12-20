@@ -56,15 +56,34 @@ $('#country').change(function(){
 	});
 })
 
+//审核
+$('#isEdited').click(function(){
+	if( $('#isEdited').val()==0){
+		$("#isEdited").removeClass().addClass("W_btn_a");
+		$('#isEdited').val("1");
+		$('#isEdited').text("已审核");
+
+	}else{
+        $("#isEdited").removeClass().addClass("W_btn_b");
+		$('#isEdited').val("0");
+		$('#isEdited').text("未审核");
+	}
+	
+})
+
+
 //跳转
 function select_city(){
 	area = $("#area").val(); 
 	country = $("#country").find("option:selected").text();
 	city = $("#city").val(); 
+	isEdited = $("#isEdited").val();
+
 	if(!country){
 		self.location='/admin/viewspotlist';	
 	}else{
-		self.location='/admin/viewspotlist?area='+area+'&country='+country+'&city='+city;
+		self.location='/admin/viewspotlist?area='+area+'&country='+country+'&city='+city+'&isEdited='+isEdited;
+		
 	}
 		
 }
