@@ -2,7 +2,7 @@
 #景点data model
 class Do_viewspot extends CI_Model{
     
-    var $collection_name = 'ViewSpot';
+    var $collection_name = 'ViewSpotEdit';
 
 	function __construct(){
     	parent::__construct();
@@ -188,7 +188,7 @@ class Do_viewspot extends CI_Model{
                       "isEdited" => $edit
                       );
 
-        $re = $this->cimongo->where( $where )->get( 'ViewSpot' )->result();
+        $re = $this->cimongo->where( $where )->get( 'ViewSpotEdit' )->result();
         return $re;
     }
 
