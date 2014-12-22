@@ -8,8 +8,6 @@ class editviewspot extends ZB_Controller {
 
 		// #load page
 	    $security = $this->tool->get_pic_securety('ZB_ADMIN_SHOP');#生成安全数据
-		// // $this->load->model('mo_geography');
-		// // $areas = $this->mo_geography->get_all_areas();
 		$has_map = isset($_GET['has_map'])?$_GET['has_map']:1;
 		
 		// #景点信息
@@ -21,18 +19,8 @@ class editviewspot extends ZB_Controller {
 		$viewspotinfo_re = $this->do_viewspot->get_viewspotinfo_by_ids($viewspot_id);
 	    $viewspot = empty($viewspotinfo_re['viewspot_id'])?array():$viewspotinfo_re;
 	   
-
 		$countries = array();
 		$cities = array();
-		if($viewspot){
-			#获取默认国家/城市
-			// $this->load->model('mo_geography');
-			// $countries = $this->mo_geography->get_countries_by_area($viewspot['area']);
-			// $cities = $this->mo_geography->get_cities_by_country_formadmin($viewspot['country']);
-		}
-		
-		// #获取全部商家
-		// // $shops = $this->mo_shop->get_all_shop();
 		
 		#header
 		#计算地图位置
@@ -44,7 +32,7 @@ class editviewspot extends ZB_Controller {
 			$lat = trim($locations[1]);
 		}
 		
-		$data = array('has_map'=>$has_map, 'shops'=>$shops,'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'],'viewspot'=>$viewspot,'countries'=>$countries,'cities'=>$cities);
+		$data = array('has_map'=>$has_map, 'shops'=>$shops,'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'], 'viewspot'=>$viewspot, 'countries'=>$countries, 'cities'=>$cities);
 		
 		$data['pageid'] = self::PAGE_ID;
 		$data['lat'] = $lat;

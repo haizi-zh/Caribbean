@@ -2,7 +2,7 @@
 #景点data model
 class Do_viewspot extends CI_Model{
     
-    var $collection_name = 'ViewSpotEdit';
+    var $collection_name = 'ViewSpot';
 
 	function __construct(){
     	parent::__construct();
@@ -17,11 +17,13 @@ class Do_viewspot extends CI_Model{
         $ratingsScore = array( 'score'=> intval( (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  );
         $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
+        $isEdited = (bool)0;
 
         $viewspot = array(
                 //'country' => array('zhName'=>isset($data['country'])?$data['country']:''),
                 //'locList' => array('zhName'=>isset($data['province'])?$data['province']:''),
                 //'city' => isset($data['city'])?$data['city']:'',
+                'isEdited' => $isEdited,
                 'name' => isset($data['name'])?$data['name']:'',
                 'description' => $description,
                 'address' => isset($data['address'])?$data['address']:'',
@@ -51,6 +53,7 @@ class Do_viewspot extends CI_Model{
         $re = $this->cimongo->where(array('_id'=>(object)$id))->get($this->collection_name)->result();
         
         $data['viewspot_id'] = (string)($re['0']->_id);
+        // $data['isEdited'] = $re['0']->isEdited;
         $data['name'] = $re['0']->name;
         $data['description'] = $re['0']->description['desc'];
         $data['address'] = $re['0']->address;
@@ -74,11 +77,13 @@ class Do_viewspot extends CI_Model{
         $ratingsScore = array( 'score'=> intval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  );
         $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
+        $isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
 
         $viewspot = array(
                 //'country' => array('zhName'=>isset($data['country'])?$data['country']:''),
                 //'locList' => array('zhName'=>isset($data['province'])?$data['province']:''),
                 //'city' => isset($data['city'])?$data['city']:'',
+                'isEdited' => $isEdited,
                 'name' => isset($data['name'])?$data['name']:'',
                 'description' => $description,
                 'address' => isset($data['address'])?$data['address']:'',
@@ -171,7 +176,21 @@ class Do_viewspot extends CI_Model{
         return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->count_all_results($this->collection_name);  
     }
 
+    #由SQL数据库mid查询monggo数据库内容
+    public function get_viewspot_by_midSQL($midSQL, $isEdited){
 
+        $edit = (boolean)$isEdited;
+        $id = new MongoId($midSQL);
+        $where = array(
+                      "targets" => array(
+                                          '$in'=> array( (object)$id )
+                                        ),
+                      "isEdited" => $edit
+                      );
+
+        $re = $this->cimongo->where( $where )->get( 'ViewSpot' )->result();
+        return $re;
+    }
 
     
 

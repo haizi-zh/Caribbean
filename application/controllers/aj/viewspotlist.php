@@ -24,5 +24,29 @@ class viewspotlist extends ZB_Controller {
 	
 		echo json_encode($re);
 	}
+
+	public function select_city(){
+
+        $area = $this->input->get('area', true, '');
+        $country = $this->input->get('country', true, '');
+        $city = $this->input->get('city', true, '');
+        $isEdited = $this->input->get('isEdited', true, '');
+
+        $area = intval($area);
+        $country = intval($country);
+        $city = intval($city);
+        $isEdited = intval($isEdited);
+
+		$this->load->model('mo_geosql');
+		$re = $this->mo_geosql->get_viewspot_foradmin($area, $country, $city);
+		$midSQL = $re[0]['mid'];
+       
+        //切换到mongo数据库
+		$this->load->model("do/do_viewspot");
+	    $re = $this->do_viewspot->get_viewspot_by_midSQL($midSQL, $isEdited);
+
+        echo json_encode($re);
+	}
+
 	
 }

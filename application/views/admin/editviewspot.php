@@ -11,6 +11,17 @@
 			<?php if($viewspot){?>
             
             <div class="control-group">
+                <label class="control-label" style="width:60px;">完成状态:</label>
+                <div class="controls" style="margin-left:80px;">
+                    <select id="isEdited" >
+                            <option></option>
+                            <option value="0"><?php echo "未审核";?></option>
+                            <option value="1"><?php echo "已经审核";?></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
               	<label class="control-label" style="width:60px;">景点名称:</label>
               	<div class="controls" style="margin-left:80px;">
                 	<input type="text" style="height:25px" placeholder="" id="name" value="<?php echo $viewspot['name'];?>">

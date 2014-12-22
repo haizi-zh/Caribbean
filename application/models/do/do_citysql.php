@@ -31,6 +31,26 @@ class Do_citysql extends CI_Model {
 		return $query->result_array();
 	}
 
+	#根据省份,城市,编辑状态,获取信息
+	public function get_viewspot_foradmin($area, $country, $city){
+        
+        //城市
+        if( $city ){
+			$sql = "SELECT * FROM locality WHERE ";
+			$sql .= " (shortDistrictId like '%{$city}%') ";
+			$sql .= " and distType=6";
+		}else{
+			if( $country ){
+				$sql = "SELECT * FROM locality WHERE ";
+			    $sql .= " (shortDistrictId like '%{$country}%') ";
+			    $sql .= " and distType=5";
+			}
+		}
+		$query = $this->db->query($sql);
+		
+		return $query->result_array();
+	}
+
 }
 
 

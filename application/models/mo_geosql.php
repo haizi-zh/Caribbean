@@ -51,6 +51,11 @@ class Mo_geosql extends ZB_Model {
 		return $format_re;
 	}
 
+	public function get_viewspot_foradmin($area, $country, $city){
+        $format_re = $this->do_citysql->get_viewspot_foradmin($area, $country, $city, $isEdited);
+        return $format_re;
+	}
+
 
 }
 

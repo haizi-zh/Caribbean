@@ -83,6 +83,8 @@ class addviewspot extends ZB_Controller {
 			$data['country'] = $this->input->post('country', true, '');
 			$data['province'] = $this->input->post('province', true, '');
 			$data['city'] = $this->input->post('city', true, '');
+			
+			$data['isEdited'] = $this->input->post('isEdited', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['description'] = $this->input->post('description', true, '');
 			$data['address'] = $this->input->post('address', true, '');

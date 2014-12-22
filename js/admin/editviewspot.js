@@ -64,6 +64,7 @@ function edit(){
 //编辑景点
 function edit_viewspot(){
 	id = $("#viewspot_id").html();
+	isEdited = $("#isEdited").val();
 	name = $("#name").val();
 	description = $("#description").val();
 	address = $("#address").val();
@@ -80,6 +81,7 @@ function edit_viewspot(){
 
     var ajaxData = {
         id: id,
+        isEdited: isEdited,
         name: name,
         description: description,
         address: address,
@@ -100,7 +102,7 @@ function edit_viewspot(){
 		data: ajaxData,
 		cache: false,
 		success: function(result){
-
+            console.log(result);
 			if(result){		
 				alert('编辑景点成功');
 				location.reload();
