@@ -13,8 +13,7 @@ class Do_viewspot extends CI_Model{
     #添加景点
     public function add($data){
 
-        $description = array( 'desc'=>  (isset($data['description'])?$data['description']:'')  );
-        $ratingsScore = array( 'score'=> intval( (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  );
+        $rating = floatval( (isset($data['ratingsScore'])?$data['ratingsScore']:'') );
         $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         $isEdited = (bool)0;
@@ -24,15 +23,15 @@ class Do_viewspot extends CI_Model{
                 //'locList' => array('zhName'=>isset($data['province'])?$data['province']:''),
                 //'city' => isset($data['city'])?$data['city']:'',
                 'isEdited' => $isEdited,
-                'name' => isset($data['name'])?$data['name']:'',
-                'description' => $description,
+                'zhName' => isset($data['name'])?$data['name']:'',
+                'desc' => isset($data['description'])?$data['description']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
                 'openHour' => $openHour,
                 'closeHour' => $closeHour,
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
-                'phone' => isset($data['phone'])?$data['phone']:'',
-                'ratings' => $ratingsScore,       
+                'tel' => isset($data['phone'])?$data['phone']:'',
+                'rating' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
                 'travelGuide' => isset($data['travelGuide'])?$data['travelGuide']:'',
@@ -54,15 +53,20 @@ class Do_viewspot extends CI_Model{
         
         $data['viewspot_id'] = (string)($re['0']->_id);
         // $data['isEdited'] = $re['0']->isEdited;
-        $data['name'] = $re['0']->name;
-        $data['description'] = $re['0']->description['desc'];
+        $data['name'] = $re['0']->zhname;
+        if($re['0']->desc){
+            $data['description'] = $re['0']->desc;
+        }else{
+            $data['description'] = $re['0']->description['desc'];
+        }
+        
         $data['address'] = $re['0']->address;
         $data['openTime'] = $re['0']->opentime;
         $data['openHour'] = $re['0']->openhour;
         $data['closeHour'] = $re['0']->closehour;
         $data['priceDesc'] = $re['0']->pricedesc;
-        $data['phone'] =$re['0']->phone;
-        $data['ratingsScore'] = $re['0']->ratings['score'];
+        $data['phone'] =$re['0']->tel;
+        $data['ratingsScore'] = $re['0']->rating;
         $data['visitGuide'] = $re['0']->visitguide;
         $data['antiPit'] = $re['0']->antipit;
         $data['travelGuide'] = $re['0']->travelguide;
@@ -73,8 +77,7 @@ class Do_viewspot extends CI_Model{
     #更新景点:根据id更新
     public function update($data){
 
-        $description = array( 'desc'=>  (isset($data['description'])?$data['description']:'')  );
-        $ratingsScore = array( 'score'=> intval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  );
+        $rating = floatval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  ;
         $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         $isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
@@ -84,15 +87,15 @@ class Do_viewspot extends CI_Model{
                 //'locList' => array('zhName'=>isset($data['province'])?$data['province']:''),
                 //'city' => isset($data['city'])?$data['city']:'',
                 'isEdited' => $isEdited,
-                'name' => isset($data['name'])?$data['name']:'',
-                'description' => $description,
+                'zhName' => isset($data['name'])?$data['name']:'',
+                'desc' => isset($data['description'])?$data['description']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
                 'openHour' => $openHour,
                 'closeHour' => $closeHour,
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
-                'phone' => isset($data['phone'])?$data['phone']:'',
-                'ratings' => $ratingsScore,       
+                'tel' => isset($data['phone'])?$data['phone']:'',
+                'rating' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
                 'travelGuide' => isset($data['travelGuide'])?$data['travelGuide']:'',
@@ -188,7 +191,7 @@ class Do_viewspot extends CI_Model{
                       "isEdited" => $edit
                       );
 
-        $re = $this->cimongo->where( $where )->get( 'ViewSpotEdit' )->result();
+        $re = $this->cimongo->where( $where )->get( $this->collection_name )->result();
         return $re;
     }
 
