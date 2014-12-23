@@ -1,8 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 // Generally localhost
-$config['host'] = "127.0.0.1";//"api.lvxingpai.cn";
-// $config['host'] = "api.lvxingpai.cn";//"api.lvxingpai.cn";
+if($_SERVER['SERVER_NAME'] == 'localhost'){
+    $config['host'] = "127.0.0.1";//"api.lvxingpai.cn";    
+}else{
+    $config['host'] = "api.lvxingpai.cn";//"api.lvxingpai.cn";    
+}
+
 // Generally 27017
 $config['port'] = 27017;
 // The database you want to work on
