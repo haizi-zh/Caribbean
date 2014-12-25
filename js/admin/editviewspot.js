@@ -58,7 +58,7 @@ $('#country').change(function(){
 //跳转
 function edit(){
    id = $("#target_viewspot_id").val();
-   self.location='/admin/editviewspot?viewspot_id='+id;
+   self.location='/admin/editviewspot?viewspot_id='+id+'&viewspot_name='+id;
 }
 
 //编辑景点

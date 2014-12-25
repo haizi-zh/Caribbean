@@ -112,7 +112,7 @@ class Do_viewcity extends CI_Model {
         return $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
     }
 
-    #foradmin管理员获取所有城市的数目
+    #根据id和名称，获取城市数目
     public function get_citys_cnt_for_admin($params = array()){
 
         $citydata = array();

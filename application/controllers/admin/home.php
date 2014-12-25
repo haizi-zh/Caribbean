@@ -10,21 +10,6 @@ class home extends ZB_Controller {
 		$data['pageid'] = self::PAGE_ID; 
 
         
-        // $this->load->model("do/do_viewspot");
-        // $isEdited = 0;
-        // $midSQL = '5473cccfb8ce043a64108a47';
-        // $edit = (boolean)$isEdited;
-        // $id = new MongoId($midSQL);
-        // $where = array(
-        //               "targets" => array(
-        //                                   '$in'=> array( (object)$id )
-        //                                 ),
-        //               "isEdited" => $edit
-        //               );
-
-        // $re = $this->cimongo->order_by(array('rating' => 'DESC'))->where( $where )->get( 'ViewSpotEdit' )->result();
-        // var_dump($re);
-        
 
 
 

@@ -12,10 +12,15 @@ class editviewspot extends ZB_Controller {
 		
 		// #景点信息
 		$viewspot_id = isset($_GET['viewspot_id'])?$_GET['viewspot_id']:0;
+		$viewspot_name = isset($_GET['viewspot_name'])?$_GET['viewspot_name']:0;
 		if(!$viewspot_id){
 			$has_map = 0;
 		}
+
 		$this->load->model("do/do_viewspot");
+		if($viewspot_name){
+			$viewspot_id = $this->do_viewspot->get_viewspot_for_name($viewspot_name);
+		}		
 		$viewspotinfo_re = $this->do_viewspot->get_viewspotinfo_by_ids($viewspot_id);
 	    $viewspot = empty($viewspotinfo_re['viewspot_id'])?array():$viewspotinfo_re;
 	   
@@ -23,7 +28,6 @@ class editviewspot extends ZB_Controller {
 		$cities = array();
 		
 		#header
-		#计算地图位置
 		$lat = 0;$lon=0;
 		$location = isset($viewspot['location'])?$viewspot['location']:'';
 		if($location){
@@ -32,12 +36,11 @@ class editviewspot extends ZB_Controller {
 			$lat = trim($locations[1]);
 		}
 		
-		$data = array('has_map'=>$has_map, 'shops'=>$shops,'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'], 'viewspot'=>$viewspot, 'countries'=>$countries, 'cities'=>$cities);
+		$data = array('has_map'=>$has_map, 'areas'=>$areas,'policy'=> $security['policy'],'signature'=>$security['signature'], 'viewspot'=>$viewspot, 'countries'=>$countries, 'cities'=>$cities);
 		
 		$data['pageid'] = self::PAGE_ID;
 		$data['lat'] = $lat;
 		$data['lon'] = $lon;
-		$data['shop_id'] = $shop_id;
  
 		$this->load->admin_view('admin/editviewspot', $data);	
 	}

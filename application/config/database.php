@@ -58,9 +58,9 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     $db['default']['database'] = 'cms';
 }
 
-    // $db['default']['username'] = 'root';
-    // $db['default']['password'] = '';
-    // $db['default']['database'] = 'mysql';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = '';
+    $db['default']['database'] = 'mysql';
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['port'] = 3306;

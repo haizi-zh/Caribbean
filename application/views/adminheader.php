@@ -55,8 +55,8 @@
 					<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">景点管理 <b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
 						<li><a tabindex="-1" href="/admin/addviewspot">添加景点</a></li>
-						<li><a tabindex="-1" href="/admin/editviewspot">编辑景点</a></li>
 						<li><a tabindex="-1" href="/admin/viewspotlist">景点列表</a></li>
+						<li><a tabindex="-1" href="/admin/editviewspot">搜索景点</a></li>
 					</ul>
 				</li>
 				

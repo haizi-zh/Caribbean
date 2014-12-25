@@ -5,11 +5,13 @@
 <div class="container" style="margin-top:50px;">
 	<div class="row-fluid">
 		<div class="span12 well well-large form-horizontal bs-docs-example">
-			<legend>编辑景点</legend>
-			<div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
+			
 
 			<?php if($viewspot){?>
-            
+            <legend>编辑景点</legend>
+            <div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
+
+
             <div class="control-group">
                 <label class="control-label" style="width:60px;">完成状态:</label>
                 <div class="controls" style="margin-left:80px;">
@@ -115,8 +117,11 @@
             <h1>景点不存在,或已被删除。请确认</h1>
             <?php endif;?>
 
+            <legend>搜索景点</legend>
+            <div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
+
             <div class="control-group">
-                <label class="control-label" style="width:60px;">请输入ID:</label>
+                <label class="control-label" style="width:60px;">输入名称</label>
                 <div class="controls" style="margin-left:80px;">
                 <input type="text" style="height:28px;margin-left:15px;width:150px;" placeholder="" id="target_viewspot_id" value="<?php if($viewspot_id) echo $viewspot_id;?>">
                 </div>

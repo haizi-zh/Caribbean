@@ -38,8 +38,7 @@
       <th>ID</th>
       <th>景点名称</th>
       <th>排名得分</th>
-      <th>操作</th>
-      <th>编辑标签</th>
+      <th>编辑操作</th>
       <th>景点照片</th>
     </tr>
   </thead>
@@ -52,15 +51,12 @@
           <th><?php echo $list[$k]->zhname;?></br>
             
           </th>
-            <th><?php echo $list[$k]->rating;?></th> 
+            <th><?php echo $list[$k]->hotness;?></th> 
           <th>
             <a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id=<?php echo $list[$k]->_id;?>&nocache=1" target="_blank"  >编辑景点</a>
           </th>
           <th>
-            <a class="btn btn-link btn-danger" href="/admin/taglist/editshop_tag?shop_id=<?php echo $list[$k]->_id;?>" target="_blank"  >编辑标签</a>
-          </th>
-          <th>
-            <a class="btn btn-link btn-primary" href="/admin/viewspot/photo?viewspot_id=<?php echo $list[$k]->_id;?>" >景点照片</a>
+            <a class="btn btn-link btn-primary" href="http://pic.lvxingpai.cn/viewspot/cms?name=<?php echo $list[$k]->zhname;?>" target="_blank" >景点照片</a>
           </th>
 
 

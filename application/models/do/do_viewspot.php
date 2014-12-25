@@ -31,7 +31,7 @@ class Do_viewspot extends CI_Model{
                 'closeHour' => $closeHour,
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
-                'rating' => $rating,       
+                'hotness' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
                 'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
@@ -66,7 +66,7 @@ class Do_viewspot extends CI_Model{
         $data['closeHour'] = $re['0']->closehour;
         $data['priceDesc'] = $re['0']->pricedesc;
         $data['phone'] =$re['0']->tel;
-        $data['ratingsScore'] = $re['0']->rating;
+        $data['ratingsScore'] = $re['0']->hotness;
         $data['visitGuide'] = $re['0']->visitguide;
         $data['antiPit'] = $re['0']->antipit;
         $data['travelGuide'] = $re['0']->trafficinfo;
@@ -95,7 +95,7 @@ class Do_viewspot extends CI_Model{
                 'closeHour' => $closeHour,
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
-                'rating' => $rating,       
+                'hotness' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
                 'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
@@ -104,6 +104,25 @@ class Do_viewspot extends CI_Model{
        $id = new MongoId($data['viewspot_id']);
        return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
     }
+
+    #根据名称name，获取景点id
+    public function get_viewspot_for_name($viewspotname){
+    
+        $viewdata = array();
+        if(!$viewspotname){
+            return array();
+        }
+               
+        $viewdata = array(         
+                'zhName' => isset($viewspotname)?$viewspotname:'',          
+        );
+        
+        $re = $this->cimongo->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
+        
+        $viewspot_id= (string)($re['0']->_id);
+        return  $viewspot_id;  
+    }
+
 
     #foradmin管理员获取所有景点：根据id或name
     public function get_viewspot_list_for_admin($page, $pagesize, $params = array()){
@@ -118,7 +137,7 @@ class Do_viewspot extends CI_Model{
              $viewdata['_id']=(object)$id;
         }
         
-        return $this->cimongo->order_by(array('rating' => 'DESC'))->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
+        return $this->cimongo->order_by(array('hotness' => 'DESC'))->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
     }
 
     #foradmin管理员获取所有景点的数目
@@ -190,7 +209,7 @@ class Do_viewspot extends CI_Model{
                       "isEdited" => $edit
                       );
 
-        $re = $this->cimongo->order_by(array('rating' => 'DESC'))->where( $where )->get( $this->collection_name )->result();
+        $re = $this->cimongo->order_by(array('hotness' => 'DESC'))->where( $where )->get( $this->collection_name )->result();
         return $re;
     }
 
