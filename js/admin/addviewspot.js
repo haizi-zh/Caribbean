@@ -110,7 +110,7 @@ function add_viewspot(){
 		success: function(result){
 		  if(result) {		
 			  alert('景点添加成功');
-			  location.reload();
+			  // location.reload();//保存成功不跳转
 		  }else{
 			  alert('景点添加失败');
 		  }

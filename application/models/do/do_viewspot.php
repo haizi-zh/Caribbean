@@ -34,7 +34,7 @@ class Do_viewspot extends CI_Model{
                 'rating' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
-                'travelGuide' => isset($data['travelGuide'])?$data['travelGuide']:'',
+                'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
         );
 		return $this->cimongo->insert($this->collection_name, $viewspot);
 	}
@@ -69,7 +69,7 @@ class Do_viewspot extends CI_Model{
         $data['ratingsScore'] = $re['0']->rating;
         $data['visitGuide'] = $re['0']->visitguide;
         $data['antiPit'] = $re['0']->antipit;
-        $data['travelGuide'] = $re['0']->travelguide;
+        $data['travelGuide'] = $re['0']->trafficinfo;
 
         return  $data;
     }
@@ -98,7 +98,7 @@ class Do_viewspot extends CI_Model{
                 'rating' => $rating,       
                 'visitGuide' => isset($data['visitGuide'])?$data['visitGuide']:'',
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
-                'travelGuide' => isset($data['travelGuide'])?$data['travelGuide']:'',
+                'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
         );
        
        $id = new MongoId($data['viewspot_id']);
@@ -118,7 +118,7 @@ class Do_viewspot extends CI_Model{
              $viewdata['_id']=(object)$id;
         }
         
-        return $this->cimongo->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
+        return $this->cimongo->order_by(array('rating' => 'DESC'))->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
     }
 
     #foradmin管理员获取所有景点的数目
@@ -148,7 +148,6 @@ class Do_viewspot extends CI_Model{
             'isEdited' => $isEdited
         );
         
-        // return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->get_where($this->collection_name, $data, $pagesize, $offset)->result();
         return $this->cimongo->like('address', $viewdata, 'im', FALSE, TRUE)->get($this->collection_name, $pagesize, $offset)->result();  
 
     }
@@ -191,7 +190,7 @@ class Do_viewspot extends CI_Model{
                       "isEdited" => $edit
                       );
 
-        $re = $this->cimongo->where( $where )->get( $this->collection_name )->result();
+        $re = $this->cimongo->order_by(array('rating' => 'DESC'))->where( $where )->get( $this->collection_name )->result();
         return $re;
     }
 

@@ -37,6 +37,7 @@
       <th>序号</th>
       <th>ID</th>
       <th>景点名称</th>
+      <th>排名得分</th>
       <th>操作</th>
       <th>编辑标签</th>
       <th>景点照片</th>
@@ -48,10 +49,10 @@
     <tr>
           <th><?php echo $k+$offset+1;?></th>
           <th><?php echo $list[$k]->_id;?></th>
-          <th><?php echo $list[$k]->name;?></br>
+          <th><?php echo $list[$k]->zhname;?></br>
             
           </th>
-          <!-- <th><input style="width:50px;" value="<?php echo $list[$k]->ratings[score];?>" old-value="<?php echo $list[$k]->ratings[score];?>" name="rank_score" id="<?php echo $list[$k]->_id;?>"  /></th> -->
+            <th><?php echo $list[$k]->rating;?></th> 
           <th>
             <a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id=<?php echo $list[$k]->_id;?>&nocache=1" target="_blank"  >编辑景点</a>
           </th>

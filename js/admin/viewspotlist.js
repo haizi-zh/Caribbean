@@ -71,11 +71,11 @@ $('#isEdited').click(function(){
 	
 })
 
-function table_html(index, mid, name) {
+function table_html(index, mid, name, rank_score) {
 	var strHtml = '<tr><th>'
 					+ index + '</th><th>'
 					+ mid + '</th><th>'
-					+ name + '</br></th><th><a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id='
+					+ name + '</br></th><th>' + rank_score + '</th><th><a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id='
 					+ mid + '&nocache=1" target="_blank"  >编辑景点</a></th><th><a class="btn btn-link btn-danger" href="/admin/taglist/editshop_tag?shop_id='
 					+ mid + '" target="_blank"  >编辑标签</a></th><th><a class="btn btn-link btn-primary" href="/admin/viewspot/photo?viewspot_id='
 					+ mid + '" >景点照片</a></th></tr>';
@@ -106,7 +106,7 @@ function select_city(){
                 $("#pages").empty();
 
 			  	for (var i in obj) {
-			  		 viewspotlist = table_html(i, obj[i]._id.$id.toString(), obj[i].zhname);
+			  		 viewspotlist = table_html(i, obj[i]._id.$id.toString(), obj[i].zhname, obj[i].rating);
 			  		 $("#J_viewspot_table").append(viewspotlist);
 			  	}
 
