@@ -40,7 +40,7 @@ class viewspotlist extends ZB_Controller {
 		$this->load->model('mo_geosql');
 		$re = $this->mo_geosql->get_viewspot_foradmin($area, $country, $city);
 		$midSQL = $re[0]['mid'];
-       
+
         //切换到mongo数据库
 		$this->load->model("do/do_viewspot");
 	    $re = $this->do_viewspot->get_viewspot_by_midSQL($midSQL, $isEdited);
