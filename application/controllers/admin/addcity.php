@@ -2,7 +2,7 @@
 @header('Content-type: text/html;charset=utf-8');
 class Addcity extends ZB_Controller {
 		
-	const PAGE_ID = 'Addcity';
+	const PAGE_ID = 'addcity';
 	public function __construct(){
 		parent::__construct();
 		
