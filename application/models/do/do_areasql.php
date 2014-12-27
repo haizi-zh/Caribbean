@@ -21,12 +21,4 @@ class Do_areasql extends CI_Model {
 		return $result;
 	}
 
-	#根据地域id获取国家列表
-	public function get_countries_by_area($area_id){
-		$this->db->select('id');
-		$this->db->select('name');
-		$this->db->where('area_id', $area_id);
-		$query = $this->db->get('zb_country');
-		return $query->result_array();
-	}
 }
