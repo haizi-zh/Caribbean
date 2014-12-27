@@ -56,7 +56,7 @@ function select_city(){
                 $("#name").val('');
                 $("#id").val('');
 			  	for (var i in obj) {
-			  		 citylist = table_html(i, obj[i].mid, obj[i].fullName, obj[i].mid);
+			  		 citylist = table_html(i, obj[i].mid, obj[i].name, obj[i].mid);
 			  		 $("#J_city_table").append(citylist);
 			  	}
 

@@ -64,12 +64,6 @@ class Mo_geography extends ZB_Model {
 	public function add_city($data){
 		return $this->do_city->add($data);
 	}
-	#更新一个商家
-	public function update_city($data){
-		return $this->do_city->update($data);
-	}
-
-	
 
 	#获取全部地域
 	public function get_all_areas(){
