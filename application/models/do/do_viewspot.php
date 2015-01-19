@@ -2,7 +2,7 @@
 #景点data model
 class Do_viewspot extends CI_Model{
     
-    var $collection_name = 'ViewSpotEdit';
+    var $collection_name = 'ViewSpot';
 
 	function __construct(){
     	parent::__construct();
