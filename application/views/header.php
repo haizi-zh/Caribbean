@@ -56,7 +56,7 @@ if ($head_city_id && (!isset($city_id) || !$city_id || !$city_info)) {
 <meta property="wb:webmaster" content="aa9494be029a7677" />
 <meta property="qc:admins" content="5447241216211631611006375" />
 
-<link href="/favicon.ico" rel="icon" type="image/gif">
+<link href="/favicon.ico" rel="shortcut icon" type="image/gif">
 <meta name="baidu-site-verification" content="AGYtanqceJ" />
 <meta name="google-site-verification" content="M6lXsWQuu4XEeubo6P8wIr9ELw3CfVgSy-9HzgTLhqc" />
 <link rel="stylesheet" type="text/css" href="<?php echo $css_domain;?>/css/common.css?v=<?php echo $js_version;?>"/>

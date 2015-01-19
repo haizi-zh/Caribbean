@@ -80,13 +80,14 @@ class Do_viewspot extends CI_Model{
         $rating = floatval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  ;
         $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
-        $isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
+        //$isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
 
         $viewspot = array(
                 //'country' => array('zhName'=>isset($data['country'])?$data['country']:''),
                 //'locList' => array('zhName'=>isset($data['province'])?$data['province']:''),
                 //'city' => isset($data['city'])?$data['city']:'',
-                'isEdited' => $isEdited,
+                //'isEdited' => $isEdited,
+                'isEdited' => (boolean)TRUE,
                 'zhName' => isset($data['name'])?$data['name']:'',
                 'desc' => isset($data['description'])?$data['description']:'',
                 'address' => isset($data['address'])?$data['address']:'',
@@ -206,7 +207,8 @@ class Do_viewspot extends CI_Model{
                       "targets" => array(
                                           '$in'=> array( (object)$id )
                                         ),
-                      "isEdited" => $edit
+                      "isEdited" => $edit,
+                      "taoziEnabled" => (boolean)TRUE
                       );
 
         $re = $this->cimongo->order_by(array('hotness' => 'DESC'))->where( $where )->get( $this->collection_name )->result();

@@ -12,7 +12,7 @@
             <div style="display:none" id="viewspot_id"><?php echo $viewspot['viewspot_id'];?></div>
 
 
-            <div class="control-group">
+            <!--<div class="control-group">
                 <label class="control-label" style="width:60px;">完成状态:</label>
                 <div class="controls" style="margin-left:80px;">
                     <select id="isEdited" >
@@ -21,7 +21,7 @@
                             <option value="1"><?php echo "已经审核";?></option>
                     </select>
                 </div>
-            </div>
+            </div>-->
 
             <div class="control-group">
               	<label class="control-label" style="width:60px;">景点名称:</label>
@@ -46,16 +46,10 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" style="width:60px;">营业信息:</label>
+                <label class="control-label" style="width:60px;">开放信息:</label>
                 <div class="controls" style="margin-left:80px;">
-                    <span style="width:60px;">&nbsp;&nbsp;开放信息:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openTime" value="<?php echo $viewspot['openTime'];?>">
+					<textarea rows="4" id="openTime" style="width:600px;"><?php echo $viewspot['openTime'];?></textarea>
 
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起始时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openHour" value="<?php echo $viewspot['openHour'];?>"> 
-
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="closeHour" value="<?php echo $viewspot['closeHour'];?>"> 
                 </div>
             </div>
 
@@ -63,7 +57,7 @@
             <div class="control-group">
                 <label class="control-label" style="width:60px;">景点门票:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="priceDesc" value="<?php echo $viewspot['priceDesc'];?>">
+				  <textarea rows="4" id="priceDesc" style="width:600px;"><?php echo $viewspot['priceDesc'];?></textarea>
                 </div>
             </div>
 
