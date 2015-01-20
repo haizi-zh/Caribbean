@@ -10,6 +10,20 @@ class Do_hotel extends CI_Model{
         $this->cimongo->switch_db('poi');
 	}
 
+    #由SQL数据库mid查询monggo数据库内容
+    public function get_hotel_by_midSQL($midSQL){
+
+        $id = new MongoId($midSQL);
+        $where = array(
+                      "targets" => array(
+                                          '$in'=> array( (object)$id )
+                                        )
+                      );
+
+        $re = $this->cimongo->order_by(array('rating' => 'DESC'))->where( $where )->get( $this->collection_name )->result();
+        return $re;
+    }
+
     #根据名称，获取酒店列表
     public function get_hotel_by_name($page, $pagesize, $params = array()){
     
