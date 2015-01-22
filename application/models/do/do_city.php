@@ -2,7 +2,7 @@
 #城市
 class Do_city extends CI_Model {
 
-	 var $collection_name = 'LocalityEdit';
+	 var $collection_name = 'Locality';
 
 	function __construct(){
 		parent::__construct();

@@ -85,6 +85,16 @@
                 </div>
             </div>
 
+            <?php if($viewspot['tips']): ?>
+            <div class="control-group" >
+                <label class="control-label" style="width:60px;">提示:</label>
+                <div class="controls" style="margin-left:80px;border:2px double #3299CC;">              
+                    <?php foreach( $viewspot['tips'] as $key=>$value){ echo "<br>".($key+1).".".$value['title']; echo "<br>".$value['desc']; } ?>
+                </div>
+            </div>
+            <?php endif; ?>
+    
+
             <div class="control-group">
                 <label class="control-label" style="width:60px;">防坑指南:</label>
                 <div class="controls" style="margin-left:80px;">
@@ -92,14 +102,14 @@
                 </div>
             </div>
 
+            
+
             <div class="control-group">
                 <label class="control-label" style="width:60px;">交通指南:</label>
                 <div class="controls" style="margin-left:80px;">
                   <textarea rows="10" id="travelGuide" style="width:600px;"><?php echo $viewspot['travelGuide'];?></textarea>
                 </div>
             </div>
-
-
 
             <input type="hidden" name="has_map" id="has_map" value="<?php echo $has_map;?>" />
             <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="edit_viewspot();">编辑景点</button>

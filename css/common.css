@@ -647,8 +647,10 @@ a.common_btn1:hover {background: #c60c30;text-decoration: none;}
 
 
 
-
+/* 回到顶端 */
 .quotes{font-family:宋体;margin:15px 0;clear:both;}
 .quotes a,.quotes .disabled{text-align:center;display:inline-block;height:34px;width:34px;border:1px solid #dbdbdb;line-height:34px;color:#464646;border-radius:3px;margin:0 2px;}
 .quotes a:hover,.quotes a.current{border:1px solid #14a7c6;color:#ffffff;background:#16badd;text-decoration:none;font-weight:bold;}
 
+.backToTop{right:10px;bottom: 0px!important;bottom: auto;position:fixed;_position:absolute;width:43px;height:43px;background: url(/images/admin/gotop.png) no-repeat 0 0;cursor: pointer;z-index:1990;bottom:0;display:none;}
+.backToTop:hover{background-position: 0 -43px;-webkit-transition:background 0.2s ease 0s;-moz-transition:background 0.2s ease 0s;-o-transition:background 0.2s ease 0s;-ms-transition:background 0.2s ease 0s;transition:background 0.2s ease 0s;}

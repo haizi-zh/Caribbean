@@ -13,6 +13,8 @@ class Do_countrysql extends CI_Model {
 		$this->db->select('id');
 		$this->db->select('name');
 		$this->db->where('abroad', $area_id);
+		$this->db->where('is_online', '1'); // 默认是0 不显示，1是显示上线
+
 		if($area_id==0){
 			$this->db->where('distType', '5');
 		}else{

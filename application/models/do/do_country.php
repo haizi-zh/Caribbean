@@ -2,7 +2,7 @@
 #国家
 class Do_country extends CI_Model {
 
-    var $collection_name = 'LocalityEdit';
+    var $collection_name = 'Locality';
 
 	function __construct(){
 		parent::__construct();

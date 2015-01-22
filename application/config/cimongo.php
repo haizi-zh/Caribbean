@@ -2,19 +2,24 @@
 
 // Generally localhost
 if($_SERVER['SERVER_NAME'] == 'localhost'){
-    $config['host'] = "127.0.0.1";//"api.lvxingpai.cn";    
+    $config['host'] = "127.0.0.1";    
 }else{
-    $config['host'] = "api.lvxingpai.cn";//"api.lvxingpai.cn";    
+    $config['host'] = "localhost";//"api.lvxingpai.cn";    
 }
 
 
 // Generally 27017
 $config['port'] = 27017;
 // The database you want to work on
-$config['db'] = "misc";//"poi";//"geo"
-// Required if Mongo is running in auth mode
-// $config['user'] = "wanglu";
-// $config['pass'] = "1";
+if($_SERVER['SERVER_NAME'] == 'localhost'){
+	$config['db'] = "misc";
+}else{
+	$config['db'] = "admin";//"poi";//"geo"
+	// Required if Mongo is running in auth mode
+	$config['user'] = "cms";
+    $config['pass'] = "ciJ5mum6uct2uJ0hi";
+}
+
 
 /*  
  * Defaults to FALSE. If FALSE, the program continues executing without waiting for a database response. 

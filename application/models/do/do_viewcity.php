@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'LocalityEdit';
+	var $collection_name = 'Locality';
 
 	function __construct()
 	{

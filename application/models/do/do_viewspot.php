@@ -70,6 +70,7 @@ class Do_viewspot extends CI_Model{
         $data['visitGuide'] = $re['0']->visitguide;
         $data['antiPit'] = $re['0']->antipit;
         $data['travelGuide'] = $re['0']->trafficinfo;
+        $data['tips'] = $re['0']->tips;
 
         return  $data;
     }
@@ -204,11 +205,11 @@ class Do_viewspot extends CI_Model{
         $edit = (boolean)$isEdited;
         $id = new MongoId($midSQL);
         $where = array(
-                      "targets" => array(
+                      "locList._id" => array(
                                           '$in'=> array( (object)$id )
                                         ),
                       "isEdited" => $edit,
-                      "taoziEnabled" => (boolean)TRUE
+                      "cmsReady" => (boolean)TRUE
                       );
 
         $re = $this->cimongo->order_by(array('hotness' => 'DESC'))->where( $where )->get( $this->collection_name )->result();
