@@ -36,14 +36,19 @@ class Do_citysql extends CI_Model {
         
         //城市
         if( $city ){
-			$sql = "SELECT * FROM locality WHERE ";
+			$sql = " SELECT * FROM locality WHERE ";
 			$sql .= " (shortDistrictId like '%{$city}%') ";
 			$sql .= " and distType=6";
 		}else{
 			if( $country ){
-				$sql = "SELECT * FROM locality WHERE ";
+				$sql = " SELECT * FROM locality WHERE ";
 			    $sql .= " (shortDistrictId like '%{$country}%') ";
-			    $sql .= " and distType=5";
+			    if( $area ){
+			    	$sql .= " and distType=3 ";
+			    }else{
+			    	$sql .= " and distType=5 ";
+			    }
+
 			}
 		}
 		$query = $this->db->query($sql);
