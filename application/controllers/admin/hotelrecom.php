@@ -23,7 +23,7 @@ class hotelrecom extends ZB_Controller {
 		$params = array();
 
 		if($name){
-			$params['zhName'] = "$name";
+			$params['zhName'] = $name;
 			$page_html = "";
 		}
         

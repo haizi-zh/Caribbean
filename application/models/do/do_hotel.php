@@ -8,7 +8,16 @@ class Do_hotel extends CI_Model{
     	parent::__construct();
     	$this->load->library('cimongo');
         $this->cimongo->switch_db('poi');
+        $this->load->database();
 	}
+
+    #sql加入log操作日志
+    public function insert_log($refrence_id, $business, $data){
+
+        $sql = " INSERT INTO `operation_log` (`id`, `refrence_id`, `business`, `create_time`, `data`) VALUES (NULL, '{$refrence_id}', '{$business}', CURRENT_TIMESTAMP, '{$data}') ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
 
     #由SQL数据库mid查询monggo数据库内容
     public function get_hotel_by_midSQL($midSQL){
@@ -39,7 +48,7 @@ class Do_hotel extends CI_Model{
 
         // 切换数据库地理位置geo->LocalityEdit
         $this->cimongo->switch_db('geo');
-        $result = $this->cimongo->where($params)->get('LocalityEdit')->result();
+        $result = $this->cimongo->where($params)->get('Locality')->result();
 
         if( $result ){       	
         	$id = $result['0']->_id;
@@ -53,20 +62,19 @@ class Do_hotel extends CI_Model{
                                         )
                               );
                 $re_result = $this->cimongo->order_by(array('rating' => 'DESC'))->get_where($this->collection_name, $where, $pagesize, $offset)->result();
+                var_dump($this->cimongo);
                 return $re_result;
 		    }
 
         }           
-
-
     }
 
     #foradmin管理员获取所有酒店的数目
     public function get_hotel_cnt_for_admin($params = array()){
 
-        // 切换数据库地理位置geo->LocalityEdit
+        // 切换数据库地理位置geo->Locality
         $this->cimongo->switch_db('geo');
-        $result = $this->cimongo->where($params)->get('LocalityEdit')->result();
+        $result = $this->cimongo->where($params)->get('Locality')->result();
 
         if( $result ){          
             $id = $result['0']->_id;
@@ -88,19 +96,45 @@ class Do_hotel extends CI_Model{
         return $this->cimongo->where($data)->count_all_results($this->collection_name); 
     }
 
-    #根据id修改推荐酒店
-    public function modify_recommend($ids){
+    #根据_id获取酒店信息
+    public function get_hotel_by_ids($ids){
 
+        $data = array();
         if(!$ids){
             return array();
         }
 
-        $hotel = array(           
+        $id = new MongoId($ids);
+        $re = $this->cimongo->where(array('_id'=>(object)$id))->get($this->collection_name)->result();
+        
+        $data['zhname'] = $re['0']->zhname;
+        $data['hotel_id'] = (string)($re['0']->_id);
+        
+
+        return  $data;
+    }
+
+    #根据id修改推荐酒店
+    public function modify_recommend($ids){
+
+       if(!$ids){
+            return array();
+       }
+
+       $hotel = array(           
                 'editPick' => (boolean)TRUE
-        );
+       );
        
        $id = new MongoId($ids);
-       return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $hotel);
+
+       $hotel_info = $this->get_hotel_by_ids($id);
+       $json_data = json_encode($hotel_info, JSON_UNESCAPED_UNICODE);
+       mysql_query("SET NAMES 'UTF8'");
+       $query = $this->insert_log('', 'recommend_hotel', $json_data);
+        
+       if( $query ){
+           return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $hotel);
+       }
     }
     
 }

@@ -9,7 +9,16 @@ class Do_viewcity extends CI_Model {
 		parent::__construct();
 		$this->load->library('cimongo');
         $this->cimongo->switch_db('geo');
+        $this->load->database();
 	}
+
+    #sql加入log操作日志
+    public function insert_log($refrence_id, $business, $data){
+
+        $sql = " INSERT INTO `operation_log` (`id`, `refrence_id`, `business`, `create_time`, `data`) VALUES (NULL, '{$refrence_id}', '{$business}', CURRENT_TIMESTAMP, '{$data}') ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
 
 	#添加一个城市
 	public function add($data){
@@ -27,7 +36,13 @@ class Do_viewcity extends CI_Model {
 
 		);
 
-		return $this->cimongo->insert($this->collection_name, $citydata);
+        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
+        mysql_query("SET NAMES 'UTF8'");
+        $query = $this->insert_log('', 'add_city', $json_data);
+        
+        if( $query ){
+		      return $this->cimongo->insert($this->collection_name, $citydata);
+        }
 	}
 
 	#更新城市信息
@@ -48,7 +63,13 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
-       return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+       $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
+       mysql_query("SET NAMES 'UTF8'");
+       $query = $this->insert_log('', 'update_city', $json_data);
+        
+       if( $query ){
+           return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+       }
     }
 
     #根据id,获取城市所有信息

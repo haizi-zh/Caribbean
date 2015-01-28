@@ -8,7 +8,51 @@ class Do_viewspot extends CI_Model{
     	parent::__construct();
     	$this->load->library('cimongo');
         $this->cimongo->switch_db('poi');
+        $this->load->database();
 	}
+    
+    # 数组转码urlencode
+    public function arrayRecursive(&$array, $function, $apply_to_keys_also = false)  
+    {  
+        static $recursive_counter = 0;  
+        if (++$recursive_counter > 1000) {  
+            die('possible deep recursion attack');  
+        }  
+        foreach ($array as $key => $value) {  
+            if (is_array($value)) {  
+                arrayRecursive($array[$key], $function, $apply_to_keys_also);  
+            }else {  
+                $array[$key] = $function($value);  
+            }  
+            if ($apply_to_keys_also && is_string($key)) {  
+                $new_key = $function($key);  
+                if ($new_key != $key) {  
+                    $array[$new_key] = $array[$key];  
+                    unset($array[$key]);  
+                }  
+            }  
+        }  
+        $recursive_counter--;  
+    }                
+
+    // 将数组转换成Json格式，中文需要进行URL编码处理  
+    public function Array2Json($array) {  
+        $this->arrayRecursive($array, 'urlencode', true);  
+        $json = json_encode($array);  
+        $json = urldecode($json);  
+        // ext需要不带引号的bool类型  
+        $json = str_replace("\"false\"","false", $json);  
+        $json = str_replace("\"true\"","true", $json);  
+        return $json;  
+    }                                                          
+
+    #sql加入log操作日志
+    public function insert_log($refrence_id, $business, $data){
+
+        $sql = " INSERT INTO `operation_log` (`id`, `refrence_id`, `business`, `create_time`, `data`) VALUES (NULL, '{$refrence_id}', '{$business}', CURRENT_TIMESTAMP, '{$data}') ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
 	
     #添加景点
     public function add($data){
@@ -36,10 +80,16 @@ class Do_viewspot extends CI_Model{
                 'antiPit' => isset($data['antiPit'])?$data['antiPit']:'',
                 'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
         );
-		return $this->cimongo->insert($this->collection_name, $viewspot);
+
+        $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
+        mysql_query("SET NAMES 'UTF8'");
+        $query = $this->insert_log('', 'add_viewspot', $json_data);
+        
+        if( $query ){
+            return $this->cimongo->insert($this->collection_name, $viewspot);
+        }
 	}
     
-
     #根据_id获取景点信息
     public function get_viewspotinfo_by_ids($ids){
 
@@ -104,7 +154,14 @@ class Do_viewspot extends CI_Model{
         );
        
        $id = new MongoId($data['viewspot_id']);
-       return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
+
+       $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
+       mysql_query("SET NAMES 'UTF8'");
+       $query = $this->insert_log('', 'update_viewspot', $json_data);
+        
+       if( $query ){
+            return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
+       }
     }
 
     #根据名称name，获取景点id
