@@ -157,7 +157,7 @@ class Do_viewspot extends CI_Model{
 
        $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log('', 'update_viewspot', $json_data);
+       $query = $this->insert_log($data['viewspot_id'], 'update_viewspot', $json_data);
         
        if( $query ){
             return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);

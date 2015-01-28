@@ -65,7 +65,7 @@ class Do_viewcity extends CI_Model {
        $id = new MongoId($citydata['city_id']);
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log('', 'update_city', $json_data);
+       $query = $this->insert_log($citydata['city_id'], 'update_city', $json_data);
         
        if( $query ){
            return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);

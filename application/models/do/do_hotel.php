@@ -130,7 +130,7 @@ class Do_hotel extends CI_Model{
        $hotel_info = $this->get_hotel_by_ids($id);
        $json_data = json_encode($hotel_info, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log('', 'recommend_hotel', $json_data);
+       $query = $this->insert_log($ids, 'recommend_hotel', $json_data);
         
        if( $query ){
            return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $hotel);
