@@ -1,5 +1,5 @@
 <?php
-#点评操作类
+
 class Mo_adminuser extends CI_Model {
 
 	function __construct(){

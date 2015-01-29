@@ -18,6 +18,7 @@ class Do_viewspot extends CI_Model{
         if (++$recursive_counter > 1000) {  
             die('possible deep recursion attack');  
         }  
+        
         foreach ($array as $key => $value) {  
             if (is_array($value)) {  
                 arrayRecursive($array[$key], $function, $apply_to_keys_also);  

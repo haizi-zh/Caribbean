@@ -9,7 +9,7 @@
 		<div class="ZB_content ">
 
 				<div class="sign_title">
-					<p>登录赞佰</p>
+					<p>登录</p>
 				</div>
 				<div class="sign">
 					<div class="sign_wrap">
