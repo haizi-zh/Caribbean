@@ -27,15 +27,13 @@
 
 
 <!-- 配置文件 -->
-<script src="<?php echo $js_domain;?>/js/admin/artDialog/jquery.artDialog.js?skin=idialog" type="text/javascript" type="text/javascript"></script>
-<script src="<?php echo $js_domain;?>/js/admin/artDialog/artDialog.js?skin=idialog" type="text/javascript" type="text/javascript"></script>
-<script src="<?php echo $js_domain;?>/js/admin/layer/layer.min.js?skin=idialog" type="text/javascript" type="text/javascript"></script>
+<script src="<?php echo $js_domain;?>/js/admin/layer/layer.min.js" type="text/javascript" type="text/javascript"></script>
 <?php if(isset($pageid) && $pageid):?>
-<script src="<?php echo $js_domain;?>/js/admin/<?php echo $pageid?>.js?v=<?php echo $js_version;?>" type="text/javascript"></script>
+<script src="<?php echo $js_domain;?>/js/admin/<?php echo $pageid?>.js" type="text/javascript"></script>
 <?php endif;?>
 
-<script src="<?php echo $js_domain;?>/js/My97DatePicker/WdatePicker.js?v=<?php echo $js_version;?>" type="text/javascript" type="text/javascript"></script>
-<script src="<?php echo $js_domain;?>/js/admin/jquery-ui-1.10.4.js?v=<?php echo $js_version;?>" type="text/javascript" type="text/javascript"></script>
+<script src="<?php echo $js_domain;?>/js/My97DatePicker/WdatePicker.js" type="text/javascript" type="text/javascript"></script>
+<script src="<?php echo $js_domain;?>/js/admin/jquery-ui-1.10.4.js>" type="text/javascript" type="text/javascript"></script>
 
 
 <!--
