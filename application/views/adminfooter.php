@@ -33,7 +33,7 @@
 <?php endif;?>
 
 <script src="<?php echo $js_domain;?>/js/My97DatePicker/WdatePicker.js" type="text/javascript" type="text/javascript"></script>
-<script src="<?php echo $js_domain;?>/js/admin/jquery-ui-1.10.4.js>" type="text/javascript" type="text/javascript"></script>
+<script src="<?php echo $js_domain;?>/js/admin/jquery-ui-1.10.4.js" type="text/javascript" type="text/javascript"></script>
 
 
 <!--
