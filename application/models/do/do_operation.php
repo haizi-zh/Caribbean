@@ -100,8 +100,6 @@ class Do_operation extends CI_Model{
                 'cover' => isset($data['cover'])?$data['cover']:'',
                 'link' => isset($data['link'])?$data['link']:'',
                 'content' => isset($data['content'])?$data['content']:'',
-
-
         );
 
        $id = new MongoId($data['operation_id']);

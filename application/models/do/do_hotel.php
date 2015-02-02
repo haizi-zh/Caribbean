@@ -6,7 +6,7 @@ class Do_hotel extends CI_Model{
 
     function __construct(){
     	parent::__construct();
-    	$this->load->library('cimongo');
+    	  $this->load->library('cimongo');
         $this->cimongo->switch_db('poi');
         $this->load->database();
 	}
@@ -46,7 +46,7 @@ class Do_hotel extends CI_Model{
              $data['_id']=(object)$id;
         }
 
-        // 切换数据库地理位置geo->LocalityEdit
+        // 切换数据库地理位置geo->Locality
         $this->cimongo->switch_db('geo');
         $result = $this->cimongo->where($params)->get('Locality')->result();
 
@@ -63,7 +63,7 @@ class Do_hotel extends CI_Model{
                               );
                 $re_result = $this->cimongo->order_by(array('rating' => 'DESC'))->get_where($this->collection_name, $where, $pagesize, $offset)->result();
                 return $re_result;
-		    }
+		      }
 
         }           
     }
