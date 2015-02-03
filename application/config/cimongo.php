@@ -14,8 +14,7 @@ $config['port'] = 27017;
 if($_SERVER['SERVER_NAME'] == 'localhost'){
 	$config['db'] = "misc";
 }else{
-	$config['db'] = "admin";//"poi";//"geo"
-	// Required if Mongo is running in auth mode
+	$config['db'] = "admin";
 	$config['user'] = "cms";
     $config['pass'] = "ciJ5mum6uct2uJ0hi";
 }
