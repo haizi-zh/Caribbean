@@ -82,13 +82,11 @@ class Do_viewspot extends CI_Model{
                 'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
         );
 
+        $this->cimongo->insert($this->collection_name, $viewspot);
+        
         $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        $query = $this->insert_log('', 'add_viewspot', $json_data);
-        
-        if( $query ){
-            return $this->cimongo->insert($this->collection_name, $viewspot);
-        }
+        return  $this->insert_log('', 'add_viewspot', $json_data);
 	}
     
     #根据_id获取景点信息
@@ -156,13 +154,11 @@ class Do_viewspot extends CI_Model{
        
        $id = new MongoId($data['viewspot_id']);
 
+       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
+
        $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
-       mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log($data['viewspot_id'], 'update_viewspot', $json_data);
-        
-       if( $query ){
-            return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
-       }
+       mysql_query("SET NAMES 'UTF8'"); 
+       return  $this->insert_log($data['viewspot_id'], 'update_viewspot', $json_data);
     }
 
     #根据名称name，获取景点id

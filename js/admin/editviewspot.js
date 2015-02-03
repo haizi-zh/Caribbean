@@ -102,10 +102,10 @@ function edit_viewspot(){
 		data: ajaxData,
 		cache: false,
 		success: function(result){
-            console.log(result);
+            console.group(result);
 			if(result){		
 				alert('编辑景点成功');
-				location.reload();
+				// location.reload();
 			}else{
 				alert('编辑景点失败');
 			}

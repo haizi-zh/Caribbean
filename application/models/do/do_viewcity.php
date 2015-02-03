@@ -36,13 +36,11 @@ class Do_viewcity extends CI_Model {
 
 		);
 
+        $this->cimongo->insert($this->collection_name, $citydata);
+
         $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        $query = $this->insert_log('', 'add_city', $json_data);
-        
-        if( $query ){
-		      return $this->cimongo->insert($this->collection_name, $citydata);
-        }
+		return  $this->insert_log('', 'add_city', $json_data);
 	}
 
 	#更新城市信息
@@ -63,13 +61,12 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
+
+       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log($citydata['city_id'], 'update_city', $json_data);
-        
-       if( $query ){
-           return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
-       }
+       return  $this->insert_log($citydata['city_id'], 'update_city', $json_data);
     }
 
     #根据id,获取城市所有信息

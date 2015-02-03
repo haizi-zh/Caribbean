@@ -61,13 +61,11 @@ class Do_operation extends CI_Model{
                 'content' => isset($data['content'])?$data['content']:'',
         );
 
+        $this->cimongo->insert($this->collection_name, $operation);
+
         $json_data = json_encode($operation, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        $query = $this->insert_log('', 'add_operation', $json_data);
-        
-        if( $query ){
-            return $this->cimongo->insert($this->collection_name, $operation);
-        }
+        return  $this->insert_log('', 'add_operation', $json_data);
     }
 
     #根据_id获取运营信息
@@ -103,13 +101,11 @@ class Do_operation extends CI_Model{
         );
 
        $id = new MongoId($data['operation_id']);
+
+       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $operation);
        $json_data = json_encode($operation, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log($data['operation_id'], 'update_operation', $json_data);
-        
-       if( $query ){
-           return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $operation);
-       }
+       return  $this->insert_log($data['operation_id'], 'update_operation', $json_data);
     }
     
 }
