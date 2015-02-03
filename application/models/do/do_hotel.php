@@ -108,8 +108,6 @@ class Do_hotel extends CI_Model{
         
         $data['zhname'] = $re['0']->zhname;
         $data['hotel_id'] = (string)($re['0']->_id);
-        
-
         return  $data;
     }
 
@@ -125,7 +123,6 @@ class Do_hotel extends CI_Model{
        );
        
        $id = new MongoId($ids);
-
        $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $hotel);
 
        $hotel_info = $this->get_hotel_by_ids($id);

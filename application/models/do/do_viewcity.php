@@ -61,7 +61,6 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
-
        $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
 
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);

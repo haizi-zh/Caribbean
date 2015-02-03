@@ -101,8 +101,8 @@ class Do_operation extends CI_Model{
         );
 
        $id = new MongoId($data['operation_id']);
-
        $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $operation);
+       
        $json_data = json_encode($operation, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
        return  $this->insert_log($data['operation_id'], 'update_operation', $json_data);

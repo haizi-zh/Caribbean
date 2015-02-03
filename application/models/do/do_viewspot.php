@@ -153,7 +153,6 @@ class Do_viewspot extends CI_Model{
         );
        
        $id = new MongoId($data['viewspot_id']);
-
        $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
 
        $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
