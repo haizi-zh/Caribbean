@@ -9,10 +9,21 @@ class home extends ZB_Controller {
 		$data=array();
 		$data['pageid'] = self::PAGE_ID; 
 
+
+        // $this->load->library('cimongo');
+        // $re = $this->cimongo->switch_mongo_host('127.0.0.1', 28018, "cms", "ciJ5mum6uct2uJ0hi", "admin", TRUE);
+        // $this->cimongo->switch_db('poi');
+        // $viewdata = array(         
+        //         'zhName' => '大皇宫'//'黔东南鼓楼旅馆'    "cms", "ciJ5mum6uct2uJ0hi"     
+        // );
         
+        // $re = $this->cimongo->get_where( 'ViewSpot', $viewdata)->result();
+        // var_dump($re);
 
-
-
+        // $this->load->library('cimongo');
+        // $this->load->model("do/do_viewspot");
+        // $re = $this->do_viewspot->get_viewspotinfo_by_ids('547bfe2eb8ce043eb2d88eee');
+        // var_dump($re);
 
  		#load page
 		$this->load->admin_view('admin/home', $data);		

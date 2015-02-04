@@ -9,7 +9,7 @@ class Do_hotel extends CI_Model{
     	  $this->load->library('cimongo');
         $this->cimongo->switch_db('poi');
         $this->load->database();
-	}
+	  }
 
     #sql加入log操作日志
     public function insert_log($refrence_id, $business, $data){

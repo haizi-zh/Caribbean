@@ -28,28 +28,27 @@
             <div class="control-group">
                 <label class="control-label" style="width:60px;">详细地址:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <textarea rows="2" id="address" style="width:600px;"></textarea>
+                  <textarea rows="4" id="address" style="width:600px;"></textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">营业信息:</label>
                 <div class="controls" style="margin-left:80px;">
+
                     <span style="width:60px;">&nbsp;&nbsp;开放信息:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openTime"> 
+                    <textarea rows="4" id="openTime" style="width:500px;"></textarea><br>
 
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起始时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openHour"> 
+                    <span style="width:60px;">&nbsp;&nbsp;游玩时间:</span>
+                    <textarea rows="4" id="openHour" style="width:500px;"></textarea>
 
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="closeHour"> 
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">景点门票:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="priceDesc">
+                  <textarea rows="4" id="priceDesc" style="width:600px;"></textarea>  
                 </div>
             </div>
                         

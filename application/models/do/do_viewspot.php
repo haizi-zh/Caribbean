@@ -59,7 +59,6 @@ class Do_viewspot extends CI_Model{
     public function add($data){
 
         $rating = floatval( (isset($data['ratingsScore'])?$data['ratingsScore']:'') );
-        $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         $isEdited = (bool)0;
 
@@ -72,8 +71,7 @@ class Do_viewspot extends CI_Model{
                 'desc' => isset($data['description'])?$data['description']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
-                'openHour' => $openHour,
-                'closeHour' => $closeHour,
+                'timeCostDesc' => isset($data['openHour'])?$data['openHour']:'',
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
                 'hotness' => $rating,       
@@ -111,8 +109,8 @@ class Do_viewspot extends CI_Model{
         
         $data['address'] = $re['0']->address;
         $data['openTime'] = $re['0']->opentime;
-        $data['openHour'] = $re['0']->openhour;
-        $data['closeHour'] = $re['0']->closehour;
+        $data['openHour'] = $re['0']->timecostdesc;
+        // $data['closeHour'] = $re['0']->closehour;
         $data['priceDesc'] = $re['0']->pricedesc;
         $data['phone'] =$re['0']->tel;
         $data['ratingsScore'] = $re['0']->hotness;
@@ -128,7 +126,6 @@ class Do_viewspot extends CI_Model{
     public function update($data){
 
         $rating = floatval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  ;
-        $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         //$isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
 
@@ -142,8 +139,7 @@ class Do_viewspot extends CI_Model{
                 'desc' => isset($data['description'])?$data['description']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
-                'openHour' => $openHour,
-                'closeHour' => $closeHour,
+                'timeCostDesc' =>  isset($data['openHour'])?$data['openHour']:'',
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
                 'hotness' => $rating,       

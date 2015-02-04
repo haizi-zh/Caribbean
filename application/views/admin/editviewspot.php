@@ -48,14 +48,13 @@
             <div class="control-group">
                 <label class="control-label" style="width:60px;">营业信息:</label>
                 <div class="controls" style="margin-left:80px;">
+
                     <span style="width:60px;">&nbsp;&nbsp;开放信息:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openTime" value="<?php echo $viewspot['openTime'];?>">
+                    <textarea rows="4" id="openTime" style="width:500px;" value="<?php echo $viewspot['openTime'];?>"><?php echo $viewspot['openTime'];?></textarea><br>
 
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;起始时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="openHour" value="<?php echo $viewspot['openHour'];?>"> 
+                    <span style="width:60px;">&nbsp;&nbsp;游玩时间:</span>
+                    <textarea rows="4" id="openHour" style="width:500px;" value="<?php echo $viewspot['openHour'];?>"><?php echo $viewspot['openHour'];?></textarea>
 
-                    <span style="width:60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭时间:</span>
-                    <input type="text" style="height:25px;width:100px" placeholder="" id="closeHour" value="<?php echo $viewspot['closeHour'];?>"> 
                 </div>
             </div>
 
@@ -63,7 +62,7 @@
             <div class="control-group">
                 <label class="control-label" style="width:60px;">景点门票:</label>
                 <div class="controls" style="margin-left:80px;">
-				  <textarea rows="4" id="priceDesc" style="width:600px;"><?php echo $viewspot['priceDesc'];?></textarea>
+				  <textarea rows="4" id="priceDesc" style="width:600px;" ><?php echo $viewspot['priceDesc'];?></textarea>
                 </div>
             </div>
 
