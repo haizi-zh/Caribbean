@@ -54,7 +54,7 @@ class Cimongo_base {
 			show_error("The MongoDB PECL extension has not been installed or enabled", 500);
 		}
 		$this->CI =& get_instance();
-		$this->repl_connection_string(); // repconnection_string();
+		$this->connection_string();
 		$this->connect();
 	}
 
@@ -126,62 +126,13 @@ class Cimongo_base {
 	 * @since v1.0.0
 	 */
 	private function connect(){
-		$options = $this->conn_options;
+		$options = array();
 		try{
 			$this->connection = new MongoClient($this->connection_string, $options);
 			$this->db = $this->connection->{$this->dbname};
 			return $this;
 		}catch (MongoConnectionException $e){
 			show_error("Unable to connect to MongoDB: {$e->getMessage()}", 500);
-		}
-	}
-
-	private function build_server_node($conf, $dbname) {
-		$host = trim($conf['host']);
-		$port = trim($conf['port']);
-		$user = trim($conf['user']);
-		$pass = trim($conf['pass']);
-
-		$connection_string = "";
-
-		if (empty($host)){
-			show_error("The Host must be set to connect to MongoDB", 500);
-		}
-
-		if (empty($dbname)){
-			show_error("The Database must be set to connect to MongoDB", 500);
-		}
-
-		if ( ! empty($user) && ! empty($pass)){
-			$connection_string .= "{$user}:{$pass}@";
-		}
-
-		if (isset($port) && ! empty($port)){
-			$connection_string .= "{$host}:{$port}";
-		}else{
-			$connection_string .= "{$host}";
-		}
-
-		return $connection_string;
-	}
-
-	private function repl_connection_string() {
-		$this->CI->config->load("cimongo");
-		$this->server_list = $this->CI->config->item('server_list');
-		$this->conn_options = $this->CI->config->item('conn_options');
-		$this->dbname = trim($this->CI->config->item('db'));
-		$this->query_safety = $this->CI->config->item('query_safety');
-
-		if (empty($this->server_list))
-			$this->connection_string();
-		else {
-			$connection_string = "mongodb://";
-			foreach ($this->server_list as $node_conf) {
-				$node_conn_str = $this->build_server_node($node_conf, $this->dbname);
-				$connection_string .= "$node_conn_str,";
-			}
-			$tmp_str = trim($connection_string);
-			$this->connection_string = substr($tmp_str, 0, strlen($tmp_str) - 1);
 		}
 	}
 
@@ -192,8 +143,6 @@ class Cimongo_base {
 	 */
 	private function connection_string(){
 		$this->CI->config->load("cimongo");
-		$this->conn_options = array();
-
 		$this->host	= trim($this->CI->config->item('host'));
 		$this->port = trim($this->CI->config->item('port'));
 		$this->user = trim($this->CI->config->item('user'));
