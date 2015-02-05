@@ -13,7 +13,7 @@ class login extends ZB_Controller {
 		if($uname == '' && $passwd == '') {
 			#设置session
 			$this->session->set_userdata(array('admin_login'=>1, 'power'=>0));
-			echo 0;
+			echo 1;
 		}elseif($uname == '' && $passwd == '') {
 			#设置session
 			$this->session->set_userdata(array('admin_login'=>1, 'power'=>0));

@@ -37,6 +37,11 @@ class Cimongo extends Cimongo_extras {
          */
         public function __construct() {
                 parent::__construct();
+
+                // echo "Construct completed";
+                // var_dump($this->get("Article", 1, 0)->result_array());
+                // $tmp_data = array("name" => "haizi", "date" => 2);
+                // $this->insert("Article", $tmp_data);
         }
 
         /**
