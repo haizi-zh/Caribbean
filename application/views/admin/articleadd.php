@@ -6,34 +6,35 @@
 
 <div class="container" style="margin-top:50px;width:87%;">
 	<div class="row-fluid">
-		<div class="span12 well well-large form-horizontal bs-docs-example">
+		<div class="span12 well well-large form-horizontal bs-docs-example" style="position:relative">
 			<legend>添加内容</legend>                      
             
             <div class="control-group">
                 <label class="control-label" style="width:60px;">TITLE:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="title">
+                    <input type="text" style="height:25px" placeholder="" id="title">
                 </div>
             </div>
 
 			<div class="control-group">
                 <label class="control-label" style="width:60px;">SOURCE:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="source">
+                    <input type="text" style="height:25px" placeholder="" id="source">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">AUTHOR:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="authorName">
+                    <input type="text" style="height:25px" placeholder="" id="authorName" value="小派">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">PUBLISHITIME:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <input type="text" style="height:25px" placeholder="" id="publishTime">
+                    <?php date_default_timezone_set("Asia/Shanghai"); ?>
+                    <input type="text" style="height:25px" placeholder="" id="publishTime" value="<?php echo $today = date("Y-m-d")?>">
                 </div>
             </div>
 
@@ -55,15 +56,11 @@
             <div class="control-group">
                 <label class="control-label" style="width:60px;">CONTENT:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <textarea rows="10" id="content" style="width:600px;"></textarea>
+                    <textarea rows="10" id="content" style="width:600px;"></textarea>
                 </div>
             </div>
 
-
-            <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="add_article();">添加</button>
-			
+            <button class="btn btn-large btn-primary" type="button" style="position:absolute;top:15px;right:20px;" onclick="add_article();">添加</button>			
 	    </div>
-
-	    
 	</div>
 </div>

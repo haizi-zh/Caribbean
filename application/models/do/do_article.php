@@ -12,16 +12,14 @@ class Do_article extends CI_Model {
 	}
 
     #sql加入log操作日志
-    // public function insert_log($refrence_id, $business, $data){
-
-    //     $sql = " INSERT INTO `operation_log` (`id`, `refrence_id`, `business`, `create_time`, `data`) VALUES (NULL, '{$refrence_id}', '{$business}', CURRENT_TIMESTAMP, '{$data}') ";
-    //     $query = $this->db->query($sql);
-    //     return $query;
-    // }
+    public function insert_log($refrence_id, $business, $data){
+        $sql = " INSERT INTO `operation_log` (`id`, `refrence_id`, `business`, `create_time`, `data`) VALUES (NULL, '{$refrence_id}', '{$business}', CURRENT_TIMESTAMP, '{$data}') ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
 
     #foradmin管理员获取所有
     function get_all_Info($page, $pagesize, $params = array()){
-
         $offset = ($page - 1) * $pagesize;
 
         $data = array();
@@ -57,17 +55,16 @@ class Do_article extends CI_Model {
             'source' => isset($data['source']) ? $data['source'] : '',
             'authorName' => isset($data['authorName']) ? $data['authorName'] : '',
             'desc' => isset($data['desc']) ? $data['desc'] : '',
-            'images' => isset($data['images']) ? $data['images'] : '',
-            'publishTime' => isset($data['publishTime']) ? $data['publishTime'] : '',
-            'content' => isset($data['content']) ? $data['content'] : ''
-            // 'enabled' => true
+            'images' => isset($data['image']) ? array(array('url' => $data['image'])) : array(array('url' => '')),
+            'publishTime' => isset($data['publishTime']) ? strtotime($data['publishTime'])*1000 : '',
+            'content' => isset($data['content']) ? $data['content'] : '',
+            'enabled' => true,
         );
         
         $this->cimongo->insert($this->collection_name, $article);
         $json_data = json_encode($article, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        return true;
-        // return  $this->insert_log('', 'add_article', $json_data);
+        return  $this->insert_log('', 'add_article', $json_data);
     }
 
     #根据_id获取运营信息
@@ -100,21 +97,22 @@ class Do_article extends CI_Model {
             'source' => isset($data['source']) ? $data['source'] : '',
             'authorName' => isset($data['authorName']) ? $data['authorName'] : '',
             'desc' => isset($data['desc']) ? $data['desc'] : '',
-            'images' => isset($data['images']) ? $data['images'] : '',
-            'publishTime' => isset($data['publishTime']) ? $data['publishTime'] : '',
-            'content' => isset($data['content']) ? $data['content'] : ''
-            // 'enabled' => true
+            'images' => isset($data['image']) ? array(array('url' => $data['image'])) : array(array('url' => '')),
+            'publishTime' => isset($data['publishTime']) ? strtotime($data['publishTime'])*1000 : '',
+            'content' => isset($data['content']) ? $data['content'] : '',
+            'enabled' => true,
         );
        	$id = new MongoId($data['article_id']);
        	$this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $article);
 
        	$json_data = json_encode($article, JSON_UNESCAPED_UNICODE);
        	mysql_query("SET NAMES 'UTF8'");
-        return true;
-       	// return  $this->insert_log($data['article_id'], 'update_article', $json_data);
+        // return $json_data;
+       	return  $this->insert_log($data['article_id'], 'update_article', $json_data);
     }
 
 }
+
 
 
 

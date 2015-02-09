@@ -31,7 +31,7 @@ function add_article(){
 		success: function(result){
             if(result) {		
                 alert('内容添加成功');
-                // location.href = '/admin/articlelist';
+                location.href = '/admin/articlelist';
             }else{
                 alert('内容添加失败');
             }
