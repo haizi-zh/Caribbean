@@ -37,18 +37,7 @@
                 </div>
             </div>
 
-            <div class="control-group">
-                <label class="control-label" style="width:60px;">upload_url:</label>
-                <div class="controls" style="margin-left:80px;">
-                    <textarea rows="2" id="upload_url" style="width:600px;" value="<?php echo $viewspot['upload_url'];?>"><?php echo $viewspot['upload_url'];?></textarea><br><br>
-                    <form action="" target="" method="post" id="" name="" enctype="multipart/form-data">
-                        <input type="file" id="upload_file" name="file">
-                    </form>
-                    <iframe src="" name="" id="" style="display:none;"></iframe>
-                </div>
-            </div>
-
-            <div class="control-group">
+            <!-- <div class="control-group">
                 <label class="control-label" style="width:60px;">upload_url:</label>
                 <div class="controls" style="margin-left:80px;">
                     <textarea rows="2" id="upload_url" style="width:600px;"value="<?php echo $viewspot['upload_url'];?>"><?php echo $viewspot['upload_url'];?></textarea><br><br>
@@ -62,7 +51,7 @@
                     </form>
                     <iframe src="" name="" id="" style="display:none;"></iframe>
                 </div>
-            </div>
+            </div> -->
 
             
             
