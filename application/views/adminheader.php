@@ -91,9 +91,8 @@
 				<li class="dropdown">
 					<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">微信<b class="caret"></b></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="drop5">
-						<li><a tabindex="-1" href="/admin/wxarticle">微信文章</a></li>
-						<li><a tabindex="-1" href="/admin/wxadd">添加文章</a></li>
-						<li><a tabindex="-1" href="/admin/wxedit">编辑文章</a></li>
+						<li><a tabindex="-1" href="/admin/articlelist">文章一览</a></li>
+						<li><a tabindex="-1" href="/admin/articleadd">添加文章</a></li>
 					</ul>
 				</li>
 				

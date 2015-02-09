@@ -37,7 +37,7 @@
                 </div>
             </div>
 
-            <!-- <div class="control-group">
+            <div class="control-group">
                 <label class="control-label" style="width:60px;">upload_url:</label>
                 <div class="controls" style="margin-left:80px;">
                     <textarea rows="2" id="upload_url" style="width:600px;" value="<?php echo $viewspot['upload_url'];?>"><?php echo $viewspot['upload_url'];?></textarea><br><br>
@@ -46,7 +46,25 @@
                     </form>
                     <iframe src="" name="" id="" style="display:none;"></iframe>
                 </div>
-            </div> -->
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" style="width:60px;">upload_url:</label>
+                <div class="controls" style="margin-left:80px;">
+                    <textarea rows="2" id="upload_url" style="width:600px;"value="<?php echo $viewspot['upload_url'];?>"><?php echo $viewspot['upload_url'];?></textarea><br><br>
+                    <form method="post" action="" enctype="multipart/form-data">
+                          <input name="key" type="hidden" value="<resource_key>">
+                          <input name="x:<custom_name>" type="hidden" value="<custom_value>">
+                          <input name="token" type="hidden" value="<upload_token>">
+                          <input name="file" type="file" />
+                          <input name="crc32" type="hidden" />
+                          <input name="accept" type="hidden" />
+                    </form>
+                    <iframe src="" name="" id="" style="display:none;"></iframe>
+                </div>
+            </div>
+
+            
             
             <div class="control-group">
                 <label class="control-label" style="width:60px;">crawle_url:</label>
