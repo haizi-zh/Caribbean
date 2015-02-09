@@ -69,6 +69,8 @@ class Do_viewspot extends CI_Model{
                 'isEdited' => $isEdited,
                 'zhName' => isset($data['name'])?$data['name']:'',
                 'desc' => isset($data['description'])?$data['description']:'',
+                'upload_url' => isset($data['upload_url'])?$data['upload_url']:'',
+                'crawle_url' => isset($data['crawle_url'])?$data['crawle_url']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
                 'timeCostDesc' => isset($data['openHour'])?$data['openHour']:'',
@@ -107,6 +109,8 @@ class Do_viewspot extends CI_Model{
             $data['description'] = $re['0']->description['desc'];
         }
         
+        $data['upload_url'] = $re['0']->upload_url;
+        $data['crawle_url'] = $re['0']->crawle_url;
         $data['address'] = $re['0']->address;
         $data['openTime'] = $re['0']->opentime;
         $data['openHour'] = $re['0']->timecostdesc;
@@ -137,6 +141,8 @@ class Do_viewspot extends CI_Model{
                 'isEdited' => (boolean)TRUE,
                 'zhName' => isset($data['name'])?$data['name']:'',
                 'desc' => isset($data['description'])?$data['description']:'',
+                'upload_url' => isset($data['upload_url'])?$data['upload_url']:'',
+                'crawle_url' => isset($data['crawle_url'])?$data['crawle_url']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
                 'timeCostDesc' =>  isset($data['openHour'])?$data['openHour']:'',

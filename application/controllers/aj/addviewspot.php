@@ -38,6 +38,8 @@ class addviewspot extends ZB_Controller {
 			$data['city'] = $this->input->post('city', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['description'] = $this->input->post('description', true, '');
+			$data['upload_url'] = $this->input->post('upload_url', true, '');
+			$data['crawle_url'] = $this->input->post('crawle_url', true, '');
 			$data['address'] = $this->input->post('address', true, '');
 			$data['openTime'] = $this->input->post('openTime', true, '');
 			$data['openHour'] = $this->input->post('openHour', true, '');
@@ -87,6 +89,8 @@ class addviewspot extends ZB_Controller {
 			$data['isEdited'] = $this->input->post('isEdited', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['description'] = $this->input->post('description', true, '');
+			$data['upload_url'] = $this->input->post('upload_url', true, '');
+			$data['crawle_url'] = $this->input->post('crawle_url', true, '');
 			$data['address'] = $this->input->post('address', true, '');
 			$data['openTime'] = $this->input->post('openTime', true, '');
 			$data['openHour'] = $this->input->post('openHour', true, '');

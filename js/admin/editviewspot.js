@@ -67,6 +67,8 @@ function edit_viewspot(){
 	isEdited = $("#isEdited").val();
 	name = $("#name").val();
 	description = $("#description").val();
+	upload_url = $("#upload_url").val();
+	crawle_url = $("#crawle_url").val();
 	address = $("#address").val();
 	openTime = $("#openTime").val();
 	openHour = $("#openHour").val();
@@ -84,6 +86,8 @@ function edit_viewspot(){
         isEdited: isEdited,
         name: name,
         description: description,
+        upload_url: upload_url,
+    	crawle_url: crawle_url,
         address: address,
 	    openTime: openTime,
         openHour: openHour,
