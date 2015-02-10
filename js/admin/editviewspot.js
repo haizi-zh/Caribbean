@@ -55,10 +55,55 @@ $('#country').change(function(){
 	});
 })
 
+function table_html(index, mid, name, rank_score, isDone, address) {
+	var strHtml = '<tr><th>'
+					+ index + '</th><th style="height:28px;margin-left:15px;width:250px;">'
+					+ address + '</th><th>'
+					+ name + '</br></th><th>' + rank_score + '</th><th><a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id='
+					+ mid + '&nocache=1" target="_blank"  >编辑景点</a></th><th><a class="btn btn-link btn-primary" href="http://pic.lvxingpai.cn/viewspot/cms?name=' 
+					+ name + '" target="_blank" >景点照片</a>'
+					+ isDone + '</th></tr>';
+
+    return strHtml;
+}
+
 //跳转
 function edit(){
-   id = $("#target_viewspot_id").val();
-   self.location='/admin/editviewspot?viewspot_id='+id+'&viewspot_name='+id;
+   viewspot_name = $("#target_viewspot_id").val();
+
+   var ajaxData = {
+        name: viewspot_name
+    }
+
+	$.ajax({
+		url: "/aj/addviewspot/select_viewspot",
+		type: 'POST',
+		data: ajaxData,
+		cache: false,
+		success: function(result){
+
+			    //获取数据id		  	 
+			    var obj = eval('(' + result + ')');
+
+                $("#J_viewspot_table").empty();
+                $("#pages").empty();
+			  	for (var i in obj) {
+
+			  		 if ( typeof(obj[i].address) == "undefined" )   obj[i].address='';
+
+			  		 var isDone = '';
+                     if(obj[i].isdone){
+                     	isDone = ' 图片已审核';
+                     }
+			  		 viewspotlist = table_html(i, obj[i]._id.$id.toString(), obj[i].zhname, obj[i].hotness, isDone, obj[i].address);
+			  		 $("#J_viewspot_table").append(viewspotlist);
+			  	}
+
+                alert('筛选ok');
+		}
+	});
+
+    // self.location='/admin/editviewspot?viewspot_id='+id+'&viewspot_name='+id;
 }
 
 //编辑景点

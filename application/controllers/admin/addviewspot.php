@@ -23,9 +23,7 @@ class addviewspot extends ZB_Controller {
 		$data['signature'] = $security['signature'];
 		$this->load->admin_view('admin/addviewspot', $data);
 	}
-
-
-	// 
+ 
 	public function repair_score(){
 		$shop_id = $this->input->get("shop_id", true, "");
 		$repair_all = $this->input->get("repair_all", true, '');

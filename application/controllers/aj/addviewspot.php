@@ -110,6 +110,23 @@ class addviewspot extends ZB_Controller {
 			echo json_encode(array('code'=>$e->getCode(),'msg'=>$e->getMessage()));
 		}
 	}
+
+	#选择景点
+	public function select_viewspot(){
+		try{
+
+			$data = array();
+		
+			$viewspotname= $this->input->post('name', true, '');
+			
+			$this->load->model("do/do_viewspot");
+            $re = $this->do_viewspot->get_viewspotinfo_by_name($viewspotname);
+            echo json_encode($re);
+
+		}catch(Exception $e){
+			echo json_encode(array('code'=>$e->getCode(),'msg'=>$e->getMessage()));
+		}
+	}
 }
 
 ?>

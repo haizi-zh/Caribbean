@@ -71,10 +71,10 @@ $('#isEdited').click(function(){
 	
 })
 
-function table_html(index, mid, name, rank_score, isDone) {
+function table_html(index, mid, name, rank_score, isDone, address) {
 	var strHtml = '<tr><th>'
-					+ index + '</th><th>'
-					+ mid + '</th><th>'
+					+ index + '</th><th style="height:28px;margin-left:15px;width:250px;">'
+					+ address + '</th><th>'
 					+ name + '</br></th><th>' + rank_score + '</th><th><a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id='
 					+ mid + '&nocache=1" target="_blank"  >编辑景点</a></th><th><a class="btn btn-link btn-primary" href="http://pic.lvxingpai.cn/viewspot/cms?name=' 
 					+ name + '" target="_blank" >景点照片</a>'
@@ -110,12 +110,14 @@ function select_city(){
 
 			  	for (var i in obj) {
 
+			  		 if ( typeof(obj[i].address) == "undefined" )   obj[i].address='';
+
 			  		 var isDone = '';
                      if(obj[i].isdone){
                      	isDone = ' 图片已审核';
                      }
 
-			  		 viewspotlist = table_html(i, obj[i]._id.$id.toString(), obj[i].zhname, obj[i].hotness, isDone);
+			  		 viewspotlist = table_html(i, obj[i]._id.$id.toString(), obj[i].zhname, obj[i].hotness, isDone, obj[i].address);
 			  		 $("#J_viewspot_table").append(viewspotlist);
 			  	}
 
