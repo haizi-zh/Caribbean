@@ -57,7 +57,7 @@ $('#country').change(function(){
 
 function table_html(index, mid, name, rank_score, isDone, address) {
 	var strHtml = '<tr><th>'
-					+ index + '</th><th style="height:28px;margin-left:15px;width:250px;">'
+					+ index + '</th><th style="height:28px;margin-left:15px;width:150px;">'
 					+ address + '</th><th>'
 					+ name + '</br></th><th>' + rank_score + '</th><th><a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id='
 					+ mid + '&nocache=1" target="_blank"  >编辑景点</a></th><th><a class="btn btn-link btn-primary" href="http://pic.lvxingpai.cn/viewspot/cms?name=' 

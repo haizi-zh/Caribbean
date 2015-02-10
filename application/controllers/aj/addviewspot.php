@@ -121,6 +121,7 @@ class addviewspot extends ZB_Controller {
 			
 			$this->load->model("do/do_viewspot");
             $re = $this->do_viewspot->get_viewspotinfo_by_name($viewspotname);
+
             echo json_encode($re);
 
 		}catch(Exception $e){

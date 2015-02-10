@@ -129,16 +129,12 @@ class Do_viewspot extends CI_Model{
     #根据名称获取景点信息
     public function get_viewspotinfo_by_name($viewspotname){
 
-        $viewdata = array();
         if(!$viewspotname){
             return array();
         }
                
-        $viewdata = array(         
-                'zhName' => isset($viewspotname)?$viewspotname:'',          
-        );
-
-        $re = $this->cimongo->get_where($this->collection_name, $viewdata, $pagesize, $offset)->result();
+        $viewspotname = isset($viewspotname)?$viewspotname:'';
+        $re = $this->cimongo->like('zhName', $viewspotname, 'im', TRUE, TRUE)->get($this->collection_name)->result();
         return  $re;
     }
 

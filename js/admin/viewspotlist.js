@@ -99,7 +99,6 @@ function select_city(){
 		cache: false,
 		success: function(result){
 		  if(result) {	
-		        console.log(result);	
 
 			  	//获取数据id		  	 
 			    var obj = eval('(' + result + ')');

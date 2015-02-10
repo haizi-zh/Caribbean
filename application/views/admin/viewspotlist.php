@@ -35,7 +35,7 @@
  <thead>
     <tr>
       <th>序号</th>
-      <th style="height:28px;margin-left:15px;width:250px;">景点地址</th>
+      <th style="height:28px;margin-left:15px;width:150px;">景点地址</th>
       <th>景点名称</th>
       <th>排名得分</th>
       <th>编辑操作</th>
@@ -47,7 +47,7 @@
   	<?php foreach($list as $k=>$v):?>
     <tr>
           <th><?php echo $k+$offset+1;?></th>
-          <th style="height:28px;margin-left:15px;width:250px;"><?php echo $list[$k]->address;?></th>
+          <th style="height:28px;margin-left:15px;width:150px;"><?php echo $list[$k]->address;?></th>
           <th><?php echo $list[$k]->zhname;?></br>
             
           </th>
