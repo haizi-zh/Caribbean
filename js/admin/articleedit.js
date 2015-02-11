@@ -28,16 +28,29 @@ function edit_article(){
 		success: function(result){
 			if(result){
 				alert('编辑内容成功');
-                console.log(result);
-				// location.href = '/admin/articlelist';
 			}else{
 				alert('编辑内容失败');
 			}
 		}
-
     });
-	
 }
+
+$("#submit").on('click', function(){
+    var form_data = new FormData($('#form_image')[0]);
+    $.ajax({
+        type: 'post',
+        url: 'http://upload.qiniu.com/',
+        async: false,
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function(data) {
+            var image_url = "http://testss.u.qiniudn.com/";
+            $('#image').val(image_url + data.key);
+        }
+    });
+});
 
 (function($){
     var goToTopTime;

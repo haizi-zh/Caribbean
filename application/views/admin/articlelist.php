@@ -28,7 +28,7 @@
 						<p style="font-family:Times;font-weight:bold;color:#3299CC">IMAGE:</p>
 						<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden">
 							<img src="<?php if ($info->images && $info->images[0] && $info->images[0]['url']) echo $info->images[0]['url']; ?>" width="200" height="150"/></p>
-						<p><a class="btn-mini btn-primary" href="/admin/articleedit?article_id=<?php echo $info->_id;?>&nocache=1">编辑</a></p>
+						<p><a target="_blank" class="btn-mini btn-primary" href="/admin/articleedit?article_id=<?php echo $info->_id;?>&nocache=1">编辑</a></p>
 					</div>
 				<?php }?>
 			</div>
