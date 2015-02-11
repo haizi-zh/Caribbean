@@ -36,7 +36,31 @@
                   <textarea rows="10" id="description" style="width:600px;" value="<?php echo $viewspot['description'];?>"><?php echo $viewspot['description'];?></textarea>
                 </div>
             </div>
+
+            <!-- <div class="control-group">
+                <label class="control-label" style="width:60px;">upload_url:</label>
+                <div class="controls" style="margin-left:80px;">
+                    <textarea rows="2" id="upload_url" style="width:600px;"value="<?php echo $viewspot['upload_url'];?>"><?php echo $viewspot['upload_url'];?></textarea><br><br>
+                    <form method="post" action="" enctype="multipart/form-data">
+                          <input name="key" type="hidden" value="<resource_key>">
+                          <input name="x:<custom_name>" type="hidden" value="<custom_value>">
+                          <input name="token" type="hidden" value="<upload_token>">
+                          <input name="file" type="file" />
+                          <input name="crc32" type="hidden" />
+                          <input name="accept" type="hidden" />
+                    </form>
+                    <iframe src="" name="" id="" style="display:none;"></iframe>
+                </div>
+            </div> -->
+
             
+            
+            <div class="control-group">
+                <label class="control-label" style="width:60px;">crawle_url:</label>
+                <div class="controls" style="margin-left:80px;">
+                  <textarea rows="2" id="crawle_url" style="width:600px;" value="<?php echo $viewspot['crawle_url'];?>"><?php echo $viewspot['crawle_url'];?></textarea>
+                </div>
+            </div>
 
             <div class="control-group">
                 <label class="control-label" style="width:60px;">详细地址:</label>
@@ -134,22 +158,46 @@
                 <div class="controls" style="margin-left:80px;">
                 <input type="text" style="height:28px;margin-left:15px;width:150px;" placeholder="" id="target_viewspot_id" value="<?php if($viewspot_id) echo $viewspot_id;?>">
                 </div>
+                <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="edit();">确认</button>
             </div>
 
-            <!-- <div class="control-group">
-                	<label class="control-label" style="width:60px;">选择景点:</label>
-                	<div class="controls" style="margin-left:80px;">
-                		<select id="viewspot_box" style="margin-left:15px;width:150px;">
-  	                	<option></option>
-  	                	<?php foreach($shops as $viewspot){?>
-  					  	      <option value="<?php echo $viewspot['id'];?>"><?php echo $viewspot['name'];?></option>
-  					  	      <?php }?>
-  					        </select>
-                  </div>                  
-            </div> -->
+            
+
+            <table class="table table-bordered">
+             <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>景点地址</th>
+                  <th>景点名称</th>
+                  <th>排名得分</th>
+                  <th>编辑操作</th>
+                  <th>景点照片</th>
+                </tr>
+              </thead>
+              <tbody id="J_viewspot_table">
+                <?php if(isset($list) && $list):?>
+                <?php foreach($list as $k=>$v):?>
+                <tr>
+                      <th><?php echo $k+$offset+1;?></th>
+                      <th><?php echo $list[$k]->address;?></th>
+                      <th><?php echo $list[$k]->zhname;?></br>
+                        
+                      </th>
+                        <th><?php echo $list[$k]->hotness;?></th> 
+                      <th>
+                        <a class="btn btn-link btn-danger " href="/admin/editviewspot?viewspot_id=<?php echo $list[$k]->_id;?>&nocache=1" target="_blank"  >编辑景点</a>
+                      </th>
+                      <th>
+                        <a class="btn btn-link btn-primary" href="http://pic.lvxingpai.cn/viewspot/cms?name=<?php echo $list[$k]->zhname;?>" target="_blank" >景点照片</a>
+                      </th>
+
+                </tr>
+                <?php endforeach;?>
+                <?php endif;?>
+              </tbody>
+            </table>
 
 
-            <button class="btn btn-large btn-primary" type="button" style="float:right;margin-right:100px;" onclick="edit();">确认</button>
             <?php }?>
 	    </div>
 	</div>

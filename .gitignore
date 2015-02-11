@@ -69,3 +69,6 @@ requirements.txt.lock
 cover/
 
 fe/node_modules/
+
+qiniu.php
+

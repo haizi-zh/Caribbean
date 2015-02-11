@@ -72,6 +72,8 @@ function add_viewspot(){
 	city = $("#citys").val(); 
 	name = $("#name").val();
 	description = $("#description").val();
+	upload_url = $("#upload_url").val();
+	crawle_url = $("#crawle_url").val();
 	address = $("#address").val();
 	openTime = $("#openTime").val();
 	openHour = $("#openHour").val();
@@ -90,6 +92,8 @@ function add_viewspot(){
     	city: city,
     	name: name,
     	description: description,
+        upload_url: upload_url,
+    	crawle_url: crawle_url,
     	address: address,
     	openTime: openTime,
     	openHour: openHour,
