@@ -4,10 +4,9 @@ class home extends ZB_Controller {
 
 	const PAGE_ID = 'home';
 	
-	public function index()
-	{
-		$data=array();
-		$data['pageid'] = self::PAGE_ID; 
+	public function index(){
+		$data = array();
+		$data['pageid'] = self::PAGE_ID;
 
 
         // $this->load->library('cimongo');
@@ -18,7 +17,6 @@ class home extends ZB_Controller {
         // $this->cimongo->switch_db('poi');        
         // $re = $this->cimongo->get_where('ViewSpot', $viewdata)->result();
         // var_dump($re);
-
 
  		#load page
 		$this->load->admin_view('admin/home', $data);		

@@ -17,6 +17,21 @@ class Articleedit extends ZB_Controller {
         $data = array('article'=>$article);
 		$data['id'] = $id;
 		$data['pageid'] = self::PAGE_ID;
+
+		$this->config->load("qiniu");
+		$bucket = 'testss';
+		$accessKey = $this->config->item('accessKey');
+		$secretKey = $this->config->item('secretKey');
+
+		//qiniu model
+		define('__appliction__', dirname(dirname(dirname(__FILE__))));
+		require_once(__appliction__."/libraries/qiniu/rs.php");
+
+		//get token
+		Qiniu_SetKeys($accessKey, $secretKey);
+		$putPolicy = new Qiniu_RS_PutPolicy($bucket);
+		$upToken = $putPolicy->Token(null);
+		$data['token'] = $upToken;
 		$this->load->admin_view('admin/articleedit', $data);
 	}
 }
