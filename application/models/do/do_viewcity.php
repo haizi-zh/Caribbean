@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'LocalityEdit';
+	var $collection_name = 'Locality';
 
 	function __construct()
 	{
@@ -27,10 +27,10 @@ class Do_viewcity extends CI_Model {
 				'desc' => isset($data['desc'])?$data['desc']:'',
 				'timeCostDesc' => isset($data['timeCostDesc'])?$data['timeCostDesc']:'',
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
-				'culture' => isset($data['culture'])?$data['culture']:'',
-				'activityIntro' => isset($data['activityIntro'])?$data['activityIntro']:'',
-				'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
-				'tips' => isset($data['tips'])?$data['tips']:'',
+				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
+                'activities' => isset($data['activities'])?$data['activities']:'',
+                'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
+                'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
 				'remoteTraffic' => isset($data['remoteTraffic'])?$data['remoteTraffic']:'',
 

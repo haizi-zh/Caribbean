@@ -36,7 +36,7 @@ function editcity(){
 	}
 
 	var tips = [];
-	for(var i=0; i<remoteTraffic_titles.length; i++){
+	for(var i=0; i<tips_titles.length; i++){
         tips.push($(tips_titles[i]).val() + separator + $(tips_desc[i]).val());
 	}
 
