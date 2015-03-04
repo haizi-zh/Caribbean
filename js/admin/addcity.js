@@ -76,12 +76,42 @@ function addcity(){
 	});
 }
 
+function addgeoHistory(){
+
+    var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
+                  ' <textarea rows="1" class="geoHistory_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
+                  '<textarea rows="10" class="geoHistory_desc" style="width:500px;" value=""></textarea><br><br>';
+
+    $("#geoHistory").append(htmlTemplate);
+
+}
+
+function addactivities(){
+
+    var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
+                  ' <textarea rows="1" class="activities_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
+                  '<textarea rows="10" class="activities_desc" style="width:500px;" value=""></textarea><br><br>';
+
+    $("#activities").append(htmlTemplate);
+
+}
+
+function addtips(){
+
+    var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
+                  ' <textarea rows="1" class="tips_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
+                  '<textarea rows="10" class="tips_desc" style="width:500px;" value=""></textarea><br><br>';
+
+    $("#tips").append(htmlTemplate);
+
+}
+
 
 function addlocal(){
 
     var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
                   ' <textarea rows="1" class="localTraffic_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
-                  '<textarea rows="10" class="localTraffic_content" style="width:500px;" value=""></textarea><br><br>';
+                  '<textarea rows="10" class="localTraffic_desc" style="width:500px;" value=""></textarea><br><br>';
 
     $("#localTraffic").append(htmlTemplate);
 
@@ -91,7 +121,7 @@ function addremote(){
 
     var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
                   ' <textarea rows="1" class="remoteTraffic_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
-                  '<textarea rows="10" class="remoteTraffic_content" style="width:500px;" value=""></textarea><br><br>';
+                  '<textarea rows="10" class="remoteTraffic_desc" style="width:500px;" value=""></textarea><br><br>';
 
     $("#remoteTraffic").append(htmlTemplate);
 

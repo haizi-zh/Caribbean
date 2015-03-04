@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'Locality';
+	var $collection_name = 'LocalityEdit';
 
 	function __construct()
 	{
@@ -52,8 +52,8 @@ class Do_viewcity extends CI_Model {
 				'desc' => isset($data['desc'])?$data['desc']:'',
 				'timeCostDesc' => isset($data['timeCostDesc'])?$data['timeCostDesc']:'',
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
-				'culture' => isset($data['culture'])?$data['culture']:'',
-				'activityIntro' => isset($data['activityIntro'])?$data['activityIntro']:'',
+				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
+				'activities' => isset($data['activities'])?$data['activities']:'',
 				'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
 				'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
@@ -85,8 +85,9 @@ class Do_viewcity extends CI_Model {
         //城市图片 无
         $data['timeCostDesc'] = $re['0']->timecostdesc;
         $data['travelMonth'] = $re['0']->travelmonth;
-        $data['culture'] = $re['0']->culture;
-        $data['activityIntro'] =$re['0']->activityintro;
+        
+        $data['geoHistory'] = $re['0']->geohistory;
+        $data['activities'] =$re['0']->activities;
         $data['lightspot'] =  $re['0']->lightspot;
         $data['tips'] = $re['0']->tips;
         $data['localTraffic'] = $re['0']->localtraffic;

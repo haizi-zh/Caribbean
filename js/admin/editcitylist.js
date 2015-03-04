@@ -6,23 +6,48 @@ function editcity(){
 	timeCostDesc = $("#timeCostDesc").val();
 	travelMonth = $("#travelMonth").val();
 	// small_img = $("#small_pic").attr("src");
-	culture = $("#culture").val();
-	activityIntro = $("#activityIntro").val();
+
+	geoHistory_titles = $.find(".geoHistory_title");
+	geoHistory_desc = $.find(".geoHistory_desc");
+
+	activities_titles = $.find(".activities_title");
+	activities_desc = $.find(".activities_desc");
+
 	lightspot = $("#lightspot").val();
-	tips = $("#tips").val();
+
+	tips_titles = $.find(".tips_title");
+	tips_desc = $.find(".tips_desc");
+
 	localTraffic_titles = $.find(".localTraffic_title");
-	localTraffic_contents = $.find(".localTraffic_content");
+	localTraffic_desc = $.find(".localTraffic_desc");
 	remoteTraffic_titles = $.find(".remoteTraffic_title");
-	remoteTraffic_contents = $.find(".remoteTraffic_content");
+	remoteTraffic_desc = $.find(".remoteTraffic_desc");
+
+	separator = ',';
+	var geoHistory = [];
+	for(var i=0; i<geoHistory_titles.length; i++){
+		geoHistory.push($(geoHistory_titles[i]).val() + separator + $(geoHistory_desc[i]).val());
+	}
+
+	separator = ',';
+	var activities = [];
+	for(var i=0; i<activities_titles.length; i++){
+		activities.push($(activities_titles[i]).val() + separator + $(activities_desc[i]).val());
+	}
+
+	var tips = [];
+	for(var i=0; i<remoteTraffic_titles.length; i++){
+        tips.push($(tips_titles[i]).val() + separator + $(tips_desc[i]).val());
+	}
 
 	separator = ',';
 	var localTraffic = [];
 	for(var i=0; i<localTraffic_titles.length; i++){
-		localTraffic.push($(localTraffic_titles[i]).val() + separator + $(localTraffic_contents[i]).val());
+		localTraffic.push($(localTraffic_titles[i]).val() + separator + $(localTraffic_desc[i]).val());
 	}
 	var remoteTraffic = [];
 	for(var i=0; i<remoteTraffic_titles.length; i++){
-        remoteTraffic.push($(remoteTraffic_titles[i]).val() + separator + $(remoteTraffic_contents[i]).val());
+        remoteTraffic.push($(remoteTraffic_titles[i]).val() + separator + $(remoteTraffic_desc[i]).val());
 	}
 
 	var ajaxData = {
@@ -32,10 +57,10 @@ function editcity(){
 		desc: desc,
 		timeCostDesc: timeCostDesc,
 		travelMonth: travelMonth,
-		culture: culture,
-		activityIntro:activityIntro,
-		lightspot: lightspot,
-		tips: tips,
+		geoHistory: JSON.stringify(geoHistory),
+		activities:JSON.stringify(activities),
+		lightspot: JSON.stringify(lightspot),
+		tips: JSON.stringify(tips),
 		localTraffic: JSON.stringify(localTraffic),
 		remoteTraffic: JSON.stringify(remoteTraffic)
 	}

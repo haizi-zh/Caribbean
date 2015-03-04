@@ -83,28 +83,53 @@ class operation extends ZB_Controller {
 			$desc = $this->input->post('desc', true, '');
 			$timeCostDesc = $this->input->post('timeCostDesc', true, '');
 			$travelMonth = $this->input->post('travelMonth', true, '');
-			$culture = $this->input->post('culture', true, '');
-			$activityIntro = $this->input->post('activityIntro', true, '');
-			$lightspot = $this->input->post('lightspot', true, '');
-			$tips = $this->input->post('tips', true, '');
+			$json_geoHistory = $this->input->post('geoHistory', true, '');
+			$json_activities = $this->input->post('activities', true, '');
+			$json_lightspot = $this->input->post('lightspot', true, '');
+			$json_tips = $this->input->post('tips', true, '');
+
 			$json_localTraffic = $this->input->post('localTraffic', true, '');
 			$json_remoteTraffic = $this->input->post('remoteTraffic', true, '');
 			// $img = $this->input->post('img', true, '');
+
+            $arr_geoHistory = json_decode($json_geoHistory, true);
+			$geoHistory = array();
+			foreach ($arr_geoHistory as $key=>$value) {
+            	 $title_geoHistory = reset( explode(',', $value) );
+            	 $desc_geoHistory = end( explode(',', $value) );
+            	 $geoHistory[$key] = array('title'=>$title_geoHistory, 'desc'=>$desc_geoHistory);
+            }
+
+            $arr_activities = json_decode($json_activities, true);
+			$activities = array();
+			foreach ($arr_activities as $key=>$value) {
+            	 $title_activities = reset( explode(',', $value) );
+            	 $desc_activities = end( explode(',', $value) );
+            	 $activities[$key] = array('title'=>$title_activities, 'desc'=>$desc_activities);
+            }
+
+            $arr_tips = json_decode($json_tips, true);
+			$tips = array();
+			foreach ($arr_tips as $key=>$value) {
+            	 $title_tips = reset( explode(',', $value) );
+            	 $desc_tips = end( explode(',', $value) );
+            	 $tips[$key] = array('title'=>$title_tips, 'desc'=>$desc_tips);
+            }
+
 
 			$arr_localTraffic = json_decode($json_localTraffic, true);
 			$localTraffic = array();
 			foreach ($arr_localTraffic as $key=>$value) {
             	 $title_localTraffic = reset( explode(',', $value) );
             	 $content_localTraffic = end( explode(',', $value) );
-            	 $localTraffic[$key] = array('title'=>$title_localTraffic, 'contents'=>$content_localTraffic);
+            	 $localTraffic[$key] = array('title'=>$title_localTraffic, 'desc'=>$content_localTraffic);
             }
-
             $arr_remoteTraffic = json_decode($json_remoteTraffic, true);
             $remoteTraffic = array();
             foreach ($arr_remoteTraffic as $key=>$value) {
             	 $title_remoteTraffic = reset( explode(',', $value) );
             	 $content_remoteTraffic = end( explode(',', $value) );
-            	 $remoteTraffic[$key] = array('title'=>$title_remoteTraffic, 'contents'=>$content_remoteTraffic);
+            	 $remoteTraffic[$key] = array('title'=>$title_remoteTraffic, 'desc'=>$content_remoteTraffic);
             }
 
 			#拼装
@@ -114,8 +139,8 @@ class operation extends ZB_Controller {
 					'desc' => $desc,
 					'timeCostDesc' => $timeCostDesc,
 					'travelMonth' => $travelMonth,
-					'culture' => $culture,
-					'activityIntro' => $activityIntro,
+					'geoHistory' => $geoHistory,
+					'activities' => $activities,
 					'lightspot' => $lightspot,
 					'tips' => $tips,
 					'localTraffic' => $localTraffic,
