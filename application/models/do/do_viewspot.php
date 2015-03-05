@@ -59,7 +59,6 @@ class Do_viewspot extends CI_Model{
     public function add($data){
 
         $rating = floatval( (isset($data['ratingsScore'])?$data['ratingsScore']:'') );
-        $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         $isEdited = (bool)0;
 
@@ -70,10 +69,11 @@ class Do_viewspot extends CI_Model{
                 'isEdited' => $isEdited,
                 'zhName' => isset($data['name'])?$data['name']:'',
                 'desc' => isset($data['description'])?$data['description']:'',
+                'upload_url' => isset($data['upload_url'])?$data['upload_url']:'',
+                'crawle_url' => isset($data['crawle_url'])?$data['crawle_url']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
-                'openHour' => $openHour,
-                'closeHour' => $closeHour,
+                'timeCostDesc' => isset($data['openHour'])?$data['openHour']:'',
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
                 'hotness' => $rating,       
@@ -82,13 +82,11 @@ class Do_viewspot extends CI_Model{
                 'trafficInfo' => isset($data['travelGuide'])?$data['travelGuide']:'',
         );
 
+        $this->cimongo->insert($this->collection_name, $viewspot);
+        
         $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        $query = $this->insert_log('', 'add_viewspot', $json_data);
-        
-        if( $query ){
-            return $this->cimongo->insert($this->collection_name, $viewspot);
-        }
+        return  $this->insert_log('', 'add_viewspot', $json_data);
 	}
     
     #根据_id获取景点信息
@@ -111,10 +109,12 @@ class Do_viewspot extends CI_Model{
             $data['description'] = $re['0']->description['desc'];
         }
         
+        $data['upload_url'] = $re['0']->upload_url;
+        $data['crawle_url'] = $re['0']->crawle_url;
         $data['address'] = $re['0']->address;
         $data['openTime'] = $re['0']->opentime;
-        $data['openHour'] = $re['0']->openhour;
-        $data['closeHour'] = $re['0']->closehour;
+        $data['openHour'] = $re['0']->timecostdesc;
+        // $data['closeHour'] = $re['0']->closehour;
         $data['priceDesc'] = $re['0']->pricedesc;
         $data['phone'] =$re['0']->tel;
         $data['ratingsScore'] = $re['0']->hotness;
@@ -126,11 +126,22 @@ class Do_viewspot extends CI_Model{
         return  $data;
     }
 
+    #根据名称获取景点信息
+    public function get_viewspotinfo_by_name($viewspotname){
+
+        if(!$viewspotname){
+            return array();
+        }
+               
+        $viewspotname = isset($viewspotname)?$viewspotname:'';
+        $re = $this->cimongo->like('zhName', $viewspotname, 'im', TRUE, TRUE)->get($this->collection_name)->result();
+        return  $re;
+    }
+
     #更新景点:根据id更新
     public function update($data){
 
         $rating = floatval(  (isset($data['ratingsScore'])?$data['ratingsScore']:'') )  ;
-        $openHour = intval((isset($data['openHour'])?$data['openHour']:''));
         $closeHour = intval((isset($data['closeHour'])?$data['closeHour']:''));
         //$isEdited = (bool)(isset($data['isEdited'])?$data['isEdited']:'');
 
@@ -142,10 +153,11 @@ class Do_viewspot extends CI_Model{
                 'isEdited' => (boolean)TRUE,
                 'zhName' => isset($data['name'])?$data['name']:'',
                 'desc' => isset($data['description'])?$data['description']:'',
+                'upload_url' => isset($data['upload_url'])?$data['upload_url']:'',
+                'crawle_url' => isset($data['crawle_url'])?$data['crawle_url']:'',
                 'address' => isset($data['address'])?$data['address']:'',
                 'openTime' => isset($data['openTime'])?$data['openTime']:'',
-                'openHour' => $openHour,
-                'closeHour' => $closeHour,
+                'timeCostDesc' =>  isset($data['openHour'])?$data['openHour']:'',
                 'priceDesc' => isset($data['priceDesc'])?$data['priceDesc']:'',
                 'tel' => isset($data['phone'])?$data['phone']:'',
                 'hotness' => $rating,       
@@ -155,14 +167,11 @@ class Do_viewspot extends CI_Model{
         );
        
        $id = new MongoId($data['viewspot_id']);
+       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
 
        $json_data = json_encode($viewspot, JSON_UNESCAPED_UNICODE);
-       mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log($data['viewspot_id'], 'update_viewspot', $json_data);
-        
-       if( $query ){
-            return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $viewspot);
-       }
+       mysql_query("SET NAMES 'UTF8'"); 
+       return  $this->insert_log($data['viewspot_id'], 'update_viewspot', $json_data);
     }
 
     #根据名称name，获取景点id

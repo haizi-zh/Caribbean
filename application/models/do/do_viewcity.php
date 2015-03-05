@@ -27,22 +27,20 @@ class Do_viewcity extends CI_Model {
 				'desc' => isset($data['desc'])?$data['desc']:'',
 				'timeCostDesc' => isset($data['timeCostDesc'])?$data['timeCostDesc']:'',
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
-				'culture' => isset($data['culture'])?$data['culture']:'',
-				'activityIntro' => isset($data['activityIntro'])?$data['activityIntro']:'',
-				'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
-				'tips' => isset($data['tips'])?$data['tips']:'',
+				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
+                'activities' => isset($data['activities'])?$data['activities']:'',
+                'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
+                'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
 				'remoteTraffic' => isset($data['remoteTraffic'])?$data['remoteTraffic']:'',
 
 		);
 
+        $this->cimongo->insert($this->collection_name, $citydata);
+
         $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
         mysql_query("SET NAMES 'UTF8'");
-        $query = $this->insert_log('', 'add_city', $json_data);
-        
-        if( $query ){
-		      return $this->cimongo->insert($this->collection_name, $citydata);
-        }
+		return  $this->insert_log('', 'add_city', $json_data);
 	}
 
 	#更新城市信息
@@ -54,8 +52,8 @@ class Do_viewcity extends CI_Model {
 				'desc' => isset($data['desc'])?$data['desc']:'',
 				'timeCostDesc' => isset($data['timeCostDesc'])?$data['timeCostDesc']:'',
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
-				'culture' => isset($data['culture'])?$data['culture']:'',
-				'activityIntro' => isset($data['activityIntro'])?$data['activityIntro']:'',
+				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
+				'activities' => isset($data['activities'])?$data['activities']:'',
 				'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
 				'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
@@ -63,13 +61,11 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
+       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       $query = $this->insert_log($citydata['city_id'], 'update_city', $json_data);
-        
-       if( $query ){
-           return $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
-       }
+       return  $this->insert_log($citydata['city_id'], 'update_city', $json_data);
     }
 
     #根据id,获取城市所有信息
@@ -89,8 +85,9 @@ class Do_viewcity extends CI_Model {
         //城市图片 无
         $data['timeCostDesc'] = $re['0']->timecostdesc;
         $data['travelMonth'] = $re['0']->travelmonth;
-        $data['culture'] = $re['0']->culture;
-        $data['activityIntro'] =$re['0']->activityintro;
+        
+        $data['geoHistory'] = $re['0']->geohistory;
+        $data['activities'] =$re['0']->activities;
         $data['lightspot'] =  $re['0']->lightspot;
         $data['tips'] = $re['0']->tips;
         $data['localTraffic'] = $re['0']->localtraffic;

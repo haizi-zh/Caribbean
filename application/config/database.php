@@ -53,8 +53,8 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     $db['default']['password'] = '';
     $db['default']['database'] = 'mysql';
 }else{
-    $db['default']['username'] = 'keven';
-    $db['default']['password'] = 'qljl1rh';
+    $db['default']['username'] = 'cms';
+    $db['default']['password'] = 'Wed3Jig7fEv9vi';
     $db['default']['database'] = 'cms';
 }
 

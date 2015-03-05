@@ -38,6 +38,8 @@ class addviewspot extends ZB_Controller {
 			$data['city'] = $this->input->post('city', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['description'] = $this->input->post('description', true, '');
+			$data['upload_url'] = $this->input->post('upload_url', true, '');
+			$data['crawle_url'] = $this->input->post('crawle_url', true, '');
 			$data['address'] = $this->input->post('address', true, '');
 			$data['openTime'] = $this->input->post('openTime', true, '');
 			$data['openHour'] = $this->input->post('openHour', true, '');
@@ -87,6 +89,8 @@ class addviewspot extends ZB_Controller {
 			$data['isEdited'] = $this->input->post('isEdited', true, '');
 			$data['name'] = $this->input->post('name', true, '');
 			$data['description'] = $this->input->post('description', true, '');
+			$data['upload_url'] = $this->input->post('upload_url', true, '');
+			$data['crawle_url'] = $this->input->post('crawle_url', true, '');
 			$data['address'] = $this->input->post('address', true, '');
 			$data['openTime'] = $this->input->post('openTime', true, '');
 			$data['openHour'] = $this->input->post('openHour', true, '');
@@ -102,6 +106,24 @@ class addviewspot extends ZB_Controller {
             $re = $this->do_viewspot->update($data);
 
 			echo json_encode(array('code'=>'200','msg'=>'succ'));
+		}catch(Exception $e){
+			echo json_encode(array('code'=>$e->getCode(),'msg'=>$e->getMessage()));
+		}
+	}
+
+	#选择景点
+	public function select_viewspot(){
+		try{
+
+			$data = array();
+		
+			$viewspotname= $this->input->post('name', true, '');
+			
+			$this->load->model("do/do_viewspot");
+            $re = $this->do_viewspot->get_viewspotinfo_by_name($viewspotname);
+
+            echo json_encode($re);
+
 		}catch(Exception $e){
 			echo json_encode(array('code'=>$e->getCode(),'msg'=>$e->getMessage()));
 		}
