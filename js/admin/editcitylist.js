@@ -12,8 +12,9 @@ function editcity(){
 
 	activities_titles = $.find(".activities_title");
 	activities_desc = $.find(".activities_desc");
-
-	lightspot = $("#lightspot").val();
+     
+    specials_titles = $.find(".specials_title");
+	specials_desc = $.find(".specials_desc");
 
 	tips_titles = $.find(".tips_title");
 	tips_desc = $.find(".tips_desc");
@@ -29,10 +30,14 @@ function editcity(){
 		geoHistory.push($(geoHistory_titles[i]).val() + separator + $(geoHistory_desc[i]).val());
 	}
 
-	separator = ',';
 	var activities = [];
 	for(var i=0; i<activities_titles.length; i++){
 		activities.push($(activities_titles[i]).val() + separator + $(activities_desc[i]).val());
+	}
+
+	var specials = [];
+	for(var i=0; i<specials_titles.length; i++){
+		specials.push($(specials_titles[i]).val() + separator + $(specials_desc[i]).val());
 	}
 
 	var tips = [];
@@ -40,7 +45,6 @@ function editcity(){
         tips.push($(tips_titles[i]).val() + separator + $(tips_desc[i]).val());
 	}
 
-	separator = ',';
 	var localTraffic = [];
 	for(var i=0; i<localTraffic_titles.length; i++){
 		localTraffic.push($(localTraffic_titles[i]).val() + separator + $(localTraffic_desc[i]).val());
@@ -59,7 +63,7 @@ function editcity(){
 		travelMonth: travelMonth,
 		geoHistory: JSON.stringify(geoHistory),
 		activities:JSON.stringify(activities),
-		lightspot: JSON.stringify(lightspot),
+		specials: JSON.stringify(specials),
 		tips: JSON.stringify(tips),
 		localTraffic: JSON.stringify(localTraffic),
 		remoteTraffic: JSON.stringify(remoteTraffic)

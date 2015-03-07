@@ -67,12 +67,15 @@
            </div> 
 
 
-           <!-- <div class="control-group">
-                <label class="control-label" style="width:60px;">亮点:</label>
-                <div class="controls" style="margin-left:80px;">
-                  <textarea rows="6" id="lightspot" style="width:500px;" value=""></textarea>
-                </div> 
-           </div> -->
+           <div class="control-group">
+                <label class="control-label" style="width:60px;">游玩体验:</label>
+                <button class="btn btn-primary" type="button" style="float:right;margin-right:230px;" onclick="addspecials()">添加Title</button>
+                <div id="specials" class="controls" style="margin-left:80px;">
+                  <span style="line-height:30px;border:3px solid #3299CC;height:50px;color:#3299CC;font-weight:bold">New Title</span>
+                  <textarea rows="1" class="specials_title" style="line-height:30px;width:425px" value=""></textarea><br><br>
+                  <textarea rows="10" class="specials_desc" style="width:500px;" value=""></textarea><br><br>
+                </div>  
+           </div>
 
 
            <div class="control-group">

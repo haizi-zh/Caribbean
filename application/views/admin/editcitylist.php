@@ -68,12 +68,16 @@
                 </div> 
            </div> 
 
-           <!-- <div class="control-group">
-                <label class="control-label" style="width:60px;">亮点:</label>
+           <div class="control-group">
+                <label class="control-label" style="width:60px;">游玩体验:</label>
                 <div class="controls" style="margin-left:80px;">
-                  <textarea rows="6" id="lightspot" style="width:500px;" value="<?php echo $city['lightspot'];?>"><?php echo $city['lightspot'];?></textarea>
-                </div> 
-           </div> -->
+                  <?php foreach($city['specials'] as $key=>$special){ ?>
+                  <span style="line-height:30px;border:3px solid #3299CC;height:50px;color:#3299CC;font-weight:bold">Title<?php echo $key+1; ?></span>
+                  <textarea rows="1" class="specials_title" style="line-height:30px;width:455px" value="<?php echo $special['title']; ?>"><?php echo $special['title']; ?></textarea><br><br>
+                  <textarea rows="10" class="specials_desc" style="width:500px;" value="<?php echo $special['desc']; ?>"><?php echo $special['desc']; ?></textarea><br><br>
+                <?php } ?>
+                </div>
+           </div>
 
 
            <div class="control-group">

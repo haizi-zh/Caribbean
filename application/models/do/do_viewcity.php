@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'Locality';
+	var $collection_name = 'LocalityEdit';
 
 	function __construct()
 	{
@@ -29,7 +29,7 @@ class Do_viewcity extends CI_Model {
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
 				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
                 'activities' => isset($data['activities'])?$data['activities']:'',
-                'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
+                'specials' => isset($data['specials'])?$data['specials']:'',
                 'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
 				'remoteTraffic' => isset($data['remoteTraffic'])?$data['remoteTraffic']:'',
@@ -54,7 +54,7 @@ class Do_viewcity extends CI_Model {
 				'travelMonth' => isset($data['travelMonth'])?$data['travelMonth']:'',
 				'geoHistory' => isset($data['geoHistory'])?$data['geoHistory']:'',
 				'activities' => isset($data['activities'])?$data['activities']:'',
-				'lightspot' => isset($data['lightspot'])?$data['lightspot']:'',
+				'specials' => isset($data['specials'])?$data['specials']:'',
 				'tips' => isset($data['tips'])?$data['tips']:'',
 				'localTraffic' => isset($data['localTraffic'])?$data['localTraffic']:'',
 				'remoteTraffic' => isset($data['remoteTraffic'])?$data['remoteTraffic']:'',         
@@ -88,7 +88,7 @@ class Do_viewcity extends CI_Model {
         
         $data['geoHistory'] = $re['0']->geohistory;
         $data['activities'] =$re['0']->activities;
-        $data['lightspot'] =  $re['0']->lightspot;
+        $data['specials'] =  $re['0']->specials;
         $data['tips'] = $re['0']->tips;
         $data['localTraffic'] = $re['0']->localtraffic;
         $data['remoteTraffic'] = $re['0']->remotetraffic;

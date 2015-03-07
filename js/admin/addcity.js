@@ -31,7 +31,8 @@ function addcity(){
     activities_titles = $.find(".activities_title");
     activities_desc = $.find(".activities_desc");
 
-    lightspot = $("#lightspot").val();
+    specials_titles = $.find(".specials_title");
+    specials_desc = $.find(".specials_desc");
 
     tips_titles = $.find(".tips_title");
     tips_desc = $.find(".tips_desc");
@@ -50,10 +51,14 @@ function addcity(){
         geoHistory.push($(geoHistory_titles[i]).val() + separator + $(geoHistory_desc[i]).val());
     }
 
-    separator = ',';
     var activities = [];
     for(var i=0; i<activities_titles.length; i++){
         activities.push($(activities_titles[i]).val() + separator + $(activities_desc[i]).val());
+    }
+
+    var specials = [];
+    for(var i=0; i<specials_titles.length; i++){
+        specials.push($(specials_titles[i]).val() + separator + $(specials_desc[i]).val());
     }
 
     var tips = [];
@@ -61,7 +66,6 @@ function addcity(){
         tips.push($(tips_titles[i]).val() + separator + $(tips_desc[i]).val());
     }
 
-    separator = ',';
     var localTraffic = [];
     for(var i=0; i<localTraffic_titles.length; i++){
         localTraffic.push($(localTraffic_titles[i]).val() + separator + $(localTraffic_desc[i]).val());
@@ -79,7 +83,7 @@ function addcity(){
         travelMonth: travelMonth,
         geoHistory: JSON.stringify(geoHistory),
         activities:JSON.stringify(activities),
-        lightspot: JSON.stringify(lightspot),
+        specials: JSON.stringify(specials),
         tips: JSON.stringify(tips),
         localTraffic: JSON.stringify(localTraffic),
         remoteTraffic: JSON.stringify(remoteTraffic)
@@ -119,6 +123,16 @@ function addactivities(){
                   '<textarea rows="10" class="activities_desc" style="width:500px;" value=""></textarea><br><br>';
 
     $("#activities").append(htmlTemplate);
+
+}
+
+function addspecials(){
+
+    var htmlTemplate = '<span style="line-height:30px;border:3px solid #000;height:50px;color:black;font-weight:bold">New Title</span>' +
+                  ' <textarea rows="1" class="specials_title" style="line-height:30px;width:425px" value=""></textarea><br><br>' +
+                  '<textarea rows="10" class="specials_desc" style="width:500px;" value=""></textarea><br><br>';
+
+    $("#specials").append(htmlTemplate);
 
 }
 
