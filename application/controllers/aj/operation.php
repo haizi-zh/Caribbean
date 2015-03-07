@@ -13,7 +13,7 @@ class operation extends ZB_Controller {
 
 			$json_geoHistory = $this->input->post('geoHistory', true, '');
 			$json_activities = $this->input->post('activities', true, '');
-			$json_lightspot = $this->input->post('lightspot', true, '');
+			$json_specials = $this->input->post('specials', true, '');
 			$json_tips = $this->input->post('tips', true, '');
 
 			$json_localTraffic = $this->input->post('localTraffic', true, '');
@@ -34,6 +34,14 @@ class operation extends ZB_Controller {
             	 $title_activities = reset( explode(',', $value) );
             	 $desc_activities = end( explode(',', $value) );
             	 $activities[$key] = array('title'=>$title_activities, 'desc'=>$desc_activities);
+            }
+
+            $arr_specials = json_decode($json_specials, true);
+			$specials = array();
+			foreach ($arr_specials as $key=>$value) {
+            	 $title_specials = reset( explode(',', $value) );
+            	 $desc_specials = end( explode(',', $value) );
+            	 $specials[$key] = array('title'=>$title_specials, 'desc'=>$desc_specials);
             }
 
             $arr_tips = json_decode($json_tips, true);
@@ -76,14 +84,12 @@ class operation extends ZB_Controller {
 					'travelMonth' => $travelMonth,
 					'geoHistory' => $geoHistory,
 					'activities' => $activities,
-					'lightspot' => $lightspot,
+					'specials' => $specials,
 					'tips' => $tips,
 					'localTraffic' => $localTraffic,
 					'remoteTraffic' => $remoteTraffic,
 			);
-
-
-		
+	
 			#入库
 			$this->load->model('do/do_viewcity');
 			$re = $this->do_viewcity->add($citydata);
@@ -111,7 +117,7 @@ class operation extends ZB_Controller {
 			$travelMonth = $this->input->post('travelMonth', true, '');
 			$json_geoHistory = $this->input->post('geoHistory', true, '');
 			$json_activities = $this->input->post('activities', true, '');
-			$json_lightspot = $this->input->post('lightspot', true, '');
+			$json_specials = $this->input->post('specials', true, '');
 			$json_tips = $this->input->post('tips', true, '');
 
 			$json_localTraffic = $this->input->post('localTraffic', true, '');
@@ -132,6 +138,14 @@ class operation extends ZB_Controller {
             	 $title_activities = reset( explode(',', $value) );
             	 $desc_activities = end( explode(',', $value) );
             	 $activities[$key] = array('title'=>$title_activities, 'desc'=>$desc_activities);
+            }
+
+            $arr_specials = json_decode($json_specials, true);
+			$specials = array();
+			foreach ($arr_specials as $key=>$value) {
+            	 $title_specials = reset( explode(',', $value) );
+            	 $desc_specials = end( explode(',', $value) );
+            	 $specials[$key] = array('title'=>$title_specials, 'desc'=>$desc_specials);
             }
 
             $arr_tips = json_decode($json_tips, true);
@@ -167,7 +181,7 @@ class operation extends ZB_Controller {
 					'travelMonth' => $travelMonth,
 					'geoHistory' => $geoHistory,
 					'activities' => $activities,
-					'lightspot' => $lightspot,
+					'specials' => $specials,
 					'tips' => $tips,
 					'localTraffic' => $localTraffic,
 					'remoteTraffic' => $remoteTraffic,
