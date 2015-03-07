@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'Locality';
+	var $collection_name = 'LocalityEdit';
 
 	function __construct()
 	{
@@ -126,8 +126,11 @@ class Do_viewcity extends CI_Model {
              $id = new MongoId($params['id']);
              $citydata['_id']=(object)$id;
         }
+
+        $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->get($this->collection_name)->result();
         
-        return $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
+        // $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
+        return $re;
     }
 
     #根据id和名称，获取城市数目
@@ -141,8 +144,10 @@ class Do_viewcity extends CI_Model {
              $id = new MongoId($params['id']);
              $citydata['_id']=(object)$id;
         }
-
-        return $this->cimongo->where($citydata)->count_all_results($this->collection_name); 
+        
+        $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->count_all_results($this->collection_name);  
+        // return $this->cimongo->where($citydata)->count_all_results($this->collection_name);
+        return  $re;
     }
 
 }
