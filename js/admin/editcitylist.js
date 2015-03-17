@@ -54,6 +54,8 @@ function editcity(){
         remoteTraffic.push($(remoteTraffic_titles[i]).val() + separator + $(remoteTraffic_desc[i]).val());
 	}
 
+	console.log(specials);
+
 	var ajaxData = {
 		// data
 		id: id,

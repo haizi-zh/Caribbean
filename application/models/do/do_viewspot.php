@@ -287,4 +287,16 @@ class Do_viewspot extends CI_Model{
 
 }
 
+// CMS记录log
+// create table operation_log
+// (
+//     id INT(20) NOT NULL AUTO_INCREMENT,
+//     refrence_id char(30) not null,
+//     business char(15) not null,
+//     create_time timestamp NOT NULL default CURRENT_TIMESTAMP,
+//     data text(5000) not null,
+//     PRIMARY KEY (id)
+// )default charset 'utf8';
+
+
 ?>
