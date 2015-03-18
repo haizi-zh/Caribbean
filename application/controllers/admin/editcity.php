@@ -32,7 +32,7 @@ class editcity extends ZB_Controller {
 			$params['zhName'] = "$name";
 			$page_html = "";
 		}
-
+		
         $list = $this->do_viewcity->get_citys_for_admin($page, $pagesize, $params);
 	    $count = $this->do_viewcity->get_citys_cnt_for_admin($params);
 

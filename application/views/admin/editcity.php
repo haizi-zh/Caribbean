@@ -34,7 +34,7 @@
                                 <input type="text" style="height:25px;margin-left:25px;width:150px;" placeholder="" id="id" name="id" value="<?php echo $id?>">
                               </div>
                               <div class="input-prepend"></div>
-
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <button class="btn btn-large btn-primary"  type="submit" style="float:right;margin-right:10px;">搜索城市</button> 
                       </form>  
                     </div>

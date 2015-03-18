@@ -61,11 +61,13 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
-       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+       $re = $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
 
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       return  $this->insert_log($citydata['city_id'], 'update_city', $json_data);
+       $this->insert_log($citydata['city_id'], 'update_city', $json_data);
+
+       return  $re;
     }
 
     #根据id,获取城市所有信息
@@ -126,8 +128,18 @@ class Do_viewcity extends CI_Model {
              $id = new MongoId($params['id']);
              $citydata['_id']=(object)$id;
         }
+
+        if($citydata['zhName']){
+             $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->get($this->collection_name)->result();
+        }else{
+             $re = $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
+
+        }
+
+        // $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->get($this->collection_name)->result();
+        return $re;
+        // return  $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
         
-        return $this->cimongo->get_where($this->collection_name, $citydata, $pagesize, $offset)->result();
     }
 
     #根据id和名称，获取城市数目
@@ -142,7 +154,16 @@ class Do_viewcity extends CI_Model {
              $citydata['_id']=(object)$id;
         }
 
-        return $this->cimongo->where($citydata)->count_all_results($this->collection_name); 
+        if($citydata['zhName']){
+             $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->count_all_results($this->collection_name);
+        }else{
+             $re = $this->cimongo->where($citydata)->count_all_results($this->collection_name);
+        }
+        
+        // $re = $this->cimongo->like('zhName', $citydata['zhName'], 'im', TRUE, TRUE)->count_all_results($this->collection_name);  
+        return  $re;
+        // return  $this->cimongo->where($citydata)->count_all_results($this->collection_name);
+        
     }
 
 }

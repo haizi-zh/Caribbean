@@ -68,7 +68,10 @@ function editcity(){
 		localTraffic: JSON.stringify(localTraffic),
 		remoteTraffic: JSON.stringify(remoteTraffic)
 	}
-	
+
+	// console.log(specials);
+	// console.log(JSON.stringify(specials));
+
 	$.ajax({
 		url: "/aj/operation/editcity",
 		type: 'POST',
