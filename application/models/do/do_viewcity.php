@@ -2,7 +2,7 @@
 #景点城市操作类
 class Do_viewcity extends CI_Model {
 
-	var $collection_name = 'LocalityEdit';
+	var $collection_name = 'Locality';
 
 	function __construct()
 	{
@@ -61,11 +61,13 @@ class Do_viewcity extends CI_Model {
         );
        
        $id = new MongoId($citydata['city_id']);
-       $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
+       $re = $this->cimongo->where(array('_id'=>(object)$id))->update($this->collection_name, $citydata);
 
        $json_data = json_encode($citydata, JSON_UNESCAPED_UNICODE);
        mysql_query("SET NAMES 'UTF8'");
-       return  $this->insert_log($citydata['city_id'], 'update_city', $json_data);
+       $this->insert_log($citydata['city_id'], 'update_city', $json_data);
+
+       return  $re;
     }
 
     #根据id,获取城市所有信息

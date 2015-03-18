@@ -54,8 +54,6 @@ function editcity(){
         remoteTraffic.push($(remoteTraffic_titles[i]).val() + separator + $(remoteTraffic_desc[i]).val());
 	}
 
-	console.log(specials);
-
 	var ajaxData = {
 		// data
 		id: id,
@@ -70,7 +68,10 @@ function editcity(){
 		localTraffic: JSON.stringify(localTraffic),
 		remoteTraffic: JSON.stringify(remoteTraffic)
 	}
-	
+
+	// console.log(specials);
+	// console.log(JSON.stringify(specials));
+
 	$.ajax({
 		url: "/aj/operation/editcity",
 		type: 'POST',
